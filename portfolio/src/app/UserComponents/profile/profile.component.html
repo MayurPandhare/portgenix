@@ -1,0 +1,104 @@
+
+
+
+
+
+
+
+        <!-- ----------------------------------------   Profile page -------------------------------------------------->
+
+<!-- Show a loading spinner or message while data is being fetched -->
+ <!-- Loader Overlay -->
+ <div class="loader-overlay" *ngIf="isLoading">
+    <div class="loader-container">
+      <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+   </div>
+  </div>
+  
+  <div class="profile-container">
+      <!-- Profile Header -->
+      <div class="profile-header">
+        <img [src]="imageUrl"  alt="User Profile" class="profile-image" />
+        
+        <div class="user-profile-detail-block-1">
+          <h1 class="username">{{ Firstname }}</h1>
+          <p class="user-role">Full-Stack Developer</p>
+          <p class="address">
+            <i class="fa-solid fa-location-dot"></i> {{ Location }}
+          </p>
+        </div>
+      </div>
+    
+      <!-- Action Buttons -->
+      <div class="action-buttons">
+        
+        <div class="action-buttons-block-1">
+  
+          <button class="edit-btn" [routerLink]="['/user/account']">Edit profile</button>
+          <button class="delete-btn" routerLink="/delete">Delete account</button>
+        </div>
+       
+      </div>
+    
+  
+    </div>
+  
+  
+    <!---------------------------------------------------- Work -------------------------------------------->
+  
+    <section class="work-block">
+  
+      <div class="work-block-field-1">
+        <button class="work-btn" > Work </button>
+        <button class="collection-btn" > Collection </button>
+      </div>
+  
+      <div class="work-block-field-2">
+        <hr>
+      </div>
+  
+      <div class="work-block-field-3">
+        <div class="work-block-items">
+  
+          <!-- Placeholder Template Start -->
+  
+        <div class="work-item-placeholder-common">
+          <h3 class="placeholder-title-common">Template 1</h3>
+          <p class="placeholder-description-common">Upload your first slot</p>
+        </div>
+  
+        <div class="work-item-placeholder">
+          <h3 class="placeholder-title"> </h3>
+          <p class="placeholder-description"> </p>
+        </div>
+  
+        <div class="work-item-placeholder">
+          <h3 class="placeholder-title"></h3>
+          <p class="placeholder-description"></p>
+        </div>
+  
+        <div class="work-item-placeholder">
+          <h3 class="placeholder-title"></h3>
+          <p class="placeholder-description"></p>
+        </div>
+  
+        <div class="work-item-placeholder">
+          <h3 class="placeholder-title"></h3>
+          <p class="placeholder-description"></p>
+        </div>
+  
+        <div class="work-item-placeholder">
+          <h3 class="placeholder-title"></h3>
+          <p class="placeholder-description"></p>
+        </div>
+  
+        <!-- Placeholder Template End -->
+      </div>
+      </div>
+    </section>
+  
+    
+  
+  
+  
+   

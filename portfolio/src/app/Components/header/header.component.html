@@ -1,0 +1,205 @@
+
+
+<!-- Show a loading spinner or message while data is being fetched -->
+ <!-- Loader Overlay -->
+ <div class="loader-overlay" *ngIf="isLoading">
+  <div class="loader-container">
+    <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+ </div>
+</div>
+
+
+<header class="header"  [class.with-border]="categoriesActive" >
+    <div class="header-containt">
+
+    <div class="sidebar-field">
+         <!-- Button with Font Awesome Navbar Icon -->
+    <button class="sidebar-icon-btn"  (click)="toggleCategories()">
+      <div class="icon" [ngClass]="categoriesActive ? 'close' : 'hamburger'">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </div>
+    </button>
+
+    <a href="" class="logo">
+      <!--<img src="assets/Images/this-portgenix-logo.png" alt="Logo" class="circle-image">-->
+      <label class="my-web-logo" for="">Portgenix</label>
+    </a>
+
+    </div>
+
+      
+   
+
+    <nav class="categories"  [class.active]="categoriesActive" [class.scrollable]="exploreActive">
+      <div class="categories-field">
+        <ul class="hed-list-field">
+          <li class="categories-btn" >
+            <a class="explore-btn" (click)="toggleExplore()" >Explore
+              <img 
+              [src]="selectedImage"
+              alt="Selected Image"
+              class="icon-bar"
+                />
+            </a>
+            
+            <ul class="dropdown" [class.reactive]="exploreActive" >
+              <li class="explore-list-pro">
+                <div class="list-fecture">
+                 
+                  <a href="">
+                    <img src="assets/Images/star.png"  alt="">
+                    <div class="premium-list">
+                      <button class="pro-btn-list">
+                       Go Pro
+                      </button>
+                     </div>
+                  </a>
+                </div>
+                <div class="list-fecture">
+                  <a href="">
+                    <img src="assets/Images/new.png" class="new-img" alt="">
+  
+                    Product updates
+                  </a>
+                </div>
+                <hr>
+             </li>
+              <li class="explore-list"><a href="">Designers</a></li>
+              <li class="explore-list"><a href="">Photographers</a></li>
+              <li class="explore-list"><a href="">Devloper</a></li>
+              <li class="explore-list"><a href="">videographers</a></li>
+              <li class="explore-list"><a href="">Educators</a></li>
+              <li class="explore-list"><a href="">Marketers</a></li>
+              <li class="explore-list"><a href="">Entrepreneurs</a></li>
+              <li class="explore-list"><a href="">Travel Enthusiasts</a></li>
+  
+            </ul>
+          </li>
+    
+          <li class="home">
+            <a href="" class="explore-btn">Overview</a>
+          </li>
+    
+          <li class="service">
+            <a href="" class="explore-btn">Service</a>
+          </li>
+    
+          <li class="about">
+            <a href=""class="explore-btn">Regarding</a>
+          </li>
+        </ul>
+      </div>
+
+  </nav>
+    
+     <!-- Conditional buttons -->
+  <ng-container *ngIf="isLoggedIn; else guestOptions">
+
+    <div class="user-login-field">
+
+      <div class="user-login-field-content">
+        
+        <div class="user-login-field-group1">
+          <div class="fav">
+            <a routerLink="/favorites" class="fav-a-field" style="color:black;">
+              <i class='bx bx-heart' ></i>
+                            </a>
+          </div>
+
+          <div class="msg">
+            <a routerLink="/message" class="fav-a-field" style="color:black;">
+              <i class='bx bx-message-dots'></i>                   </a>
+          </div>
+        </div>
+
+        <div class="user-login-field-group2">
+          <div class="premium">
+            <button class="pro-btn">
+             Go Pro
+            </button>
+           </div>
+
+         
+           
+           <div class="profile">
+            
+               <div class="profile-img-field">
+                 <a routerLink="/user/profile" class="user-profile-img-link">
+                   <img [src]="profileImage" alt="Profile" class="profileimg"/>
+                 </a>
+               </div>
+
+
+
+               <div class="profile-list-container">
+
+                <div class="profile-list-field">
+
+                  <div class="profile-list-1">
+
+                    <div class="profile-img-field-2">
+                        <img [src]="profileImage" alt="Profile" class="profileimg"/>
+                    </div>
+
+                    <div class="username-filed">
+                      <label for="" class="profile-username-tag">Hii,{{ userName }}</label>
+                    </div>
+
+                  </div>
+
+                  <div class="profile-list-group2">
+
+                    <div class="profile-list-2">
+                      <a routerLink="/user/profile" class="profile-list-tag">Go to account</a>
+                    </div>
+
+                    <hr class="profile-list-horizontal">
+
+                    <div class="profile-list-3">
+                      <a href="" class="profile-list-tag"  (click)="onLogout()" >Sign Out</a>
+                    </div>
+
+                  </div>
+
+                </div>
+
+               </div>
+     
+           </div>
+
+           
+        </div>
+
+      </div>
+      
+    </div>
+
+  </ng-container> 
+
+    <ng-template #guestOptions> 
+
+
+      <div class="auth-btn-field">
+  
+      <div class="signup-btn1">
+          <button class="signup-btn2" routerLink="/sign-up" >Sign Up</button>
+      </div>
+
+      <div class="login-btn1">
+        <button class="login-btn2" routerLink="/login">
+            Login
+        </button>
+    </div>
+  
+      </div>
+
+      
+   </ng-template> 
+
+    </div>
+
+    
+</header>
+

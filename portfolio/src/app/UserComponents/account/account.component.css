@@ -1,0 +1,828 @@
+
+
+.full-page-container{
+    margin-top: 10vh;
+    width: 100%;
+    height: auto;
+    background-color:#eceff3;
+}
+
+.account-page-title-field{
+    display: flex;
+    flex-direction: column;
+    width: 77%;
+    height: 100%;
+   
+}
+
+.account-page-title{
+    font-size: 4vh;
+    font-family: sans-serif;
+    font-weight: 600;
+}
+
+.page-containt{
+    padding-top: 4vh;
+    padding-bottom: 8vh;
+    width: 100%;
+}
+
+
+
+.account-page-container{
+    margin-left: 14vh;
+}
+
+.section-combine-field{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+}
+
+
+
+
+
+
+.profile-page-title{
+    padding: 2vh;
+    padding-left: 4vh;
+}
+
+.page-title{
+    font-size: 1.27rem;
+    font-family: sans-serif;
+    font-weight: 600;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*--------------------------------------------------- account info --------------------------------------------*/
+
+
+.account-container{
+    display: flex;
+    flex-direction: column;
+    width: 77%;
+    height: 100%;
+    border-radius: 2vh;
+    background-color: white;
+}
+
+
+.group-1 {
+    display: flex; /* Uses Flexbox */
+    align-items: center; /* Aligns items vertically */
+    justify-content: space-between; /* Spaces elements */
+    gap: 2rem; /* Adds spacing between input fields and image */
+    flex-wrap: wrap; /* Allows elements to wrap on smaller screens */
+    max-width: 100%; /* Ensures it doesn’t exceed the screen width */
+    padding: 1rem;
+  }
+
+.group-2{
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+}
+  
+  /* ✅ Input container (Wraps Full Name & Username) */
+  .account-page-input-container1 {
+    display: flex; /* Uses Flexbox */
+    flex-direction: column; /* Stacks inputs */
+    flex: 1; /* Allows it to take available space */
+    min-width: 10rem; /* Prevents shrinking too much */
+    max-width: 48rem; /* Starts with 48rem width */
+    gap: 3vh;
+    padding-left: 1vh;
+    padding-right: 1vh;
+  }
+  
+  /* ✅ Input fields */
+  .edit-profile-fullName,
+  .edit-profile-userName {
+    width: 100%; /* Ensures they take full width of container */
+    height: 5vh;
+    max-width: 48rem; /* Starts at 48rem */
+    min-width: 10rem; /* Prevents them from being too small */
+    padding: 0.7rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+    box-sizing: border-box; /* Ensures padding is included in width */
+  }
+  
+  /* ✅ Profile image section */
+  .account-picture-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    padding-left: 2vh;
+  }
+  
+  /* ✅ Profile image */
+  .edit-profile-img {
+    width: 5rem; /* Controls image size */
+    height: 5rem;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+  
+  .edit-profile-picture-button{
+    width: 21vh;
+    height: 5vh;
+    border: 1px solid #00000026;
+    border-radius: 1vh;
+    background: #fff;
+}
+
+  
+  .edit-profile-picture-button:hover {
+    background-color: #19181816;
+  }
+
+  .account-page-input-container2{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+  }
+
+  .account-profession-container,
+  .account-location-container{
+    padding: 1vh;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    max-width: 48rem;
+    min-width: 10rem;
+    
+  }
+
+  .edit-account-profession,
+  .edit-account-location{
+    max-width: 48rem;
+    min-width: 10rem;
+    border-radius: 1vh;
+    border: 1px solid #00000042;
+    height: 5vh;
+    padding: 0.7rem;
+  }
+
+
+  .account-input-title{
+    color: #000000b3;
+    margin-bottom: 1vh;
+  }
+
+  .account-hr2{
+    border: 1px solid black;
+  }
+
+
+
+/*------------------------------------------------- Login  page css ------------------------------------*/
+
+.login-page-container{
+    display: flex;
+    flex-direction: column;
+    width: 77%;
+    height: 100%;
+    margin-left: 8vh;
+    border-radius: 2vh;
+    background-color: white;
+    margin: 4vh;
+}
+
+.login-page-title{
+    padding: 2vh;
+    padding-left: 4vh;
+}
+
+.login-hr1{
+    margin-top: 0;
+}
+
+.login-hr2{
+    
+    border: 1px solid black;
+}
+.login-page-group1{
+    display: flex;
+    flex-direction: column;
+    padding: 1vh 3vh 3vh;
+}
+
+
+.email-group-field {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: end;
+    width: 100%;
+    padding: 0.5rem;
+    gap: 1rem; /* Adds space between input and verified label */
+    flex-wrap: wrap; /* Ensures it wraps on smaller screens */
+    padding: 0;
+  }
+
+  .password-group-field {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: end;
+    width: 100%;
+    padding: 0.5rem;
+    gap: 1rem; /* Adds space between input and verified label */
+    flex-wrap: wrap; /* Ensures it wraps on smaller screens */
+    padding: 0;
+  }
+
+
+
+.profile-email-container {
+    flex: 1; /* Makes it take up available space */
+    min-width: 15rem; /* Ensures it doesn’t get too small */
+    display: flex;
+    flex-direction: column;
+  }
+
+  .profile-password-container {
+    flex: 1; /* Makes it take up available space */
+    min-width: 15rem; /* Ensures it doesn’t get too small */
+    display: flex;
+    flex-direction: column;
+  }
+
+
+.edit-profile-email {
+    width: 100%; /* Allows it to shrink inside parent */
+    max-width: 30rem; /* Ensures it doesn’t stretch too much */
+    min-width: 10rem; /* Prevents it from being too small */
+    padding: 0.5rem;
+    box-sizing: border-box;
+    border-radius: 1vh;
+    border: 1px solid #00000069;
+    height: 5vh;
+
+    pointer-events: none;  /* Prevents cursor and interaction */
+    background: transparent; /* Makes it look like plain text */
+    outline: none;         /* Prevents outline when clicked */
+    font-size: 16px;       /* Adjust text size if needed */
+  }
+
+.edit-profile-email:hover{
+    background-color:#3e86c61b;
+}
+
+.login-input-title{
+    color: #000000cc;
+    margin-bottom: 1vh;
+
+}
+.edit-profile-password {
+    width: 100%; /* Allows it to shrink inside parent */
+    max-width: 30rem; /* Ensures it doesn’t stretch too much */
+    min-width: 10rem; /* Prevents it from being too small */
+    padding: 0.5rem;
+    box-sizing: border-box;
+    border-radius: 1vh;
+    border: 1px solid #00000069;
+    height: 5vh;
+
+    pointer-events: none;  /* Prevents cursor and interaction */
+    background: transparent; /* Makes it look like plain text */
+    outline: none;         /* Prevents outline when clicked */
+    font-size: 16px;       /* Adjust text size if needed */
+  }
+
+
+.edit-profile-password:hover{
+    background-color:#3e86c61b;
+}
+
+
+.login-email-verify-label{
+    color: #0075e6;
+}
+
+.login-password-btn{
+    width: 19vh;
+    height: 5vh;
+    border: 1px solid #0083d636;
+    border-radius: 1vh;
+    color: #0075e6;
+    background-color: white;
+}
+
+.login-btn:hover{
+    background-color: #0075e6;
+    color: white;
+}
+
+.email-verify-btn{
+    width: 19vh;
+    height: 5vh;
+    border: none;
+    border-radius: 1vh;
+    color: #0075e6;
+    background-color: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    max-width: 30rem;
+}
+
+
+.edit-icon-button {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #555;
+    font-size: 16px;
+    padding: 5px;
+}
+
+
+.login-btn-field {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    white-space: nowrap; /* Prevents "Verified" from wrapping */
+  }
+/*------------------------------------------------- Social page css ------------------------------------*/
+
+.social-page-container{
+    display: flex;
+    flex-direction: column;
+    width: 77%;
+    height: 100%;
+    margin-left: 8vh;
+    border-radius: 2vh;
+    background-color: white;
+    margin: 4vh;
+}
+.social-logo-img{
+    width: 3rem;
+    height: 3rem;
+}
+
+.social-page-title{
+    padding: 2vh;
+    padding-left: 4vh;
+}
+
+.social-page-group1{
+    padding: 2vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 6vh;
+    padding-right: 4vh;
+}
+
+.social-account-field{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 3vh;
+}
+
+.social-account-name-title{
+    display: flex;
+    flex-direction: column;
+    font-family: system-ui;
+    font-weight: 700;
+    font-size: 1.07rem;
+}
+
+.social-account-username{
+    font-family: system-ui;
+    font-weight: 400;
+}
+.social-page-group2{
+    padding: 2vh;
+}
+
+.social-btn{
+    width: 14vh;
+    height: 5vh;
+    border: 1px solid #0083d636;
+    border-radius: 1vh;
+    color: #0075e6;
+    background-color: white;
+}
+
+.social-btn:hover{
+    background-color: #0075e6;
+    color: white;
+}
+
+.social-page-hr1{
+    margin-bottom: 0;
+}
+
+.social-page-hr2{
+    margin-top: 0;
+    border: 1px solid black;
+}
+
+#social-page-notify{
+    color: #0000006e;
+}
+
+.learn-more-2{
+    display: none;
+}
+
+
+/*------------------------------------------------- close page css ------------------------------------*/
+.close-page-container{
+    display: flex;
+    flex-direction: column;
+    width: 77%;
+    height: 100%;
+    margin-left: 8vh;
+    border-radius: 2vh;
+    background-color: white;
+    margin: 4vh;
+}
+
+.close-page-title{
+    padding: 2vh;
+    padding-left: 4vh;
+}
+
+.close-hr{
+    margin-top: 0;
+}
+
+.close-message-field{
+    display: flex;
+     flex-direction: column;  /* Change to column so text wraps properly */
+    padding: 2vh;
+}
+
+.close-btn-field{
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+}
+
+.close-btn{
+    width: 21vh;
+    height: 5vh;
+    border: 1px solid #ff000036;
+    border-radius: 1vh;
+    color: red;
+    background-color: white;
+}
+
+
+.learn-more{
+    display: none;
+}
+
+/*--------------------------------------------------- Email change page -----------------------------------------*/
+
+.email-page-container{
+    background: white;
+    border-radius: 1vh;
+   
+}
+
+.email.change-field{
+    display: flex;
+    flex-direction: column;
+    margin: 2vh;
+}
+
+.email-title-field{
+    padding: 2vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.email-page-title{
+    font-size: 3vh;
+}
+
+.email-auth-field{
+    padding: 2vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.email-auth-field-group-1{
+    display: flex;
+    flex-direction: column;
+    gap: 1vh;
+}
+
+.email-auth-field-group-2{
+    padding: 0.30rem;
+}
+
+.change-email-field{
+    padding: 2vh;
+    display: flex;
+    flex-direction: column;
+    gap: 2vh;
+}
+
+.email-input-1-field{
+    display: flex;
+    flex-direction: column;
+    gap: 1vh;
+}
+
+.email-input-2-field{
+    display: flex;
+    flex-direction: column;
+    gap: 1vh;
+}
+.email-save-field{
+    padding: 2vh;
+}
+
+
+/*--------------------------------------------------- password change page -----------------------------------------*/
+
+.password-page-container{
+    background: white;
+    border-radius: 1vh;
+   
+}
+
+.password.change-field{
+    display: flex;
+    flex-direction: column;
+    margin: 2vh;
+}
+
+.password-title-field{
+    padding: 2vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.password-page-title{
+    font-size: 3vh;
+}
+
+.password-auth-field{
+    padding: 2vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.password-auth-field-group-1{
+    display: flex;
+    flex-direction: column;
+    gap: 1vh;
+}
+
+.password-auth-field-group-2{
+    padding: 0.30rem;
+}
+
+.change-password-field{
+    padding: 2vh;
+    display: flex;
+    flex-direction: column;
+    gap: 2vh;
+}
+
+.password-input-1-field{
+    display: flex;
+    flex-direction: column;
+    gap: 1vh;
+}
+
+.password-input-2-field{
+    display: flex;
+    flex-direction: column;
+    gap: 1vh;
+}
+.password-save-field{
+    padding: 2vh;
+}
+
+/*--------------------------------------------------- Responsive styles ---------------------------------------*/
+
+
+
+@media screen and (max-width: 1203px) {
+
+    .full-page-container {
+        margin-top: 0;
+    }
+
+}
+
+@media screen and (max-width:942px) {
+
+
+    .learn-more{
+        display: block;
+    }
+    
+
+    
+.truncated-text {
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* Show only 2 lines */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+    transition: all 0.3s ease-in-out;
+    margin-bottom: 0;
+}
+
+.expanded-text {
+    display: block; /* Fix for expanded text */
+    -webkit-line-clamp: unset;
+}
+
+.learn-more {
+    color: #275cff;
+    cursor: pointer;
+    font-weight: 500;
+    text-decoration: none;
+    margin-bottom: 3vh;
+}
+
+}
+
+
+
+@media screen and (max-width: 763px) {
+    .account-page-input-container2 {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        width: 100%;
+    }
+
+    .account-picture-container {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+}
+
+@media screen and (max-width:654px){
+    .password-group-field{
+        display: flex;
+        flex-direction: row;
+        justify-content: end;
+        align-items: center;
+        width: 100%;
+        padding: 0.5rem;
+        gap: 1rem;
+        flex-wrap: wrap;
+    }
+
+    .email-group-field {
+        display: flex;
+        flex-direction: row;
+        justify-content: end;
+        align-items: end;
+        width: 100%;
+        padding: 0.5rem;
+        gap: 1rem;
+        flex-wrap: wrap;
+    }
+}
+
+
+
+@media screen and (max-width: 565px) {
+    .social-page-group1{
+        padding: 2vh;
+        display: flex;
+        flex-direction: column;
+        padding-left: 6vh;
+        padding-right: 4vh;
+        align-items: flex-start;
+    }
+
+    .social-btn-field{
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        white-space: nowrap;
+        margin-top: 2vh;
+        flex-direction: row;
+        width: 100%;
+        justify-content: end;
+    }
+
+    
+}
+
+@media screen and (max-width: 456px) {
+
+
+    
+    .learn-more-2{
+        display: block;
+    }
+
+    .learn-more-2 {
+        color: #275cff;
+        cursor: pointer;
+        font-weight: 500;
+        text-decoration: none;
+        margin-bottom: 3vh;
+    }
+
+    .account-profession-container,
+    .account-location-container{
+      padding: 2vh 0;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      max-width: 48rem;
+      min-width: 10rem;
+      
+    }
+
+   
+}
+
+
+
+
+@media screen and (max-width: 665px) {
+    .account-container{
+        display: flex;
+        flex-direction: column;
+        width: 90%;
+        height: 100%;
+        border-radius: 2vh;
+        background-color: white;
+    }
+
+    .login-page-container {
+        display: flex;
+        flex-direction: column;
+        width: 90%;
+        height: 100%;
+        border-radius: 2vh;
+        background-color: white;
+        margin: 4vh;
+    }
+
+    .social-page-container{
+        display: flex;
+        flex-direction: column;
+        width: 90%;
+        height: 100%;
+        border-radius: 2vh;
+        background-color: white;
+        margin: 4vh;
+    }
+
+
+    .close-page-container{
+        display: flex;
+        flex-direction: column;
+        width: 90%;
+        height: 100%;
+        border-radius: 2vh;
+        background-color: white;
+        margin: 4vh;
+    }
+
+
+}

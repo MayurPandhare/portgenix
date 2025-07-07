@@ -1,0 +1,938 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: white;
+  color: white;
+  padding: 10px 20px;
+  /* box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); */
+  z-index: 1;
+
+    }
+              
+  .header-containt {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap; /* Ensures wrapping on smaller screens */
+    }
+              
+  
+  
+  
+  .circle-image {
+      width: 209px;           /* Adjust this value to set the size of the image */
+      height: 30px;          /* Ensure height is the same as width for a perfect circle */
+      object-fit: cover;      /* Ensures the image covers the circle without distortion */
+  }
+  
+  
+  
+  
+  .sidebar-field{
+    display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 1rem;
+  }
+  .sidebar-icon{
+   
+    visibility: hidden;
+  }
+  
+  .sidebar-icon-btn{
+  
+    visibility: hidden;
+  
+  }
+  
+  .logo{
+      cursor: pointer;
+  
+  }
+  
+  .my-web-logo{
+    font-family: "Meddon", cursive;
+    font-size: 25px;
+    color: black;
+    font-weight: 600;
+  }
+  .hed-list-field{
+  
+    
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      gap: 3rem; /* Adds space between the list items */
+  }
+  
+  .categories{
+      padding-left: 20px;
+      padding-top: 10px;
+  
+      display: flex; /* Inline on larger screens */
+    justify-content: space-between;
+    align-items: center;
+  }
+  .categories-btn{
+      border: none;
+      background: none;
+      font-family: inherit;
+      font-size: 17px;
+  
+      list-style: none; 
+      position: relative;
+      height: 2rem;
+  }
+  
+  .explore-btn{
+    text-decoration: none;
+    color: black;
+    cursor: pointer;
+    font-size: 18px;
+    font-family: system-ui;
+    font-weight: 550;
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+  }
+  
+  .icon-bar {
+    height: 10px;
+    width: 20%;
+   
+  }
+  
+  .dropdown{
+    position: absolute;
+    list-style: none;
+    padding-left: 0;
+  
+    background-color: #fff;
+    list-style-type: none;
+    padding: 0;
+    border-radius: 4px;
+    box-shadow: 0 4px 6px rgb(0 0 0 / 22%);
+    width: 236%;
+    border: 1px solid #00000042;
+    top: 104%;
+    transform: translate(-10px);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease , transform 0.5s ease;
+   
+  
+  }
+  
+  .explore-btn:hover{
+    color: rgba(0, 0, 0, 0.284);
+  }
+  
+  .categories-btn:hover .dropdown{
+    display: flex;
+    flex-direction: column;
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+    
+  }
+  
+  
+  .explore-list-pro{
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .list-fecture{
+    padding:15px;
+    font-size: 14px;
+    font-family: roboto, sans-serif;
+    cursor: pointer;
+    font-weight: 600;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    align-items: center;
+    width: 100%;
+    padding-top: 12px;
+    padding-bottom: 1px;
+  }
+  
+  
+  .list-fecture a{
+    text-decoration: none;
+    color: #2f2f2f;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1vh;
+  
+  }
+  
+  .pro-btn-list{
+    width: 11vh;
+      height: 5vh;
+      border-radius: 1vh;
+      color: #fff;
+      border: none;
+      font-family: system-ui;
+      font-weight: 700;
+      text-align: center;
+      background: linear-gradient(45deg, #0088fd 0%, #003bff 50%, #001faa 100%);
+  }
+  
+  .pro-btn-list:hover{
+    background: linear-gradient(45deg, #0088fd 0%, #003bff 10%, #001faa 100%);
+  }
+  .list-fecture img{
+    height: 29px;
+    width: 29px;
+  }
+  
+  .list-fecture a:hover{
+    text-decoration: none;
+    color: #2f2f2f8f;
+    font-size: 15px;
+  
+  }
+  
+  .explore-list-pro hr{
+    margin-bottom: 0;
+    width: 82%;
+  }
+  
+  
+  .new-img{
+    height: 21px;
+    width: 21px;
+  }
+  
+  .explore-list {
+    padding: 12px 15px;
+    font-size: 14px;
+    font-family: system-ui;
+    font-weight: 400;
+    cursor: pointer;
+  }
+  
+  .explore-list:last-child {
+    border-bottom: none;
+  }
+  
+  .explore-list a {
+    text-decoration: none;
+    color: #2f2f2f;
+    display: block;
+  }
+  
+  .explore-list a:hover {
+    color: #444444b5; /* Highlight on hover */
+    font-size: 15px;
+  
+  }
+  
+  
+  /**===================================================*/
+  
+  .user-login-field{
+    display: flex;
+    flex-direction: row;
+    
+  }
+  .user-login-field-content{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 3vh;
+  }
+  
+  .user-login-field-group1{
+  
+    display: flex;
+    flex-direction: row;
+    gap: 2vh;
+  
+  }
+  
+  .user-login-field-group2{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 2vh;
+  }
+  
+  .fav i {
+    font-size: 4vh;
+      color: #00000087;
+  }
+  
+  .fav i:hover{
+    color: #0000003d;
+  }
+  
+  .msg i{
+    font-size: 4vh;
+      color: #00000087;
+  }
+  
+  .msg i:hover{
+    color: #0000003d;
+  }
+  .pro-btn{
+    width: 11vh;
+      height: 5vh;
+      border-radius: 1vh;
+      color: #fff;
+      border: none;
+      font-family: system-ui;
+      font-weight: 700;
+      text-align: center;
+      background: linear-gradient(45deg, #0088fd 0%, #003bff 40%, #001faa 100%);
+  }
+  
+  .pro-btn:hover{
+    background: linear-gradient(45deg, #0088fd 0%, #003bff 10%, #001faa 100%);
+  }
+  
+  
+  .profile{
+    position: relative;
+  }
+  .profileimg{
+    height: 9vh;
+      width: 9vh;
+      border-radius: 100px;
+      cursor: pointer;
+  }
+  
+  .profile:hover .profile-list-container,
+  .profile-list-container:hover {
+    opacity: 1; /* Fully visible */
+    visibility: visible; /* Make it visible */
+    transform: translateY(0); /* Slide to position */
+  }
+  
+  .profile:not(:hover):not(:focus-within) .profile-list-container:not(:hover):not(:focus-within) {
+    opacity: 0; /* Fade out */
+    visibility: hidden; /* Make it invisible */
+    transform: translateY(-10px); /* Slide back up */
+    transition-delay: 0.5s; /* Delay before disappearing */
+  }
+  
+  .profile-list-container{
+    opacity: 0;
+      position: absolute;
+      list-style: none;
+      background-color: #fff;
+      list-style-type: none;
+      border-radius: 4px;
+      box-shadow: 0 4px 6px rgb(0 0 0 / 22%);
+      width: 460%;
+      height: 357%;
+      top: 96%;
+      right: 2vh;
+      visibility: hidden; /* Ensures it doesn’t block clicks */
+      transform: translateY(-10px); /* Initial upward position */
+      transition: opacity 0.4s ease, transform 0.4s ease, visibility 0.4s ease; 
+      z-index: 10;
+      margin-top: 10px; /* Adds space between the profile image and the container */
+    } 
+  
+  .profile-list-field{
+    display: flex;
+      flex-direction: column;
+      gap: 3vh; 
+      padding: 1rem;
+      height: 32vh;
+      cursor: pointer;
+  
+  }
+  
+  
+  
+  .profile-list-1{
+    display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1vh;
+        cursor:pointer;
+    
+  }
+  
+  .profile-list-horizontal{
+    margin-top: 4px;
+      margin-bottom: 0;
+  }
+  
+  .profile-username-tag{
+  
+    color: black;
+      text-decoration: none;
+      font-size: 17px;
+      font-weight: 500;
+      font-family: 'Roboto';
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+  
+  }
+  .profile-list-2{
+    height: 3rem;
+  }
+  
+  .profile-list-3{
+    height: 3rem;
+  }
+  
+  .profile-list-tag{
+  
+    color: black;
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: 380;
+      font-family: system-ui;
+      display: flex;
+      flex-direction: row;
+      height: 3rem;
+      width: 8rem;
+      align-items: center;
+  
+  }
+  
+  .profile-list-tag:hover{
+    color: rgba(0, 0, 0, 0.768);
+    font-size: 17px;
+  }
+  
+  
+  /**===================================================*/
+  
+  
+  
+  .auth-btn-field{
+    display: flex;
+    flex-direction: row;
+    gap: 4vh;
+  }
+  
+  
+  .login-btn1{
+    padding-top: 0;
+   
+  }
+  .login-btn2{
+    width: 6rem;
+    height: 7vh;
+    background: none;
+    border-radius: 100px;
+    font-size: 1rem;
+    border: 1px solid #00000066;
+    font-family: system-ui, Roboto;
+    font-weight: 500;
+  }
+  
+  .signup-btn1{
+  padding-top: 0;
+  
+  }
+  
+  .signup-btn2{
+    width: 6rem;
+    height: 7vh;
+    background: #191818e8;
+    color: white;
+    border-color: black;
+    border-radius: 100px;
+    font-size: 1rem;
+    font-family: system-ui, Roboto;
+    font-weight: 500;
+  
+  }
+  
+  .signup-btn2:hover{
+  background-color: rgba(0, 0, 0, 0.189);
+  border-color: rgba(0, 0, 0, 0.044);
+  color: rgba(0, 0, 0, 0.751);
+  
+  
+  }
+  
+  .login-btn2:hover{
+  /*background-color: #b8b2b22b; */
+  background-color: #00000031;
+  border-color: #00000001;
+  color: rgba(255, 255, 255, 0.952);
+  
+  }
+  
+
+
+  .notification-bar{
+    background: black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 6vh;
+  }
+
+  .notification-bar p {
+    margin-top: 0;
+    margin-bottom: 0;
+    padding: 10px;
+
+  }
+
+  /*-----------------------------------------------------------Responsive----------------------------------*/ 
+
+
+  @media only screen and  (max-width: 1203px) {
+
+
+    /* ----------------------------------------------- Header -------------------------------- */
+    .header{
+      border-bottom: none; /* Default: No border */
+      position: relative; /* Ensures the z-index applies */
+      z-index: 10; /* Bring the header to the front */
+      
+    
+    }
+  
+    .header.with-border {
+      border-bottom: 1px solid #ccc;
+    }
+  
+    .header-containt{
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    
+    .sidebar-icon{
+      visibility: visible;
+    }
+  
+    .sidebar-icon-btn{
+  
+     display: inline-block;
+     visibility: visible;
+     border: none;
+     background: white;
+  
+    }
+  
+  
+     
+                              /* -------------------------------- Categories --------------------------*/
+  
+    .categories{
+      position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: white;
+    padding: 1rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+    transform: scaleY(0);
+    transform-origin: top;
+    transition: transform 0.3s ease, max-height 0.3s ease;
+    overflow: hidden; /* Default: hide overflow */
+    max-height: 0;
+  
+    }
+  
+    .hed-list-field{
+      display: flex;
+    flex-direction: column;
+    gap: 3rem; /* Add spacing between items */
+    padding: 0;
+    margin: 0;
+    }
+  
+    .categories.active {
+      transform: scaleY(1);
+    max-height: 500px;
+    overflow-y: hidden; /* No scroll initially */
+    margin-top: 1px;
+    display: flex;
+    flex-direction: row;
+      
+    }
+  
+    /* Scrollable state when Explore dropdown expands */
+  .categories.scrollable {
+    overflow-y: auto; /* Enable vertical scrolling */
+    height: 700%;
+    width: 100%;
+    align-items: baseline;
+  
+  }
+  
+   /* Hamburger icon (default state) */
+  .icon {
+    width: 22px;
+    height: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: pointer;
+  }
+  
+  .bar {
+    height: 2px;
+    width: 100%;
+    background-color: black;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+  }
+  
+  /* When the icon is active (close state), transform to X */
+  .icon.close .bar:nth-child(1) {
+    transform: rotate(45deg) translateY(9px);
+  }
+  
+  .icon.close .bar:nth-child(2) {
+    opacity: 0;
+  }
+  
+  .icon.close .bar:nth-child(3) {
+    transform: rotate(-45deg) translateY(-9px);
+  }
+  
+  
+              /* -----------------------------------------  Expoler --------------------------------*/
+  
+  
+  /* Base Styles for the Icon Container */
+  .up-down-icon {
+    width: 14px;
+    height: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  /* Individual Bars */
+  .icon-bar {
+    height: 10px;
+    width: 15%;
+   
+  }
+  
+  .explore-btn{
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    text-decoration: none;
+    color: #333; /* Darker shade for better contrast */
+    font-size: 16px; /* Adjusted for sidebar readability */
+    font-family: 'Roboto', sans-serif; /* Clean and modern font */
+    font-weight: 600; /* Slightly bold for emphasis */
+    padding: 8px 12px; /* Spacing for better click area */
+    border-radius: 4px; /* Rounded corners for a softer look */
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  /* Up Arrow State */
+  .up-down-icon.up .icon-bar:nth-child(1) {
+    transform: rotate(45deg) translateX(-5px); /* Top bar rotates to form ^ */
+  }
+  
+  .up-down-icon.up .icon-bar:nth-child(2) {
+    transform: rotate(-45deg) translateX(-5px); /* Bottom bar rotates to form ^ */
+  }
+  
+  /* Down Arrow State */
+  .up-down-icon.down .icon-bar:nth-child(1) {
+    transform: rotate(-45deg) translateX(-5px); /* Top bar rotates to form v */
+  }
+  
+  .up-down-icon.down .icon-bar:nth-child(2) {
+    transform: rotate(45deg) translateX(-5px); /* Bottom bar rotates to form v */
+  }
+  
+  /* Default styling for the dropdown */
+  .dropdown {
+    display: block; /* Ensure it's block-level */
+    position: relative; /* Relative positioning, part of the flow */
+    top: 10%;
+    background-color: #fff;
+    list-style-type: none;
+    padding: 0;
+    border-radius: 4px;
+    margin-top: 0; /* No extra margin */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden; /* Hide content during animation */
+    max-height: 0; /* Collapsed state */
+    opacity: 0; /* Initially invisible */
+    width: 123%;
+    border: none;
+    transition: max-height 0.4s ease, opacity 0.4s ease;
+  }
+  
+  /* Dropdown open state */
+  .dropdown.reactive {
+    max-height: 500px; /* Adjust to fit the maximum content height */
+    opacity: 1; /* Fully visible */
+    border: 1px solid rgba(0, 0, 0, 0.455);
+  }
+  
+  .explore-btn:active {
+    color: #e0e0e0; /* Slightly darker on active click */
+  }
+  
+  /* Dropdown list items */
+  .explore-list {
+    padding: 10px 15px;
+    font-size: 14px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    transition: background-color 0.2s ease, color 0.2s ease;
+  }
+  
+  .explore-btn:hover{
+    color:black;
+  }
+  
+  .explore-list:last-child {
+    border-bottom: none;
+  }
+  
+  .explore-list a {
+    text-decoration: none;
+    color: #444;
+    display: block;
+    transition: color 0.2s ease;
+  }
+  
+  
+              /*-----------------------------------------------Get  started --------------------------------------------- */
+  
+  
+  #quote1 {
+    font-size: 4vw; /* Scale font size based on viewport width */
+    max-width: 80%; /* Allow it to shrink within 90% of the container */
+    padding: 20px; /* Add some inner spacing */
+    font: 400 5vw/1.2 serif; /* Responsive font and line-height */
+    margin: 0 0 20px;
+    word-wrap: break-word; /* Break long words */
+  }
+  
+  .quote2 {
+    font-size: 1.2rem; /* Responsive font size */
+    font-family: sans-serif;
+    line-height: 1.5; /* Set line height for better readability */
+    max-width: 49%; /* Limit width for smaller screens */
+    margin: 0 auto; /* Center align on smaller screens */
+    text-align: center;
+  }
+  
+  .suggestion-field{
+    display: flex;
+       flex-direction: row;
+       gap: 1px;
+       padding: 16px;
+       box-sizing: border-box;
+       width: 94%;
+       justify-content: center;
+   
+   }
+   
+   
+   .suggestion{
+     display: flex;
+     flex-wrap: wrap; /* Allow wrapping of items */
+     gap: 8px;
+     justify-content: center; /* Center-align buttons */
+     width: 73%;
+   }
+   
+   .suggestion-tag{
+       font-size: 1rem;
+       color: #0000007d;
+       font-family: system-ui;
+       margin-bottom: 0;
+       padding-top: 3px;
+       width: 9%;
+   }
+  
+   .suggestion-btn{
+    font-family: math;
+    font-weight: 300;
+   }
+   
+             
+  
+  }
+
+  @media only screen and (min-width: 590px){
+    .header-containt {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-direction: row;
+    }
+  }
+  
+
+
+  @media only screen and  (max-width: 530px){
+  
+  
+    .circle-image{
+      width: 11rem;
+      height: 30px;
+      object-fit: cover
+    }
+
+   
+  
+    .login-btn2{
+      width: 11vh;
+      height: 5vh;
+      color: white;
+      background-color: black;
+     
+    }
+
+    .auth-btn-field{
+      display: flex;
+      flex-direction: row;
+      gap: 2vh;
+  }
+
+  .sidebar-field{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.1rem;
+}
+
+.signup-btn1 {
+   
+  display: none;
+}
+
+ 
+}
+
+  @media only screen and (max-width: 502px){
+    .premium{
+      display: none;
+    }
+
+  }
+
+  @media only screen and (max-width:471px){
+  
+    .header{
+      padding-left: 1vh;
+      padding-right: 1rem;
+      padding-top: 1rem;
+      padding-bottom: 1rem;
+    }
+  
+    .sidebar-field{
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 1vh;
+  }
+    .circle-image{
+      width: 10rem;
+      height: 30px;
+      object-fit: cover
+    }
+  
+
+
+  }
+
+  @media only screen and (max-width:425px){
+  
+    .profileimg {
+      height: 9vh;
+      width: 9vh;
+  }
+ 
+  
+  }
+
+
+  @media only screen and (max-width:392px){
+    .header {
+      padding-left: 1vh;
+      padding-right: 1vh;
+      padding-top: 1rem;
+      padding-bottom: 1rem;
+    }
+  
+    
+  
+    .sidebar-field {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 0.1vh;
+    }
+  
+    .circle-image{
+      width: 10rem;
+      height: 30px;
+      object-fit: cover;
+    }
+  
+   
+  
+    
+  }
+
+  @media only screen and (max-width:375px){
+  
+
+    .my-web-logo {
+      font-family: "Meddon", cursive;
+      font-size: 22px;
+      color: black;
+      font-weight: 600;
+  }
+
+ 
+
+}
+
+
+
+@media only screen and (max-width:346px){
+  
+  
+
+ .user-login-field-group2{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1vh;
+}
+
+
+}
+
+@media only screen and (max-width:332px){
+
+  .my-web-logo {
+    font-family: "Meddon", cursive;
+    font-size: 20px;
+    color: black;
+    font-weight: 600;
+}
+ 
+}
+
+ 
