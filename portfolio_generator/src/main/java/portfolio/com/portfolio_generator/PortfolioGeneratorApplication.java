@@ -27,7 +27,7 @@ public class PortfolioGeneratorApplication  {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
                 registry.addMapping("/**")
-                    .allowedOrigins("http://192.168.101.74:4500")  // Update to match the frontend URL
+                    .allowedOrigins("http://localhost:4500")  // Update to match the frontend URL
                     .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")  // Allowing more HTTP methods
                     .allowedHeaders("Authorization", "Content-Type")  // Ensure the correct headers are allowed
                     .allowCredentials(true)  // Allow credentials if needed (e.g., cookies, authorization headers)

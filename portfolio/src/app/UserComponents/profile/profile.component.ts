@@ -2,9 +2,9 @@ import { CommonModule } from '@angular/common';
 //import { Component, Inject, OnInit, PLATFORM_ID } from '@angular/core';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 //import { ToastrService } from 'ngx-toastr'; // Import ToastrModule
-import { isPlatformBrowser } from '@angular/common';
 import { Component, Inject, OnInit, PLATFORM_ID } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { AuthService } from '../../Services/AuthServices/auth.service';
 import { GetDataService } from '../../Services/GetDataServices/get-data.service';
 
 
@@ -28,7 +28,7 @@ export class ProfileComponent implements OnInit{
 
   constructor(
     @Inject(PLATFORM_ID) private platformId: Object,
-    private getdataService: GetDataService
+    private getdataService: GetDataService, private authService: AuthService
     //private toastr: ToastrService
   ){
 
@@ -44,42 +44,33 @@ export class ProfileComponent implements OnInit{
 
 
   GetData(): void {
-    console.log('GetData progress start');
-    this.isLoading = true; // Start loader
+  console.log('GetData progress start');
+  this.isLoading = true; // Start loader
 
-    let authToken: string = '';
+  const authToken = this.authService.getToken();
 
-    // Check if running in the browser
-    if (isPlatformBrowser(this.platformId)) {
-      authToken = localStorage.getItem('accessToken') || ''; // Safely access localStorage
-
-      if (!authToken) {
-        console.error('No access token found in localStorage.');
-        this.isLoading = false; // Stop loader
-        return;
-      }
-
-      console.log('AuthToken for user profile :', authToken);
-
-      // Call service to fetch data
-      this.getdataService.getData(authToken).subscribe(
-        (data) => {
-          console.log('data:', data);
-          this.Firstname = data.firstname; // Bind fetched name to variable
-          this.imageUrl = data.imageUrl;
-          this.Location = data.location; // Bind fetched picture URL to variable
-          this.isLoading = false; // Stop loader
-        },
-        (error) => {
-          console.error('Error:', error);
-          this.isLoading = false; // Stop loader
-          // Optionally, handle the error (e.g., show a message to the user)
-        }
-      );
-    } else {
-      console.warn('localStorage is not available (not running in the browser).');
-    }
+  if (!authToken) {
+    console.error('No auth token found. User might be logged out.');
+    this.isLoading = false;
+    return; // Exit early if no token
   }
+
+  // Call service to fetch data
+  this.getdataService.getData(authToken).subscribe(
+    (data) => {
+      console.log('data:', data);
+      this.Firstname = data.firstname; // Bind fetched name to variable
+      this.imageUrl = data.imageUrl;
+      this.Location = data.location; // Bind fetched location to variable
+      this.isLoading = false; // Stop loader
+    },
+    (error) => {
+      console.error('Error fetching user data:', error);
+      this.isLoading = false; // Stop loader
+      // Optionally, handle error (e.g., show a toast message)
+    }
+  );
+}
   /* -------------------------------------------Edit Profile -------------------------------------------*/ 
 
   editProfile(): void {

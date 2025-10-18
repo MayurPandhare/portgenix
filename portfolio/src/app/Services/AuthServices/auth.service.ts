@@ -16,91 +16,84 @@ export class AuthService {
   private accessToken: string | null = null; // Store in memory
   private refreshTimer: any;
 
-  constructor(private http: HttpClient, private router: Router) {}
+  constructor(private http: HttpClient, private router: Router) {
+    const savedToken = sessionStorage.getItem('accessToken');
+    if (savedToken) {
+      this.accessToken = savedToken;
+    }
+  }
 
+  // ✅ Save token in session
+  setToken(token: string): void {
+    sessionStorage.setItem('accessToken', token);
+    this.accessToken = token;
+  }
 
-   // Public method to check if the token is expired
-   isTokenExpired(token: string): boolean {
+  getToken(): string | null {
+    return sessionStorage.getItem('accessToken');
+  }
+
+  isTokenExpired(token: string): boolean {
     return this.jwtHelper.isTokenExpired(token);
   }
 
-
-  // Public method to update the session (useful in the AuthInterceptor)
+  // ✅ Called when user logs in or token refreshes
   updateSession(token: string): void {
-    this.accessToken = token; // Store in memory
-    localStorage.setItem('accessToken', token); // Store in localStorage
+    this.setToken(token);
 
-    // Decode JWT payload to get expiration
     const payload = JSON.parse(atob(token.split('.')[1]));
     const expiresInMs = payload.exp * 1000 - Date.now();
-    console.log(`Token expires in: ${expiresInMs / 1000} seconds`);
 
-    // Refresh token 1 minute before expiry
-    const refreshTime = expiresInMs - 60 * 1000;
+    if (expiresInMs <= 0) {
+      console.warn('Token already expired!');
+      this.logout(token);
+      return;
+    }
+
+    console.log(`Token expires in: ${Math.floor(expiresInMs / 1000)} seconds`);
+
+    const refreshTime = Math.max(expiresInMs - 60 * 1000, 0);
 
     if (this.refreshTimer) {
       clearTimeout(this.refreshTimer);
     }
 
     this.refreshTimer = setTimeout(() => {
-      console.log('Refreshing token...');
-      this.refreshTokenSilently().subscribe();
+      console.log('Refreshing token silently...');
+      this.refreshTokenSilently().subscribe({
+        next: () => console.log('Token refreshed successfully'),
+        error: () => {
+          console.error('Silent refresh failed');
+          this.logout(token);
+        }
+      });
     }, refreshTime);
   }
 
-
-  // Login method
+  // ✅ Login method
   login(credentials: { email: string; password: string }): Observable<{ accessToken: string }> {
-    return this.http.post<{ accessToken: string }>(`${this.apiUrl}/login`, credentials, { withCredentials: true }).pipe(
-      tap((response) => {
-        // Store the access token in localStorage
-        localStorage.setItem('accessToken', response.accessToken);
-        this.updateSession(response.accessToken); // Update session with token
-      })
-    );
+    return this.http.post<{ accessToken: string }>(`${this.apiUrl}/login`, credentials, { withCredentials: true })
+      .pipe(
+        tap((response) => {
+          this.updateSession(response.accessToken);
+          this.loggedIn.next(true);
+        })
+      );
   }
 
-  // Get token
-  getToken(){
-
-    const token = localStorage.getItem('accessToken');
-
-    if(!token){
-      console.log("No token found, while get token method ");
-      return null;
-
-    }
-
-    return token;
+  // ✅ Refresh token (manual call)
+  refreshToken(): Observable<{ accessToken: string }> {
+    const token = this.getToken();
+    return this.http.post<{ accessToken: string }>(`${this.apiUrl}/refresh`, {}, { withCredentials: true });
   }
 
-  // Token refresh method
-  refreshToken() {
-    const token = localStorage.getItem("accessToken"); // Get stored token
-  
-    return this.http.get("http://localhost:8080/auth/refresh", {
-      headers: {
-        Authorization: `Bearer ${token}` // Include token in request
-      }
-    });
-  }
-
-
-  
-
-  // Silent token refresh method
+  // ✅ Silent token refresh
   refreshTokenSilently(): Observable<void> {
     return new Observable((observer) => {
-      // The refresh token is stored in the HTTP-only cookie, so we don't need to manually retrieve it here
-      // We'll rely on the backend to read the refresh token from the cookie
-  
-      this.http.post<any>(`${this.apiUrl}/refresh`, {}, { withCredentials: true })
+      this.http.post<{ accessToken: string }>(`${this.apiUrl}/refresh`, {}, { withCredentials: true })
         .pipe(
           tap((data) => {
-            // After successfully refreshing the token, the server should send a new access token
-            this.accessToken = data.accessToken; // Store new access token in memory
-            localStorage.setItem('accessToken', data.accessToken); // Store new access token in localStorage
-            console.log('Silent token refresh successful');
+            this.updateSession(data.accessToken);
             observer.next();
             observer.complete();
           })
@@ -114,35 +107,40 @@ export class AuthService {
     });
   }
 
-  // Logout method
-  logout(): void {
-    // Remove the access token from localStorage
-    localStorage.removeItem('accessToken');
-    this.accessToken = null;
-    this.loggedIn.next(false); // Update the authentication status
-    this.router.navigate(['/login']);
+  // ✅ Logout
+  logout(token: string): Observable<any> {
+  sessionStorage.removeItem('accessToken');
+  this.accessToken = null;
+  this.loggedIn.next(false);
+
+  // Example API call to invalidate refresh token on backend
+  return this.http.post(`${this.apiUrl}/logout`, { token }, { withCredentials: true });
   }
 
-  // Check if the user is logged in
+  // ✅ Check login status
   isLoggedIn(): boolean {
     const token = this.getToken();
 
-    if(token == null) {
-      console.log("No token found, while checking login status");
+    if (!token) {
+      console.log('No token found, while checking login status');
       return false;
     }
 
     if (this.jwtHelper.isTokenExpired(token)) {
-      
-      this.logout();
+      console.log('Token expired');
+      this.logout(token);
+      return false;
     }
+
     return true;
   }
 
-  
-
-  // Get authentication status
   getAuthStatus(): Observable<boolean> {
     return this.loggedIn.asObservable();
   }
+
+  
+ /* getUserStatus(): Observable<any> {
+ return this.http.get('https://localhost:8080/user/auth-user-dashbord', { withCredentials: true });
+  }*/
 }

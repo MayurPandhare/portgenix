@@ -3,6 +3,116 @@
 
     <!-- =============================================  Header ===============================================  -->
 
+    <header class="header"  [class.with-border]="categoriesActive" >
+
+    <div class="header-containt">
+
+    <div class="sidebar-field">
+         <!-- Button with Font Awesome Navbar Icon -->
+    <button class="sidebar-icon-btn"  (click)="toggleCategories()">
+      <div class="icon" [ngClass]="categoriesActive ? 'close' : 'hamburger'">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </div>
+    </button>
+
+    <a href="" class="logo">
+      <!--<img src="assets/Images/this-portgenix-logo.png" alt="Logo" class="circle-image">-->
+      <label class="my-web-logo" for="">Portgenix</label>
+    </a>
+
+    </div>
+
+      
+   
+
+    <nav class="categories"  [class.active]="categoriesActive" [class.scrollable]="exploreActive">
+      <div class="categories-field">
+        <ul class="hed-list-field">
+          <li class="categories-btn" >
+            <a class="explore-btn" (click)="toggleExplore()" >Explore
+              <img 
+              [src]="selectedImage"
+              alt="Selected Image"
+              class="icon-bar"
+                />
+            </a>
+            
+            <ul class="dropdown" [class.reactive]="exploreActive" >
+              <li class="explore-list-pro">
+                <div class="list-fecture">
+                 
+                  <a href="">
+                    <img src="assets/Images/star.png"  alt="">
+                    <div class="premium-list">
+                      <button class="pro-btn-list">
+                       Go Pro
+                      </button>
+                     </div>
+                  </a>
+                </div>
+                <div class="list-fecture">
+                  <a href="">
+                    <img src="assets/Images/new.png" class="new-img" alt="">
+  
+                    Product updates
+                  </a>
+                </div>
+                <hr>
+             </li>
+              <li class="explore-list"><a href="">Designers</a></li>
+              <li class="explore-list"><a href="">Photographers</a></li>
+              <li class="explore-list"><a href="">Devloper</a></li>
+              <li class="explore-list"><a href="">videographers</a></li>
+              <li class="explore-list"><a href="">Educators</a></li>
+              <li class="explore-list"><a href="">Marketers</a></li>
+              <li class="explore-list"><a href="">Entrepreneurs</a></li>
+              <li class="explore-list"><a href="">Travel Enthusiasts</a></li>
+  
+            </ul>
+          </li>
+    
+          <li class="home">
+            <a href="" class="explore-btn">Overview</a>
+          </li>
+    
+          <li class="service">
+            <a href="" class="explore-btn">Service</a>
+          </li>
+    
+          <li class="about">
+            <a href=""class="explore-btn">Regarding</a>
+          </li>
+        </ul>
+      </div>
+
+  </nav>
+    
+     <!-- Conditional buttons -->
+  
+      <div class="auth-btn-field">
+  
+      <div class="signup-btn1">
+          <button class="signup-btn2" routerLink="/sign-up" >Sign Up</button>
+      </div>
+
+      <div class="login-btn1">
+        <button class="login-btn2" routerLink="/login">
+            Login
+        </button>
+    </div>
+  
+      </div>
+
+
+
+    </div>
+
+    
+</header>
+
+
 
 
    <!-- Add the visible class to show the header when it should appear -->
@@ -149,7 +259,74 @@
                 </button>
             </div>
       </div>
+
+
+
+
+      
+      <!----------------------------------------------------  Footer  ----------------------------------------------------->
   
+  
+<footer class="portgenix-footer">
+    <div class="footer-container">
+      <div class="footer-logo-section">
+        <h3 class="footer-logo">Portgenix</h3>
+        <p class="footer-tagline">Showcase your portfolio with style and professionalism. Join thousands of professionals who trust us to elevate their careers.</p>
+        <label class="my-web-logo" for="" style="color:white;">Portgenix</label>
+      </div>
+  
+      <div class="footer-navigation">
+        <div class="nav-column">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="/about-us">About us</a></li>
+          </ul>
+        </div>
+
+        <div class="nav-column">
+          <h4>Explore</h4>
+          <ul>
+            <li><a href="/fecture">Fecture</a></li>
+            <li><a href="/templates">Templates</a></li>
+            <li><a href="/pricing">Pricing</a></li>
+          </ul>
+        </div>
+
+        <div class="nav-column">
+          <h4>Support</h4>
+          <ul>
+            
+            <li><a href="/help">Help Center</a></li>
+            <li><a href="/contact">Contact us</a></li>
+          </ul>
+        </div>
+
+        <div class="nav-column">
+          <h4>Legal</h4>
+          <ul>
+            <li><a href="/privacy">Privacy Policy</a></li>
+            <li><a href="/terms">Terms of Service</a></li>
+          </ul>
+        </div>
+
+      </div>
+  
+      <div class="footer-social">
+        <h4>Stay Connected</h4>
+        <div class="social-icons">
+          <a href="#" class="social-icon" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" class="social-icon" title="Twitter"><i class="fab fa-twitter"></i></a>
+          <a href="#" class="social-icon" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#" class="social-icon" title="Instagram"><i class="fab fa-instagram"></i></a>
+        </div>
+      </div>
+    </div>
+  
+    <div class="footer-bottom">
+      <p>&copy; 2025 PortGenix. Crafted for professionals worldwide. <span class="footer-heart">❤️</span></p>
+    </div>
+  </footer>
+
   
   
    

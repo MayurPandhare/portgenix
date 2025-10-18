@@ -104,10 +104,10 @@ onFileSelected(event: Event): void {
 
 
 
-  ngOnInit(): void{
+  /*ngOnInit(): void{
     const userId = this.idservice.getUserId();
     console.log('Received User ID:', userId);
-  }
+  }*/
 
 
 

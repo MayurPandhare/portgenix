@@ -1,6 +1,6 @@
 
-import { CommonModule, isPlatformBrowser } from '@angular/common';
-import { ChangeDetectorRef, Component, Inject, OnInit, PLATFORM_ID, Renderer2 } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { ChangeDetectorRef, Component, Inject, PLATFORM_ID, Renderer2 } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { Router, RouterModule } from '@angular/router';
@@ -19,7 +19,7 @@ import { UserActivityService } from '../../Services/header-data-snd/user-activit
     templateUrl: './header.component.html',
     styleUrl: './header.component.css'
 })
-export class HeaderComponent implements OnInit{
+export class HeaderComponent{
   showHeader = false; // Default hidden
   categoriesActive = false;
   
@@ -56,52 +56,40 @@ export class HeaderComponent implements OnInit{
 
 
 
-  ngOnInit(): void {
-   
   
-    this.isLoggedIn = this.authService.isLoggedIn();
+  
 
-    if(this.isLoggedIn){
-      
-      this.isLoading = true; // Start loader
-       let authToken: string = '';
-      
-          // Check if running in the browser
-          if (isPlatformBrowser(this.platformId)) {
-            authToken = localStorage.getItem('accessToken') || ''; // Safely access localStorage
-      
-            if (!authToken) {
-              console.error('No access token found in localStorage.');
-              this.isLoading = false; // Stop loader
-              return;
-            }
-      
-            console.log('AuthToken for user profile :', authToken);
-      
-            // Call service to fetch data
+  //   header dynamic content
+
+
+  ngOnInit(): void {
+         this.isLoggedIn = this.authService.isLoggedIn();
+
+         if (this.isLoggedIn) {
+
+        const authToken = this.authService.getToken();
+
+        if (!authToken) {
+          console.warn('No auth token found — skipping profile fetch.');
+          return;
+          }
+
+            console.log('AuthToken for user profile:', authToken);
+
             this.getdataService.getheader(authToken).subscribe(
               (data) => {
                 console.log('data:', data);
-                this.userName = data.userName; // Bind fetched name to variable
+                this.userName = data.userName;
                 this.profileImage = data.imageUrl;
-                
-                this.isLoading = false; // Stop loader
+                this.isLoading = false;
               },
-              (error) => {
+                (error) => {
                 console.error('Error:', error);
-                this.isLoading = false; // Stop loader
-                // Optionally, handle the error (e.g., show a message to the user)
+                this.isLoading = false;
               }
             );
-          } else {
-            console.warn('localStorage is not available (not running in the browser).');
           }
-    }
-
-  }
-
-
-  //   header dynamic content
+        }
 
   
     
@@ -119,8 +107,21 @@ export class HeaderComponent implements OnInit{
   
   
     onLogout(): void {
-      this.authService.logout();
-    }
+
+      const authToken = this.authService.getToken();
+
+       if (!authToken) {
+          console.warn('No auth token found — skipping logout fetch.');
+          return;
+          }
+
+            console.log('AuthToken for user profile:', authToken);
+
+           this.authService.logout(authToken).subscribe({
+              next: () => window.location.href = 'https://portgenix.com',
+             error: (err) => console.error('Logout failed:', err)
+           });
+     }
   
     
     resendVerificationEmail(): void{

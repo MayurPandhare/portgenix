@@ -1572,5 +1572,128 @@
           
           
           }
+
+
+
+
+                    /*-------------------------------------------- loader -------------------------------------------------*/
           
           
+          
+          /* Loader Overlay Styles */
+          .loader-overlay {
+            position: fixed; /* Fixed to cover the whole screen */
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000; /* Higher than other elements */
+          }
+          
+          /* Loader Container Styles */
+          .loader-container {
+            width: 300px;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            border-radius: 8px;
+          }
+          
+
+
+
+
+
+          /*--------------------------------------------------   Otp form ----------------------------------------*/
+          
+          
+  .otp-form-container {
+  max-width: 100%;
+  padding: 20px;
+}
+
+.otp-form-container h2 {
+  color: #2c3e50;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+
+.otp-rsd-label{
+
+  margin-top:2vh;
+  margin-bottom:2vh;
+
+}
+
+
+.resend-otp {
+  margin-top: 15px;
+  text-align: center;
+}
+
+.resend-otp button {
+  background-color: #f45b5b;
+  border: none;
+  padding: 8px 16px;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.resend-otp button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.otp-container {
+  display: flex;
+    margin-bottom: 20px;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.otp-container input {
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  font-size: 18px;
+  border: 2px solid #dfe6e9;
+  border-radius: 5px;
+  outline: none; /* ✅ removes black outline */
+}
+
+.otp-digit-container{
+  gap: 3vh;
+  display: flex
+
+}
+
+.otp-container input:focus {
+  border-color: #f45b5b83; /* Optional: adds a green border on focus */
+  box-shadow: none; /* Removes default shadow */
+}
+
+
+.otp-submit-btn {
+  width: 100%;
+  padding: 12px;
+  background-color: #F45B5B;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  letter-spacing: 2px;
+  cursor: pointer;
+}
+
+
+
+.otp-submit-btn:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}

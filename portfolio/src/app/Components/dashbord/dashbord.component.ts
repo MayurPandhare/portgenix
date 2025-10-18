@@ -1,4 +1,4 @@
-import { CommonModule, isPlatformBrowser } from '@angular/common';
+import { CommonModule } from '@angular/common';
 import { Component, Inject, OnInit, PLATFORM_ID, Renderer2 } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Router, RouterModule } from '@angular/router';
@@ -56,29 +56,14 @@ export class DashbordComponent implements OnInit {
     
   ){
 
-    if(isPlatformBrowser(this.platformId)) {
-      // Directly check the login status during initializat
-
-    }
-
+    
   }
   ngOnInit(): void {
     this.isLoggedIn = this.authService.isLoggedIn();
     console.log('dashbord - isLoggedIn:', this.isLoggedIn);
     
 
-     /*if(!this.isLoggedIn ) {
-            // Fetch additional data if needed, e.g., profile image or user details
-            console.log('Access Token for user login:', localStorage.getItem('accessToken'));
-
-    }*/
-  }
-
-
-
-
-  onLogout(): void {
-    this.authService.logout();
+     
   }
 
   

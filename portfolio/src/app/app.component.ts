@@ -4,6 +4,7 @@ import { NavigationEnd, Router, RouterOutlet } from '@angular/router';
 import { filter } from 'rxjs/operators';
 import { FooterComponent } from './Components/footer/footer.component';
 import { HeaderComponent } from './Components/header/header.component';
+import { OtpVerifyComponent } from './Components/otp-verify/otp-verify.component';
 import { AuthService } from './Services/AuthServices/auth.service';
 
 
@@ -11,7 +12,7 @@ import { AuthService } from './Services/AuthServices/auth.service';
 @Component({
     selector: 'app-root',
     standalone: true, 
-    imports: [RouterOutlet, HeaderComponent, CommonModule,FooterComponent], // Correct imports
+    imports: [RouterOutlet, HeaderComponent, CommonModule,FooterComponent,OtpVerifyComponent], // Correct imports
     templateUrl: './app.component.html',
     styleUrls: ['./app.component.css'] // Fixed typo
 })
@@ -42,7 +43,9 @@ export class AppComponent implements OnInit  {
       .subscribe((event) => {
         const navigationEvent = event as NavigationEnd; // Type assertion here
         // Hide header for login and signup routes
-        if (navigationEvent.urlAfterRedirects === '/login' || navigationEvent.urlAfterRedirects === '/sign-up'|| navigationEvent.urlAfterRedirects === '/get-started') {
+        if (navigationEvent.urlAfterRedirects === '/login' || navigationEvent.urlAfterRedirects === '/sign-up'|| 
+              navigationEvent.urlAfterRedirects === '/get-started' || navigationEvent.urlAfterRedirects === '/otp_verify' || 
+            navigationEvent.urlAfterRedirects === '/portgenix.com') {
           this.showHeader = false; // Hide header on login and sign-up pages
           this.showNotification = false;
         } else {

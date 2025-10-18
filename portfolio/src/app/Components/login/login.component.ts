@@ -56,8 +56,8 @@ export class LoginComponent {
 
               setTimeout(() => {
                 this.isLoading = false; // Stop loader
-                this.router.navigateByUrl('/dashboard').then(() => {
-                  window.location.reload(); // Force a full-page reload
+                this.router.navigateByUrl('/user/dashbord').then(() => {
+                 // window.location.reload(); // Force a full-page reload
                 });
               }, 3000);
         

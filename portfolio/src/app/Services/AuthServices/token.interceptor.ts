@@ -30,14 +30,15 @@ export class TokenInterceptor implements HttpInterceptor {
           // Token is expired or invalid, attempt to refresh it
           return this.authService.refreshToken().pipe(
             take(1), // Take only the first emission
-            switchMap((newToken) => {
+            switchMap((response: { accessToken: string}) => {
+
               // Update session with the new token
-              this.authService.updateSession(newToken);
+              this.authService.updateSession(response.accessToken);
 
               // Retry the original request with the new token
               const clonedRetryRequest = req.clone({
                 setHeaders: {
-                  Authorization: `Bearer ${newToken}`
+                  Authorization: `Bearer ${response.accessToken}`
                 }
               });
 

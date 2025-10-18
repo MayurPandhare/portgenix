@@ -78,16 +78,16 @@
             </ul>
           </li>
     
-          <li class="home">
-            <a href="" class="explore-btn">Overview</a>
+          <li class="home" routerLinkActive="active">
+            <a routerLink="/user/dashbord" class="explore-btn">Home</a>
           </li>
     
-          <li class="service">
-            <a href="" class="explore-btn">Service</a>
+          <li class="service"  routerLinkActive="active">
+            <a routerLink="/user/profile" class="explore-btn">profile</a>
           </li>
     
-          <li class="about">
-            <a href=""class="explore-btn">Regarding</a>
+          <li class="about" routerLinkActive="active">
+            <a routerLink="/user/account" class="explore-btn">Setting</a>
           </li>
         </ul>
       </div>
@@ -95,7 +95,7 @@
   </nav>
     
      <!-- Conditional buttons -->
-  <ng-container *ngIf="isLoggedIn; else guestOptions">
+  
 
     <div class="user-login-field">
 
@@ -176,27 +176,7 @@
       
     </div>
 
-  </ng-container> 
-
-    <ng-template #guestOptions> 
-
-
-      <div class="auth-btn-field">
   
-      <div class="signup-btn1">
-          <button class="signup-btn2" routerLink="/sign-up" >Sign Up</button>
-      </div>
-
-      <div class="login-btn1">
-        <button class="login-btn2" routerLink="/login">
-            Login
-        </button>
-    </div>
-  
-      </div>
-
-      
-   </ng-template> 
 
     </div>
 

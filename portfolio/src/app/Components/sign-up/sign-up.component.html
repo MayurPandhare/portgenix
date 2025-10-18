@@ -264,7 +264,7 @@
     
     
                       <!-- Submit Button -->
-                      <button type="submit" [disabled]="signupForm.invalid" class="btn btn-primary" >Create account</button>
+                      <button [disabled]="signupForm.invalid" class="btn btn-primary"  type="submit" >Create account</button>
             
                     <p class="user-agree-to-terms2">
                       Already have an account? <a class="underline1" routerLink="/login">Sign In</a>
@@ -283,6 +283,14 @@
     
               </form>
 
+
+              <!-- Loader Overlay -->
+            <div class="loader-overlay" *ngIf="isLoading">
+             <div class="loader-container">
+               <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+            </div>
+           </div>
+
             </div>
   
           </ng-template>
@@ -292,3 +300,57 @@
           
     
       </div>
+
+
+
+
+      <!------------------------------------------------- pop up form -------------------------------------->
+
+
+
+      <div class="modal fade" id="otp-Modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        
+        <!-- Your Custom Form -->
+        <div class="otp-form-container">
+    <form [formGroup]="otpForm" (ngSubmit)="verifyOtp()">
+      <h2>Verification Code</h2>
+
+      <label class="otp-rsd-label" for="">
+       
+         <div class="resend-otp">
+           <button 
+           class="otp-rsd-btn"
+              type="button" 
+              (click)="resendOtp()" 
+              [disabled]="countdown > 0">
+              {{ countdown > 0 ? 'Resend OTP in ' + countdown + 's' : 'Resend OTP' }}
+           </button>
+</div>
+      </label>
+
+   <div class="otp-container" formGroupName="otp">
+
+    <div class="otp-digit-container">
+       <input #digit1 maxlength="1" formControlName="digit1" (input)="moveToNext($event, digit2)" (keydown)="moveToPrev($event, null)" />
+       <input #digit2 maxlength="1" formControlName="digit2" (input)="moveToNext($event, digit3)" (keydown)="moveToPrev($event, digit1)" />
+       <input #digit3 maxlength="1" formControlName="digit3" (input)="moveToNext($event, digit4)" (keydown)="moveToPrev($event, digit2)" />
+       <input #digit4 maxlength="1" formControlName="digit4" (input)="moveToNext($event, digit5)" (keydown)="moveToPrev($event, digit3)" />
+       <input #digit5 maxlength="1" formControlName="digit5" (input)="moveToNext($event, digit6)" (keydown)="moveToPrev($event, digit4)" />
+       <input #digit6 maxlength="1" formControlName="digit6" (input)="moveToNext($event, null)" (keydown)="moveToPrev($event, digit5)" />
+    </div>
+
+ 
+   </div>
+
+      <button class="otp-submit-btn" id="hide-modal" type="submit" [disabled]="!otpForm.valid">VERIFY</button>
+
+    </form>
+  </div>
+  
+      </div>
+    </div>
+  </div>
+
+

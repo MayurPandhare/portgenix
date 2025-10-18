@@ -16,7 +16,7 @@ import portfolio.com.portfolio_generator.JwtAuthentication.JwtService;
 import portfolio.com.portfolio_generator.Repository.UserRepository;
 
 @RestController
-@CrossOrigin(origins = "http://192.168.101.72:4500/") // Allow CORS for this specific method
+@CrossOrigin(origins = "http://localhost:4500/") // Allow CORS for this specific method
 @RequestMapping("/user")
 public class UserController {
     
@@ -93,5 +93,7 @@ public ResponseEntity<?> getUserheader() {
     // Return the user profile as response
     return ResponseEntity.ok().body(profile);
 }
+
+   
 
 }
