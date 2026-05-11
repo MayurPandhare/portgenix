@@ -1,6 +1,7 @@
-"node_modules/" 
-"dist/" 
-"target/" 
-".idea/" 
-".vscode/" 
+node_modules/
+target/
+dist/
 application-secret.properties
+.env
+.vscode/
+.idea/
