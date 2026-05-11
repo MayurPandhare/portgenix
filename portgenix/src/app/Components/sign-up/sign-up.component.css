@@ -1,0 +1,1699 @@
+
+
+
+        /* ======================================================= sign up Form ======================================== */
+
+        .container{
+          margin-left: 0;
+          margin-right: 0;
+          padding: 0;
+          max-width: 100%;
+        }
+        
+        
+        .form-container {
+            width: 100%;
+            height: 100%; /* Full viewport height */
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+          }
+          
+
+          .my-web-logo{
+            font-family: "Meddon", cursive;
+            font-size: 25px;
+            color: black;
+            font-weight: 600;
+          }
+          
+          
+          .video-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 33%;
+            height: 100%;
+            z-index: 1; /* Behind the form */
+            overflow: hidden; /* Ensures the video stays contained within the div */
+          }
+          
+          .auth-video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Ensures the video covers the container */
+          }
+          
+          .img-clip{
+            width: 135px;
+          }
+          
+          
+          .overlay-text {
+            position: absolute;
+            top: 10%;
+            left: 20%;
+            transform: translate(-50%, -50%); 
+            text-align: center;
+            color: white;
+            z-index: 2; 
+          }
+          
+          
+          .signup-form {
+            background-color: rgba(255, 255, 255, 255);
+            padding: 20px;
+            width: 100%;
+            height: 100%;
+            display: flex;
+             flex-direction: column;
+            justify-content: center;
+             align-items: center;
+          }
+          
+          
+          
+          .signup-title{
+            font: bold 26px / 61px "Mona Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+            margin-bottom: 3vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: #001a2f;
+            font-size: 7vh;
+          }
+
+          .group-container{
+            display: flex;
+            flex-direction: row-reverse;
+          }
+
+          .label-container{
+            width: 100%;
+            padding: 1vh;
+            margin-bottom: 7vh;
+          }
+          
+          .field-label-name{
+            display: inline-block;
+              font-family: system-ui;
+              font-weight: 650;
+              font-size: 16px;
+              color: #001a2f;
+              margin-bottom: 1vh;
+          }
+          
+          .form-field-group1 {
+            display: inline-flex;
+            margin-bottom: 18px;
+          }
+          
+  
+            
+            .google-btn{
+              width: 26rem;
+              display: ruby-text;
+              background-color: black;
+              padding: 4px;
+              cursor: pointer;
+              border-radius: 1vh;
+              border: none;
+            }
+          
+            .google-btn:hover{
+              background-color: #3d3d4e;
+            }
+          
+            
+          
+            .facebook-btn{
+              width: 420px;
+              display: ruby-text;
+              background-color: black;
+              padding: 4px;
+              cursor: pointer;
+              border-radius: 100px;
+              border: none;
+            }
+          
+            .facebook-btn:hover{
+              background-color: #3d3d4e;
+          
+            }
+
+
+            .social-btn-1{
+              padding-top: 8vh;
+              padding-bottom: 8vh;
+            }
+          
+            .social-btn-2{
+              padding-top: 5vh;
+              padding-bottom: 5vh;
+            }
+            
+            
+            .google-img{
+              width: 40px;
+              height: 40px;
+              border-radius: 50%;
+              padding: 5px;
+            }
+          
+          
+            .facebook-img{
+              width: 40px;
+              height: 40px;
+              border-radius: 50%;
+              padding: 5px;
+            }
+            
+            .social-buttons:hover social-img {
+              border-color: #7577795a;
+            }
+          
+            .social-btn-name-g{
+              font-size: 14px;
+              padding-top: 10px;
+              padding-left: 20px;
+              color: white;
+            }
+          
+            .social-btn-name-f{
+              font-size: 14px;
+              padding-top: 10px;
+              padding-left: 7px;
+              color: white;
+            }
+          
+          
+            .separator {
+              width: 1px;
+              margin-left: 45px;
+              margin-right: 45px;
+             border: 1px solid black;
+             background-color: #e7e7e9;
+     
+          }
+          
+          .separator::after {
+            content: "or";
+            position: absolute;
+            top: 317px;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: #fff;
+            font: normal 14px / 14px "Mona Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+            padding-bottom: 8px;
+            padding-top: 8px;
+          }
+
+          .signup-email-field{
+            padding-top: 8vh;
+            padding-bottom: 8vh;
+          }
+          
+          
+          .signup-email-btn{
+          
+            width: 26rem;
+              display: ruby-text;
+              background-color: white;
+              padding: 11px;
+              cursor: pointer;
+              border-radius: 1vh;
+              border-color: #0000001f;
+              height: 7vh;
+          
+          }
+          
+          .signup-email-btn:hover{
+            border-color: #3d3d4e50;
+          }
+          
+          #terms {
+            display: inline-flex;
+            width: 30px;
+            height: 3vh;
+          }
+          
+          .term-policy-1{
+            font-family: "Mona Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+              font-size: 12px;
+              font-weight: 400;
+              line-height: 18px;
+              text-align: center;
+              color: #3d3d4e;
+              padding-top: 4vh;
+              width: 30%;
+          }
+          
+          .underline1{
+            color: #0b0c22;
+            text-decoration: underline;
+            cursor: pointer;
+          
+          }
+          
+          .term-policy-2{
+          
+            color: #3d3d4e;
+            font: normal 17px / 20px "Mona Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+            text-align: center;
+            margin-bottom: 1vh;
+          
+          }
+          
+          .underline2{
+            text-decoration: underline;
+            cursor: pointer;
+          
+          }
+
+
+          .private-policy-field-container{
+
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+          }
+          
+          
+          
+          /* ======================================================= Signup Form 2 ======================================== 
+          
+          }  */
+          
+          /* Container Styling */
+          .form-container-2 {
+            display: flex;
+            flex-direction: column;
+            
+          }
+
+          .emailform-main-container{
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+          }
+          
+          .form-containt {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+          }
+
+          .back-btn{
+            padding: 2vh;
+            margin-left: 6vh;
+          }
+          
+          /* Field Group Styling */
+          .form-field-group {
+            display: inline-flex;
+            flex-direction: column;
+            width: 420px;
+          }
+          
+          .form-field-group1{
+            display: inline-flex;
+          }
+          
+          .form-field-group1-containt1{
+            width: 213px;
+          }
+          
+          .form-field-group1-containt2{
+            width: 213px;
+            padding-left: 10px;
+          }
+          
+          .form-control-1{
+          
+            width: 200px;
+            padding: 15px;
+            border-radius: 10px;
+            border: 1px solid rgba(0, 0, 0, 0.142);
+          
+          }
+          
+          .form-control-1:hover{
+            
+              border-color: #12161852;
+            
+          }
+          
+          .form-field {
+            padding: 12px 0;
+            display: grid;
+            margin-bottom: 18px;
+          }
+          
+          /* Input Styling */
+          .form-control-2{
+            width: 420px;
+            padding: 15px;
+            border-radius: 10px;
+            border: 1px solid rgba(0, 0, 0, 0.142);
+          }
+          
+          .form-control:hover {
+            border-color: #12161852;
+          }
+          
+          /* Validation Styles */
+          .is-valid {
+            border-color: #28a745; /* Green for valid fields */
+            
+          }
+          
+          .is-invalid {
+            border-color: #dc3545; /* Red for invalid fields */
+          }
+          
+          .invalid-feedback {
+            color: #dc3545;
+            font-size: 12px;
+            margin-top: 5px;
+          }
+          
+          .is-valid + .invalid-feedback {
+            display: none;
+          }
+          
+          .is-invalid + .invalid-feedback {
+            display: block;
+          }
+          
+          /* Base button styles */
+          button.btn {
+            display: inline-block;
+            font-weight: 400;
+            text-align: center;
+            white-space: nowrap;
+            vertical-align: middle;
+            user-select: none;
+            border: 1px solid transparent;
+            padding: 0.5rem 1rem;
+            font-size: 1rem;
+            line-height: 1.5;
+            border-radius: 0.375rem;
+            transition: all 0.2s ease-in-out;
+            height: 51px;
+              border-radius: 100px;
+          }
+          
+          
+          /* Primary button */
+          button.btn-primary {
+            color: #fff; /* Text color */
+            background-color: #080808; /* Button background */
+          }
+          
+          /* Hover state */
+          button.btn-primary:hover {
+            color: #fff;
+            background-color: #0e0e0fcd; /* Darker blue on hover */
+          }
+          
+          /* Focus state */
+          button.btn-primary:focus {
+            outline: 0;
+            box-shadow: 0 0 0 0.25rem rgba(8, 9, 9, 0.5); /* Focus ring */
+          }
+          
+          /* Active state */
+          button.btn-primary:active {
+            color: #fff;
+            background-color: #060606; /* Even darker blue on active */
+            border-color: #0c0c0c;
+            box-shadow: 0 0 0 0.1rem rgba(0, 0, 0, 0.25); /* Subtle shadow on click */
+          }
+          
+          /* Disabled state */
+          button.btn-primary:disabled, button.btn-primary[disabled] {
+            color: #6c757d; /* Muted text color */
+            background-color: #e9ecef; /* Light gray background */
+            border-color: #dee2e6; /* Gray border */
+            cursor: not-allowed;
+            opacity: 0.65;
+            pointer-events: none;
+          }
+          
+          /* Submit Button Styling */
+          .signup-email-btn-2 {
+            width: 420px;
+            background-color: black;
+            padding: 14px;
+            cursor: pointer;
+            border-radius: 100px;
+            border-color: #0000001f;
+            color: white;
+            transition: all 0.3s ease;
+          }
+          
+          .signup-email-btn-2:hover {
+            background-color: #3d3d4e;
+          }
+          
+          /* Terms and Conditions Styling */
+          .term-container1 {
+            display: flex;
+          }
+          
+          #terms {
+            display: inline-flex;
+            margin-right: 12px;
+            width: 30px;
+          }
+          
+          #terms-1{
+            font-size: 14px;
+          }
+          
+          .user-agree-to-terms2{
+            text-align: center;
+            font-size: 14px;
+            margin-top: 20px;
+            color: #00000094;
+          
+          }
+          .user-agree-to-terms3 {
+            font-size: 12px;
+            margin-top: 20px;
+            width:300px;
+            color:#0000008a;
+          }
+          
+          .underline-hidden-terms {
+            color: black;
+            text-decoration: underline;
+            cursor: pointer;
+          }
+          
+          .underline1 {
+            text-decoration: underline;
+            cursor: pointer;
+          }
+          
+          /* Back Button Styling */
+          .back-btn-this {
+            background-color: white;
+            color: black;
+            border-color: rgba(0, 0, 0, 0.066);
+            border-radius: 80px;
+            padding: 9px 16px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+          }
+          
+          .back-btn-this:hover {
+            background-color: #3d3d4e30;
+            border-color: #3d3d4e07;
+          }
+          
+                              /*================================================ form validation ===================================== */
+          
+          .error {
+            color: red;
+            font-size: 12px;
+            margin-top: 4px;
+          }   
+          
+          .invalid-feedback {
+            display: block;
+            color: red;
+            font-size: 12px;
+          }
+          
+          .is-invalid {
+            border-color: red;
+          }
+          
+          
+          
+          
+          @media only screen and (max-width:1242px) {
+          
+          
+           /* .video-container {
+              position: absolute;
+              top: 0;
+              left: 0;
+              width: 40%;
+              height: 100%;
+              z-index: 1; 
+              overflow: hidden; 
+            }
+            
+            .auth-video {
+              width: 100%;
+              height: 100%;
+              object-fit: cover; 
+            }
+            
+            .img-clip{
+              width: 135px;
+            }
+            
+            
+            .overlay-text {
+              position: absolute;
+              top: 10%;
+              left: 20%;
+              transform: translate(-50%, -50%); 
+              text-align: center;
+              color: white;
+              z-index: 2; 
+            }  */
+            
+          
+            
+          }
+          
+          @media only screen and (max-width:1083px) {
+          
+          
+           /* .video-container {
+              position: absolute;
+              top: 0;
+              left: 0;
+              width: 40%;
+              height: 100%;
+              z-index: 1; 
+              overflow: hidden;
+            }
+            
+            .auth-video {
+              width: 100%;
+              height: 100%;
+              object-fit: cover; 
+            }
+            
+            .img-clip{
+              width: 135px;
+            }
+            
+            
+            .overlay-text {
+              position: absolute;
+              top: 10%;
+              left: 20%;
+              transform: translate(-50%, -50%); 
+              text-align: center;
+              color: white;
+              z-index: 2; 
+            } */
+            
+          
+            
+          }
+          
+          @media only screen and (max-width:1021px) {
+          
+          
+           /* .video-container {
+              position: absolute;
+              top: 0;
+              left: 0;
+              width: 40%;
+              height: 100%;
+              z-index: 1; 
+              overflow: hidden;
+            }
+            
+            .auth-video {
+              width: 100%;
+              height: 100%;
+              object-fit: cover; 
+            }
+            
+            .img-clip{
+              width: 135px;
+            }
+            
+            
+            .overlay-text {
+              position: absolute;
+              top: 10%;
+              left: 20%;
+              transform: translate(-50%, -50%); 
+              text-align: center;
+              color: white;
+              z-index: 2; 
+            }*/
+            
+          
+            
+          }
+          
+          @media only screen and (max-width:1242px) {
+          
+          
+            /*.video-container {
+              position: absolute;
+              top: 0;
+              left: 0;
+              width: 40%;
+              height: 100%;
+              z-index: 1;
+              overflow: hidden; 
+            }
+            
+            .auth-video {
+              width: 100%;
+              height: 100%;
+              object-fit: cover; 
+            }
+            
+            .img-clip{
+              width: 135px;
+            }
+            
+            
+            .overlay-text {
+              position: absolute;
+              top: 10%;
+              left: 20%;
+              transform: translate(-50%, -50%); 
+              text-align: center;
+              color: white;
+              z-index: 2; 
+            }*/
+            
+          
+            
+          }
+          
+          @media only screen and (max-width:1496px) {
+          
+            .separator::after {
+              content: "or";
+              position: absolute;
+              top: 301px;
+              left: 50%;
+              transform: translate(-50%, -50%);
+              background: #fff;
+              font: normal 14px / 14px "Mona Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+              padding-bottom: 8px;
+              padding-top: 8px;
+          }
+          
+          
+            
+          }
+
+          @media only screen and (max-width:1249px){
+
+            .term-policy-1{
+              font-family: "Mona Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+              font-size: 12px;
+              font-weight: 400;
+              line-height: 18px;
+              text-align: center;
+              color: #3d3d4e;
+              padding-top: 4vh;
+              width: 40%;
+          }
+          }
+
+          @media only screen and (max-width:950px){
+
+            .group-container{
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+          }
+
+
+          .separator {
+            width: 80%;
+            height: 1px;
+            margin: 20px 0;
+            background-color: #000000c9;
+            border: 1px solid black;
+        
+        }
+        
+        .separator::after {
+          content: "or";
+        left: 50%;
+        bottom: 305px;
+        transform: translate(-50%, 120%);
+        background: #fff;
+        font: normal 14px / 14px "Mona Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+        padding-left: 1vh;
+        padding-right: 1vh;
+        }
+
+        .social-btn-1 {
+          padding-top: 8vh;
+          padding-bottom: 3vh;
+      }
+
+      .signup-email-field{
+        padding-top: 3vh;
+        padding-bottom: 8vh;
+    }
+
+          }
+
+
+          @media only screen and (max-width:839px){
+
+            .term-policy-1{
+              font-family: "Mona Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+              font-size: 12px;
+              font-weight: 400;
+              line-height: 18px;
+              text-align: center;
+              color: #3d3d4e;
+              padding-top: 4vh;
+              width: 50%;
+          }
+          }
+
+          @media only screen and (max-width:586px){
+
+            .term-policy-1{
+              font-family: "Mona Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+              font-size: 12px;
+              font-weight: 400;
+              line-height: 18px;
+              text-align: center;
+              color: #3d3d4e;
+              padding-top: 4vh;
+              width: 60%;
+          }
+          } @media only screen and (max-width:496px){
+
+            .term-policy-1{
+              font-family: "Mona Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+              font-size: 12px;
+              font-weight: 400;
+              line-height: 18px;
+              text-align: center;
+              color: #3d3d4e;
+              padding-top: 4vh;
+              width: 100%;
+          }
+          }
+
+
+          
+          @media only screen and (max-width:453px) {
+          
+            .signup-form {
+              z-index: 3;
+              background-color: rgba(255, 255, 255, 255);
+              padding: 20px;
+              border-radius: 8px;
+              width: 460px;
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+            }
+            
+            
+
+              
+              
+              .google-btn{
+                width: 23rem;
+                height: 9vh;
+                display: ruby-text;
+                background-color: black;
+                padding: 6px;
+                cursor: pointer;
+                border-radius: 1vh;
+                border: 1px solid #0000006e;
+              }
+            
+              .google-btn:hover{
+                border-color:  #12161852;
+              }
+            
+              
+            
+              .facebook-btn{
+                width: 23rem;
+                height: 9vh;
+                display: ruby-text;
+                background-color: black;
+                padding: 4px;
+                cursor: pointer;
+                border-radius: 100px;
+                border: 1px solid #0000006e;
+               }
+            
+              .facebook-btn:hover{
+                border-color:  #12161852;
+            
+              }
+            
+              .social-btn-2{
+                padding-top: 15px;
+              }
+              
+              
+              .google-img{
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+                padding: 5px;
+              }
+            
+            
+              .facebook-img{
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+                padding: 5px;
+              }
+              
+             
+            
+              .social-btn-name-g{
+                font-size: 14px;
+                padding-top: 10px;
+                color: white;
+              }
+            
+              .social-btn-name-f{
+                font-size: 14px;
+                padding-top: 14px;
+                color: white;
+              }
+          
+          
+              .seprator-field{
+          
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+          
+              }
+            
+            
+          
+            
+            .form-field{
+            
+              display: flex;
+              flex-direction: column;
+              margin-bottom: 18px;
+            }
+            
+            .form-email{
+            
+              width: 23rem;
+                padding: 15px;
+                border-radius: 10px;
+                border-color:rgba(0, 0, 0, 0.142);
+            }
+            
+            .form-password{
+            
+                width: 23rem;
+                padding: 15px;
+                border-radius: 10px;
+                border-color: rgba(0, 0, 0, 0.142);
+            
+            }
+            
+            .hidden-form-label{
+                font:bold 15px/24px "Mona Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+            }
+            
+            
+            .form-email:hover{
+            
+              border-color: #12161852;
+            
+            }
+            
+            .form-password:hover{
+            
+              border-color:  #12161852;
+            
+            }
+
+
+            .separator::after {
+              content: "or";
+            left: 50%;
+            bottom: 305px;
+            transform: translate(-50%, 150%);
+            background: #fff;
+            font: normal 14px / 14px "Mona Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+            padding-left: 1vh;
+            padding-right: 1vh;
+            }
+            
+            
+          
+            .signup-email-field{
+              display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .signup-email-btn{
+            
+              width: 23rem;
+              height: 9vh;
+              display: flex;
+              flex-direction: row;
+              background-color: white;
+              padding: 11px;
+              cursor: pointer;
+              border-radius: 1vh;
+              border-color: #0000001f;
+              align-items: center;
+              justify-content: center;
+            
+            }
+            
+            .signup-email-btn:hover{
+                background-color: #3d3d4e;
+            }
+            
+            .signup-email-btn-this{
+                font-family: inherit;
+                font-size: 16px;
+                color: white;
+            
+            }
+            
+            .signup-email-btn:hover{
+              border-color: #3d3d4e50;
+            }
+            
+            
+            
+            
+         
+            
+           
+            /*------------------------------------- signup form 2 --------------------------------*/
+          
+          
+          .form-field-group{
+              display: flex;
+              flex-direction: column;
+              width: 420px;
+              align-items: center;
+          }
+          
+          
+            .form-field-group1{
+              display: flex;
+              flex-direction: row;
+              text-align: left;
+              justify-content: center;
+              gap: 3vh;
+          }
+          
+          .form-field-group1-containt1{
+            display: flex;
+            flex-direction: column;
+            width: auto;
+            
+          }
+          
+          .form-control-1{
+            width: 11rem;
+            padding: 15px;
+            border-radius: 10px;
+            border: 1px solid rgba(0, 0, 0, 0.142);
+          }
+          
+          
+          .form-field-group1-containt2 {
+            display: flex ;
+            flex-direction: column;
+            width: auto;
+          }
+          
+          .form-field{
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 18px;
+            align-items: center;
+            width: 25rem;
+          }
+          
+          .form-field-containt{
+            display: flex;
+            flex-direction: column;
+          }
+          
+          .form-control-2{
+            width: 24rem;
+            padding: 15px;
+            border-radius: 10px;
+            border: 1px solid rgba(0, 0, 0, 0.142);
+          }
+          
+          .term-container1{
+            display: flex;
+            flex-direction: row;
+            align-items: baseline;
+          }
+          
+          #terms{
+            display: inline-flex;
+            width: 30px;
+            height: 3vh;
+          }
+          
+          
+          /* Base button styles */
+          button.btn {
+            display: inline-block;
+            font-weight: 400;
+            text-align: center;
+            white-space: nowrap;
+            vertical-align: middle;
+            user-select: none;
+            border: 1px solid transparent;
+            padding: 0.5rem 1rem;
+            font-size: 1rem;
+            line-height: 1.5;
+            border-radius: 0.375rem;
+            transition: all 0.2s ease-in-out;
+            height: 51px;
+            border-radius: 100px;
+            width: 24rem;
+          }
+          
+          
+          }
+          
+          
+          @media only screen and (max-width:425px){
+          
+            .form-container {
+              overflow-y: auto; /* Enable vertical scrollbar */
+              overflow-x: hidden; /* Ensure no horizontal scrollbar */
+            }
+          
+            /* Optional: Customize the scrollbar */
+            .form-container::-webkit-scrollbar {
+              width: 4px; /* Width of the scrollbar */
+            }
+          
+            .form-container::-webkit-scrollbar-thumb {
+              background: #888; /* Color of the scrollbar thumb */
+              border-radius: 4px;
+            }
+          
+            .form-container::-webkit-scrollbar-thumb:hover {
+              background: #555; /* Darker thumb on hover */
+            }
+          
+            .form-container::-webkit-scrollbar-track {
+              background: #f1f1f1; /* Background of the scrollbar track */
+            }
+          
+            /*.form-container-2{
+                  position: relative;
+                  display: inline-flex;
+                  flex-direction: row;
+                  padding-left: 0;
+                  height: 37rem;
+              }
+          
+            .form-field-group1 {
+              display: flex;
+              flex-direction: column;
+              text-align: left;
+              justify-content: center;
+              gap: 3vh;
+          }
+          
+          .form-control-1{
+            width: 21rem;
+            padding: 15px;
+            border-radius: 10px;
+            border: 1px solid rgba(0, 0, 0, 0.142);
+          }
+          
+          .form-field-group1-containt2 {
+            display: flex;
+            flex-direction: column;
+            width: auto;
+            padding-left: 0;
+          } */
+
+          .back-btn {
+            padding: 2vh;
+             margin-left: 0; 
+        }
+
+
+          .form-control-1{
+            width: 21rem;
+            padding: 15px;
+            border-radius: 10px;
+            border: 1px solid rgba(0, 0, 0, 0.142);
+          }
+
+          .form-field-group1-containt2 {
+            display: flex;
+            flex-direction: column;
+            width: auto;
+            padding-left: 0;
+          }
+          
+          .form-field-group1 {
+            display: flex;
+            flex-direction: column;
+            text-align: left;
+            justify-content: center;
+            gap: 3vh;
+        }
+          .form-control-2 {
+            width: 21rem;
+            padding: 15px;
+            border-radius: 10px;
+            border: 1px solid rgba(0, 0, 0, 0.142);
+          }
+          
+          .form-field {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 18px;
+            align-items: center;
+            width: 22rem;
+          }
+          
+          button.btn {
+            display: inline-block;
+            font-weight: 400;
+            text-align: center;
+            white-space: nowrap;
+            vertical-align: middle;
+            user-select: none;
+            border: 1px solid transparent;
+            padding: 0.5rem 1rem;
+            font-size: 1rem;
+            line-height: 1.5;
+            border-radius: 0.375rem;
+            transition: all 0.2s ease-in-out;
+            height: 51px;
+            border-radius: 100px;
+            width: 21rem;
+          }
+          
+          
+          }
+          
+          
+          
+          
+          
+          @media only screen and (max-width:399px){
+          
+          
+            .signup-form {
+              z-index: 3;
+              background-color: rgba(255, 255, 255, 255);
+              padding: 20px;
+              border-radius: 8px;
+              width: 460px;
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+            }
+            
+              
+              
+              .google-btn{
+                width: 20rem;
+                height: 9vh;
+                display: ruby-text;
+                background-color: black;
+                padding: 6px;
+                cursor: pointer;
+                border-radius: 1vh;
+                border: 1px solid #0000006e;
+              }
+            
+              .google-btn:hover{
+                border-color:  #12161852;
+              }
+            
+            
+              .social-btn-2{
+                padding-top: 15px;
+              }
+              
+              
+              .google-img{
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+                padding: 5px;
+              }
+            
+            
+             
+            
+              .social-btn-name-g{
+                font-size: 14px;
+                padding-top: 10px;
+                color: white;
+              }
+    
+            
+            .form-field{
+            
+              display: flex;
+              flex-direction: column;
+              margin-bottom: 18px;
+            }
+            
+            .form-email{
+            
+              width: 20rem;
+                padding: 15px;
+                border-radius: 10px;
+                border-color:rgba(0, 0, 0, 0.142);
+            }
+            
+            .form-password{
+            
+                width: 20rem;
+                padding: 15px;
+                border-radius: 10px;
+                border-color: rgba(0, 0, 0, 0.142);
+            
+            }
+            
+            .hidden-form-label{
+                font:bold 15px/24px "Mona Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+            }
+            
+            
+            .form-email:hover{
+            
+              border-color: #12161852;
+            
+            }
+            
+            .form-password:hover{
+            
+              border-color:  #12161852;
+            
+            }
+
+            .separator::after {
+              content: "or";
+              left: 50%;
+              bottom: 305px;
+              transform: translate(-50%, 150%);
+              background: #fff;
+              font: normal 14px / 14px "Mona Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+              padding-left: 1vh;
+              padding-right: 1vh;
+          }
+            
+            
+            
+            .signup-email-btn{
+            
+              width: 20rem;
+              height: 9vh;
+              display: ruby-text;
+              background-color:white;
+              padding: 11px;
+              cursor: pointer;
+              border-radius: 1vh;
+              border-color: #0000001f;
+              height: 60px;
+            
+            }
+            
+            .signup-email-btn:hover{
+                background-color: #3d3d4e;
+            }
+            
+            .signup-email-btn-this{
+                font-family: inherit;
+                font-size: 16px;
+                color: white;
+            
+            }
+            
+            .signup-email-btn:hover{
+              border-color: #3d3d4e50;
+            }
+            
+            
+            
+            
+            .underline1{
+              color: #0b0c22;
+              text-decoration: underline;
+              cursor: pointer;
+            
+            }
+            
+    
+          
+          }
+          
+          
+          @media only screen and (max-width:386px){
+          
+            .form-control-1 {
+              width: 49vh;
+              padding: 15px;
+              border-radius: 10px;
+              border: 1px solid rgba(0, 0, 0, 0.142);
+            }
+          
+            .form-control-2{
+              width: 49vh;
+              padding: 15px;
+              border-radius: 10px;
+              border: 1px solid rgba(0, 0, 0, 0.142);
+            }
+          
+            .form-field {
+              display: flex;
+              flex-direction: column;
+              margin-bottom: 18px;
+              width: 49vh;
+            }
+          
+            button.btn{
+          
+              width: 49vh;
+          
+            }
+          
+          }
+          
+  
+          
+          @media only screen and (max-width:341px){
+          
+          
+            
+            .signup-form {
+              z-index: 3;
+              background-color: rgba(255, 255, 255, 255);
+              padding: 20px;
+              border-radius: 8px;
+              width: 460px;
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+            }
+            
+
+            .social-btn-1 {
+              padding-top: 1vh;
+              padding-bottom: 3vh;
+          }
+            
+            
+            
+          .separator::after {
+            content: "or";
+            left: 50%;
+            bottom: 305px;
+            transform: translate(-50%, 97%);
+            background: #fff;
+            font: normal 14px / 14px "Mona Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+            padding-left: 1vh;
+            padding-right: 1vh;
+        }
+
+            .social-buttons {
+              padding-top: 30px;
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+           }
+              
+              
+              .google-btn{
+                width: 17rem;
+                height: 8vh;
+                display: ruby-text;
+                background-color: black;
+                padding: 6px;
+                cursor: pointer;
+                border-radius: 1vh;
+                border: 1px solid #0000006e; 
+              }
+            
+              .google-btn:hover{
+                border-color:  #12161852;
+              }
+            
+              
+          
+              .social-btn-2{
+                padding-top: 15px;
+              }
+              
+              
+              .google-img{
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+                padding: 5px;
+              }
+            
+            
+            
+              .social-btn-name-g{
+                font-size: 14px;
+                padding-top: 0;
+                color: white;
+              }
+            
+              
+    
+          
+            .form-field{
+            
+              display: flex;
+              flex-direction: column;
+              margin-bottom: 18px;
+            }
+            
+            .form-email{
+            
+              width: 17rem;
+                padding: 15px;
+                border-radius: 10px;
+                border-color:rgba(0, 0, 0, 0.142);
+            }
+            
+            .form-password{
+            
+                width: 17rem;
+                padding: 15px;
+                border-radius: 10px;
+                border-color: rgba(0, 0, 0, 0.142);
+            
+            }
+            
+            .hidden-form-label{
+                font:bold 15px/24px "Mona Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+            }
+            
+            
+            .form-email:hover{
+            
+              border-color: #12161852;
+            
+            }
+            
+            .form-password:hover{
+            
+              border-color:  #12161852;
+            
+            }
+            
+            
+            
+            .signup-email-btn{
+            
+              width: 17rem;
+              display: ruby-text;
+              background-color:white;
+              padding: 11px;
+              cursor: pointer;
+              border-radius: 1vh;
+              border-color: #0000001f;
+              height: 8vh;
+            
+            }
+            
+            .signup-email-btn:hover{
+                background-color: #3d3d4e;
+            }
+            
+            .signup-email-btn-this{
+                font-family: inherit;
+                font-size: 16px;
+                color: white;
+            
+            }
+            
+            .signup-email-btn:hover{
+              border-color: #3d3d4e50;
+            }
+            
+            
+            
+            
+            .underline1{
+              color: #0b0c22;
+              text-decoration: underline;
+              cursor: pointer;
+            
+            }
+            
+      
+          
+          
+          
+          }
+
+
+
+
+                    /*-------------------------------------------- loader -------------------------------------------------*/
+          
+          
+          
+          /* Loader Overlay Styles */
+          .loader-overlay {
+            position: fixed; /* Fixed to cover the whole screen */
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000; /* Higher than other elements */
+          }
+          
+          /* Loader Container Styles */
+          .loader-container {
+            width: 300px;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            border-radius: 8px;
+          }
+          
+
+
+
+
+
+          /*--------------------------------------------------   Otp form ----------------------------------------*/
+          
+          
+  .otp-form-container {
+  max-width: 100%;
+  padding: 20px;
+}
+
+.otp-form-container h2 {
+  color: #2c3e50;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+
+.otp-rsd-label{
+
+  margin-top:2vh;
+  margin-bottom:2vh;
+
+}
+
+
+.resend-otp {
+  margin-top: 15px;
+  text-align: center;
+}
+
+.resend-otp button {
+  background-color: #f45b5b;
+  border: none;
+  padding: 8px 16px;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.resend-otp button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.otp-container {
+  display: flex;
+    margin-bottom: 20px;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.otp-container input {
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  font-size: 18px;
+  border: 2px solid #dfe6e9;
+  border-radius: 5px;
+  outline: none; /* ✅ removes black outline */
+}
+
+.otp-digit-container{
+  gap: 3vh;
+  display: flex
+
+}
+
+.otp-container input:focus {
+  border-color: #f45b5b83; /* Optional: adds a green border on focus */
+  box-shadow: none; /* Removes default shadow */
+}
+
+
+.otp-submit-btn {
+  width: 100%;
+  padding: 12px;
+  background-color: #F45B5B;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  letter-spacing: 2px;
+  cursor: pointer;
+}
+
+
+
+.otp-submit-btn:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}

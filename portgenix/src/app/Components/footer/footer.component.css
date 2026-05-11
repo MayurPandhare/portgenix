@@ -1,0 +1,125 @@
+  /* ------------------------------------------------   Footer css ------------------------------------------------ */
+  
+  
+  
+  .portgenix-footer {
+    background-color: #121212;
+    color: #e5e5e5;
+    padding: 50px 20px;
+    font-family: 'Arial', sans-serif;
+  }
+
+  .footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 30px;
+    max-width: 1200px;
+    margin: auto;
+  }
+
+  .footer-logo-section {
+    flex: 1;
+    min-width: 250px;
+  }
+
+  .footer-logo {
+    font-size: 28px;
+    color: #ffffff;
+    margin-bottom: 1rem;
+  }
+
+  .my-web-logo{
+    font-family: "Meddon", cursive;
+    font-size: 25px;
+    color: black;
+    font-weight: 600;
+  }
+
+  .footer-tagline {
+    font-size: 16px;
+    color: #b0b0b0;
+    line-height: 1.8;
+    margin-bottom: 7vh;
+  }
+  
+
+  .footer-navigation {
+    display: flex;
+    flex: 2;
+    justify-content: space-around;
+  }
+
+  .nav-column h4 {
+    color: #ffffff;
+    margin-bottom: 15px;
+    font-size: 16px;
+  }
+
+  .nav-column ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .nav-column ul li {
+    margin-bottom: 10px;
+  }
+
+  .nav-column ul li a {
+    color: #b0b0b0;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+
+  .nav-column ul li a:hover {
+    color: #ffffff;
+  }
+
+  .footer-social {
+    flex: 1;
+    min-width: 250px;
+    text-align: center;
+  }
+
+  .footer-social h4 {
+    color: #ffffff;
+    margin-bottom: 15px;
+    font-size: 16px;
+  }
+
+  .social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+  }
+
+  .social-icon {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    background-color: #1f1f1f;
+    color: #e5e5e5;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    font-size: 18px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  .social-icon:hover {
+    background-color: #ffffff;
+    color: #121212;
+  }
+
+  .footer-bottom {
+    text-align: center;
+    margin-top: 30px;
+    font-size: 14px;
+    color: #b0b0b0;
+  }
+
+  .footer-heart {
+    color: #ff4d4d;
+  }

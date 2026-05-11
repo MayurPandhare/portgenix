@@ -1,0 +1,107 @@
+<div class="container">
+
+ <div class="title-container">
+   <h2>Create Pin</h2>
+ </div>
+
+  <div class="create-container">
+
+    <!-- LEFT: IMAGE UPLOAD -->
+    <div class="upload-box" (click)="fileInput.click()">
+
+      <input type="file" #fileInput hidden (change)="onFileSelect($event)" />
+
+      <div *ngIf="!imagePreview" class="upload-placeholder">
+        <i class="bi bi-upload"></i>
+        <p>Choose a file or drag and drop it here</p>
+      </div>
+
+      <img *ngIf="imagePreview" [src]="imagePreview" class="preview-img" />
+
+    </div>
+
+    <!-- RIGHT: FORM -->
+    <div class="form-section" [class.disabled]="!imagePreview">
+
+      <input type="text"  placeholder="Add a title" [(ngModel)]="title" />
+
+      <textarea placeholder="Add a detailed description"
+        [(ngModel)]="description"></textarea>
+
+      <input type="text" placeholder="Add a link" [(ngModel)]="link" />
+
+      
+
+      <div class="tag-container" #tagBox>
+
+  <!-- SELECTED TAGS -->
+  <div class="selected-tags" >
+
+    <span class="tag-chip" *ngFor="let tag of selectedTags">
+      {{ tag }}
+      <i class="bi bi-x" (click)="removeTag(tag)"></i>
+    </span>
+
+  </div>
+
+  <!-- INPUT -->
+  <input
+    type="text"
+    placeholder="Search for a tag"
+    [(ngModel)]="tagInput"
+    (input)="filterTags()"
+    (focus)="showDropdown = true"
+  />
+
+  <!-- DROPDOWN -->
+  <div class="tag-dropdown" *ngIf="showDropdown && filteredTags.length > 0">
+
+    <div
+      class="tag-option"
+      *ngFor="let tag of filteredTags"
+      (click)="addTag(tag)"
+    >
+      {{ tag }}
+    </div>
+
+
+  </div>
+
+</div>
+
+      <!-- MORE OPTIONS -->
+      <div class="more-options-header" (click)="toggleMore()">
+        More options
+        <i class="bi" [ngClass]="isMoreOpen ? 'bi-chevron-up' : 'bi-chevron-down'"></i>
+      </div>
+
+      <div class="more-options" *ngIf="isMoreOpen">
+
+        <label class="switch">
+          <input type="checkbox" [(ngModel)]="allowComments">
+          <span></span>
+          Allow people to comment
+        </label>
+
+        <label class="switch">
+          <input type="checkbox" [(ngModel)]="showProducts">
+          <span></span>
+          Show similar pic
+        </label>
+
+        <textarea placeholder="Alt text"
+          [(ngModel)]="altText"></textarea>
+
+      </div>
+
+      <div class="publich-container">
+        <button class="save-btn" [disabled]="!imagePreview" (click)="uploadPost()">
+        Publish
+      </button>
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
