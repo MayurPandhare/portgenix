@@ -3,9 +3,11 @@ import { CommonModule } from '@angular/common';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 //import { ToastrService } from 'ngx-toastr'; // Import ToastrModule
 import { Component, Inject, OnInit, PLATFORM_ID } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import { ActivatedRoute, RouterModule } from '@angular/router';
 import { AuthService } from '../../Services/AuthServices/auth.service';
+import { DashbordService } from '../../Services/dashbordService/dashbord.service';
 import { GetDataService } from '../../Services/GetDataServices/get-data.service';
+import { UserProfileService } from '../../Services/UserServices/user-profile.service';
 
 
 
@@ -24,11 +26,15 @@ export class ProfileComponent implements OnInit{
   Firstname: string = '';
   imageUrl: string = '';
   Location: string = '';
+  posts:any[]=[];
 
 
   constructor(
     @Inject(PLATFORM_ID) private platformId: Object,
-    private getdataService: GetDataService, private authService: AuthService
+    private getdataService: GetDataService, private authService: AuthService,
+    private route: ActivatedRoute,
+    private dashbordService: DashbordService,
+    private userProfileService: UserProfileService
     //private toastr: ToastrService
   ){
 
@@ -39,7 +45,29 @@ export class ProfileComponent implements OnInit{
 
   ngOnInit(): void {
    this.GetData();
+
+   this.route.params
+  .subscribe(params=>{
+
+    const userId = params['id'];
+
+    this.loadUserPosts(userId);
+
+  });
   }
+
+
+  loadUserPosts(userId:number){
+
+  this.userProfileService
+      .getUserPosts(userId)
+      .subscribe((data:any)=>{
+
+        this.posts = data;
+
+      });
+
+}
 
 
 

@@ -57,44 +57,19 @@
         <hr>
       </div>
   
-      <div class="work-block-field-3">
-        <div class="work-block-items">
-  
-          <!-- Placeholder Template Start -->
-  
-        <div class="work-item-placeholder-common">
-          <h3 class="placeholder-title-common">Template 1</h3>
-          <p class="placeholder-description-common">Upload your first slot</p>
+      <div class="feed-container">
+
+           <div *ngFor="let post of posts">
+
+              <img
+              [src]="post.imageUrl"
+             
+              
+              style="margin-bottom: 1rem; width:100%; transform-style: preserve-3d; border-radius: 3vh;  ">
+
+              </div>
+
         </div>
-  
-        <div class="work-item-placeholder">
-          <h3 class="placeholder-title"> </h3>
-          <p class="placeholder-description"> </p>
-        </div>
-  
-        <div class="work-item-placeholder">
-          <h3 class="placeholder-title"></h3>
-          <p class="placeholder-description"></p>
-        </div>
-  
-        <div class="work-item-placeholder">
-          <h3 class="placeholder-title"></h3>
-          <p class="placeholder-description"></p>
-        </div>
-  
-        <div class="work-item-placeholder">
-          <h3 class="placeholder-title"></h3>
-          <p class="placeholder-description"></p>
-        </div>
-  
-        <div class="work-item-placeholder">
-          <h3 class="placeholder-title"></h3>
-          <p class="placeholder-description"></p>
-        </div>
-  
-        <!-- Placeholder Template End -->
-      </div>
-      </div>
     </section>
   
     

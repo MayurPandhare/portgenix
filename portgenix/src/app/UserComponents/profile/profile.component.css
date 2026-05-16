@@ -236,6 +236,75 @@
     color: #666;
   }
     
+
+
+
+
+  /*--------------------- feed container---------------------*/
+
+
+  .feed-container{
+
+  column-count: 5;
+  column-gap: 15px;
+  columns: 300px;
+
+  padding: 32px;
+}
+
+.pin-card{
+
+  break-inside: avoid;
+
+  margin-bottom: 15px;
+
+  border-radius: 16px;
+
+  overflow: hidden;
+  position: relative;
+
+  
+}
+
+.pin-card img{
+
+  width:100%;
+
+  display:block;
+
+  opacity:0;
+
+  transition:0.3s;
+
+  
+}
+
+.pin-card img.loaded{
+  opacity:1;
+}
+
+
+
+@media(max-width:1200px){
+
+  .feed-container{
+    column-count:4;
+  }
+}
+
+@media(max-width:900px){
+
+  .feed-container{
+    column-count:3;
+  }
+}
+
+@media(max-width:600px){
+
+  .feed-container{
+    column-count:2;
+  }
+} 
     
     
 

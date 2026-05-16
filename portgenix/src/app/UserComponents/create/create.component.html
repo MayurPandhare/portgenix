@@ -32,16 +32,16 @@
 
       
 
-      <div class="tag-container" #tagBox>
+   <div class="tag-container" #tagBox>
 
   <!-- SELECTED TAGS -->
   <div class="selected-tags" >
 
     <span class="tag-chip" *ngFor="let tag of selectedTags">
       {{ tag }}
-      <i class="bi bi-x" (click)="removeTag(tag)"></i>
+      <i class="bi bi-x" (click)="removeTag(tag)" ></i>
     </span>
-
+                                                                                  
   </div>
 
   <!-- INPUT -->
@@ -54,7 +54,7 @@
   />
 
   <!-- DROPDOWN -->
-  <div class="tag-dropdown" *ngIf="showDropdown && filteredTags.length > 0">
+  <div class="tag-dropdown" *ngIf="showDropdown && filteredTags.length > 0"?>
 
     <div
       class="tag-option"

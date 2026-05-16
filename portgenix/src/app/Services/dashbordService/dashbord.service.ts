@@ -17,4 +17,30 @@ export class DashbordService {
 
 
   }
+
+  searchPosts(keyword:string){
+
+  return this.http.get(
+
+    `http://localhost:8080/portgenix/search?keyword=${keyword}`
+
+  );
+
+  
+
+}
+
+
+  getSuggestions(keyword:string){
+
+  return this.http.get(
+
+    `http://localhost:8080/portgenix/suggestions?keyword=${keyword}`
+
+  );
+
+}
+
+
+
 }

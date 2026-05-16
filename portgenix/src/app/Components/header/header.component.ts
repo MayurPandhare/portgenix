@@ -8,8 +8,9 @@ import { Modal } from 'bootstrap';
 import { AuthService } from '../../Services/AuthServices/auth.service';
 import { EncryptionService } from '../../Services/EncryptionServices/encryption.service';
 import { GetDataService } from '../../Services/GetDataServices/get-data.service';
-import { HeaderVisibilityService } from '../../Services/HeaderVisibilityService/header-visibility.service';
 import { UserActivityService } from '../../Services/header-data-snd/user-activity.service';
+import { HeaderVisibilityService } from '../../Services/HeaderVisibilityService/header-visibility.service';
+import { UserProfileService } from '../../Services/UserServices/user-profile.service';
 
 
 
@@ -42,6 +43,7 @@ export class HeaderComponent{
   imageUrl: string = '';
 
   createModal!: Modal;
+  currentUser:any;
 
 
   constructor(
@@ -53,7 +55,8 @@ export class HeaderComponent{
     private headerVisibilityService: HeaderVisibilityService,
     private userActivityService: UserActivityService,
     private cdRef: ChangeDetectorRef, // Inject ChangeDetectorRef
-    private getdataService: GetDataService
+    private getdataService: GetDataService,
+    private userProfileService: UserProfileService
     
   ){}
 
@@ -94,6 +97,16 @@ export class HeaderComponent{
               }
             );
           }
+
+
+
+        this.userProfileService
+      .getCurrentUser()
+      .subscribe((data:any)=>{
+
+        this.currentUser = data;
+
+      });
         }
 
   

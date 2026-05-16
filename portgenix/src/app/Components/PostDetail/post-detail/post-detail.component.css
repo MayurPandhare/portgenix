@@ -1,0 +1,329 @@
+.post-detail-layout{
+
+   display: flex;
+
+    gap: 25px;
+
+   flex-direction: row;
+
+    
+    padding-top: 10vh;
+    padding-left: 10vh;
+
+}
+
+.detail-top-section{
+
+   
+    width: 430px;
+
+    flex-shrink: 0;
+}
+
+
+.main-post-container{
+width: 100%;
+
+    display: flex;
+
+    gap: 25px;
+
+    align-items: flex-start;
+
+    margin-bottom: 40px;
+
+    flex-direction: column;
+    padding-top: 10vh;
+    padding-left: 10vh;
+}
+
+
+.wider-container{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+.wider-img-container{
+   position: sticky;
+    top: 20px;
+    background: white;
+    border-radius: 32px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    margin-bottom: 2vh;
+  
+}
+
+
+.top-bar{
+
+   /* display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    margin-bottom: 20px;*/
+
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-bottom: 20px;
+}
+
+.save-btn{
+    background: #e60023;
+
+    color: white;
+
+    border: none;
+
+    padding: 12px 18px;
+
+    border-radius: 30px;
+
+    font-weight: 600;
+}
+
+.more-btn{
+    display: flex;
+    flex-direction: row;
+    gap: 4vh;
+}
+
+.more-btn button{
+
+    border: none;
+    background: white;
+    font-size: 3vh;
+}
+
+.main-image{
+     display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+
+.main-image img{
+
+  width: 64%;
+
+    border-radius: 28px;
+
+    display: block;
+   
+}
+
+
+.user-section{
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+
+
+}
+
+
+.user-avatar{
+
+    width: 45px;
+
+    height: 45px;
+
+    border-radius: 50%;
+
+    background: pink;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-weight: bold;
+}
+
+
+.Comment-container{
+
+    flex: 1;
+
+    background: white;
+
+    border-radius: 32px;
+
+    padding: 25px;
+
+    min-height: 87vh;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: space-between;
+
+
+    border-style: ridge;
+    border-bottom-style: outset;
+    border-right-style: outset;
+}
+
+
+.comment-section{
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 20px;
+}
+
+
+.comment-input-box{
+
+    margin-top: auto;
+}
+
+
+.comment-input-box input{
+
+     width: 100%;
+
+    border: 1px solid #ddd;
+
+    border-radius: 40px;
+
+    padding: 18px 22px;
+
+    font-size: 16px;
+}
+
+.related-posts{
+
+
+overflow-x: hidden; 
+    column-count: 4;
+    column-gap: 15px;
+    padding-right: 10px;
+    /* overflow-y: scroll;*/
+    
+   
+}
+
+.pin-card{
+
+       break-inside: avoid;
+
+    margin-bottom: 15px;
+
+    position: relative;
+
+    overflow: hidden;
+
+    border-radius: 22px;
+}
+
+.pin-card img{
+
+    width: 100%;
+
+    display: block;
+
+    border-radius: 22px;
+}
+
+
+/*---------------------------- hover block --------------------------*/
+
+
+
+
+.pin-overlay{
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+      linear-gradient(
+        to top,
+        rgba(0,0,0,0.4),
+        rgba(0,0,0,0.05)
+      );
+
+    opacity: 0;
+
+    transition: 0.25s ease;
+
+    pointer-events: none;
+
+    border-radius: 3vh;
+}
+
+.pin-card:hover .pin-overlay{
+
+    opacity: 1;
+}
+
+.top-actions{
+
+    position: absolute;
+
+    top: 12px;
+
+    right: 12px;
+}
+
+.save-btn{
+
+    background: #e60023;
+
+    color: white;
+
+    border: none;
+
+    padding: 12px 18px;
+
+    border-radius: 30px;
+
+    font-weight: 600;
+}
+
+.bottom-actions{
+
+    position: absolute;
+
+    bottom: 12px;
+
+    right: 12px;
+
+    display: flex;
+
+    gap: 10px;
+}
+
+.icon-btn{
+
+    width: 42px;
+
+    height: 42px;
+
+    border-radius: 50%;
+
+    border: none;
+
+    background: white;
+
+    font-size: 18px;
+}
+

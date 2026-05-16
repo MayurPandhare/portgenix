@@ -7,6 +7,8 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -120,6 +122,31 @@ public ResponseEntity<?> getUserheader() {
             description
         );
     }
+
+
+    @GetMapping("/{userId}")
+    public ResponseEntity<?> getUserPosts(@PathVariable Long userId){
+
+        return userProfileService.getUserPosts(userId);
+    }
+
+
+    @GetMapping("/current-user")
+    public ResponseEntity<?> currentUser(){
+
+    Authentication authentication =
+            SecurityContextHolder
+            .getContext()
+            .getAuthentication();
+
+    String name = authentication.getName();
+
+    User user =
+            userRepository.getUserByUserName(name);
+
+    return ResponseEntity.ok(user);
+
+}
 
 
 

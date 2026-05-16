@@ -29,4 +29,15 @@ export class GetDataService {
     // Send the GET request to the backend with the token in the headers
     return this.http.post('http://localhost:8080/user/header', {}, { headers, responseType: 'json' });
   }
+
+
+  getPostId(postId: number){
+
+    return this.http.get(`http://localhost:8080/portgenix/post/${postId}`);
+  }
+
+
+  getRelatedPosts(postId: number){
+    return this.http.get(`http://localhost:8080/portgenix/post/${postId}/related`);
+  }
 }

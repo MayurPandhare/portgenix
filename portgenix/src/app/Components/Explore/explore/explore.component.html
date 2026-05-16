@@ -1,58 +1,41 @@
-
-<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
-<div class="container">
-  
-
-    <!-- =============================================  Header ===============================================  -->
-
-
-
-   <!-- Add the visible class to show the header when it should appear -->
-
-
-
-     
-  
-  
-    <!-- =============================================  Get sterted ===============================================  -->
-  
-  
-     <div class="get-start">
-  
-            <div class="get-start-containt">
-                    <div class="get-labels-field">
-                      <label id="quote1">Turn Ideas into Visual Stories. Discover, Save, Create.</label>
+<div class="main-container">
     
-                      <h2 class="quote2">Explore creativity from people who love to share ideas. 
-                 Dive into a world of ideas, curated by creators like you.</h2>
-    
-                    </div>
-                
-    
-    
-                      <div class="search-field">
+
+
+
+<!-- ----------------------search block --------------------->
+
+
+
+
+
+
+                    <div class="search-field">
                 
                           <form action="" class="search-form">
               
                               <div class="search-container">
                                   <div class="input-wrapper" style="position: relative;">
-                                      <input #searchInput type="text" aria-invalid="false" name="search-input" placeholder="Search for anything" autocomplete="off" [(ngModel)]="searchKeyword" (ngModelChange)="onInputChange()" 
-                                      value="" role="combobox" aria-autocomplete="both" aria-haspopup="true" aria-expanded="false" 
-                                      aria-controls="u93-search-form-autocomplete--4-menu-content-items"  class="search-input"
-                                       style="padding-right: 90px;"  (input)="onSearchChange()">
-
-
+                                      <input #searchInput type="text" aria-invalid="false" name="search-input" placeholder="Search for anything" autocomplete="off" [(ngModel)]="searchKeyword" (ngModelChange)="onInputChange()" value="" role="combobox" 
+                                      aria-autocomplete="both" aria-haspopup="true" aria-expanded="false" 
+                                      aria-controls="u93-search-form-autocomplete--4-menu-content-items"  
+                                      class="search-input" style="padding-right: 90px;" (input)="onSearchChange()">
   
                                       <button type="button" class="clear-button btn-2" onclick="document.querySelector('.search-input').value = ''"  *ngIf="searchKeyword" (click)="clearSearch()" >
                                           <i class="fas fa-times"></i> <!-- Font Awesome Clear Icon -->
                                       </button>
-                                      <button class="search-button btn-1" (click)="goToSearch(searchInput.value)" >
+                                      <button class="search-button btn-1"  (click)="goToSearch()" >
                                         <i class="fas fa-search"></i> <!-- Font Awesome Search Icon -->
                                     </button>
+
+                                    
                                   </div>
+
+                                  
                               </div>
 
-                            <div class="suggestion-box"  *ngIf="suggestions.length > 0">
+
+                             <div class="suggestion-box"  *ngIf="suggestions.length > 0">
                               
                               <div class="suggestion-container">
                                 <div class="suggestion-item" *ngFor="let suggestion of suggestions" (click)="selectSuggestion(suggestion)">
@@ -66,25 +49,23 @@
 
                             </div>
 
+
+                              
                           </form>
+
+                          
   
                           
                     </div>
-  
-        
-  
-  
-  
-            </div>
-  
-      </div>  
 
 
 
-      <!-------------------------------------------------- template ------------------------------------------>
+
+<!--------------------------------------- Feed block ---------------------------------->
 
 
-      <section class="work-block">
+
+<section class="work-block">
 
         <div class="work-block-field-1">
           <div class="work-block-field-1-suggestion-list-1">
@@ -113,12 +94,9 @@
            <div class="pin-card" *ngFor="let post of posts">
 
               <img
-              [src]="post.imageUrl"
+              [src]="post?.imageUrl"
               style=" width:100%; transform-style: preserve-3d; border-radius: 3vh;  "
-              (click)="postView(post.id)"
-              >
-
-             
+              (click)="postView(post?.id)">
 
               <!-- Overlay -->
               <div class="pin-overlay">
@@ -139,7 +117,7 @@
                         <i class="bi bi-upload"></i>
                     </button>
 
-                     <button class="icon-btn"  (click)="toggleMoreMenu(post.id)">
+                     <button class="icon-btn"  (click)="toggleMoreMenu(post?.id)">
                         <i class="bi bi-three-dots"></i>
                       </button>
 
@@ -149,7 +127,7 @@
               </div>
 
 
-              <div class="moreActions-container" *ngIf="openedMenuPostId === post.id">
+              <div class="moreActions-container" *ngIf="openedMenuPostId === post?.id">
   
 
                     <div class="more-block-1">
@@ -192,31 +170,8 @@
 
         </div>
 
-       
-
       </section>
-    
-      
-    
-  
-  
-      <!-- =============================================  Adertise ===============================================  -->
-  
-  
-  
-      <div class="advertise">
-          <h1 class="adv-content1">And it's all free with Portgenix</h1>
-          <h2 class="adv-content2">Enjoy access to stunning templates and powerful customization tools, 
-              all included at no cost.</h2>
 
-              <div class="adv-btn-form">
-                <button class="adv-btn">
-                  Help Me Choose
-                </button>
-            </div>
-      </div>
-  
-  
-  
-   
+
+
 </div>

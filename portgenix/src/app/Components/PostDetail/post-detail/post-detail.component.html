@@ -1,0 +1,144 @@
+
+
+
+
+<div class="post-detail-layout">
+
+    <!-- LEFT -->
+
+
+   <div class="detail-top-section">
+
+
+     <div class="wider-img-container">
+
+        <!-- your detail card -->
+
+        <div class="top-bar">
+
+            <div class="more-btn">
+
+                <button>
+                    <i class="bi bi-heart"></i>
+                </button>
+
+                <button>
+                    <i class="bi bi-chat"></i>
+                </button>
+
+                <button>
+                    <i class="bi bi-upload"></i>
+                </button>
+
+                <button>
+                    <i class="bi bi-three-dots"></i>
+                </button>
+
+            </div>
+
+            <button class="save-btn">
+                Save
+            </button>
+
+        </div>
+
+
+        <!-- IMAGE -->
+        <div class="main-image">
+
+            <img [src]="post?.imageUrl">
+
+        </div>
+
+
+        <!-- USER -->
+        <div class="user-section">
+
+            <div class="user-avatar">
+                M
+            </div>
+
+            <div>
+                <h4>Mayurrrrr</h4>
+            </div>
+
+        </div>
+
+        <!--- Comment Section --->
+
+        <div class="comment-section">
+
+            <h4>2 Comments</h4>
+
+            <div class="comment">
+
+                <strong>Mayurrrrr</strong>
+                Dammmm..!
+
+            </div>
+
+
+
+             <!-- COMMENT INPUT -->
+        <div class="comment-input-box">
+
+            <input
+              type="text"
+              placeholder="Add a comment">
+
+        </div>
+
+        </div>
+
+
+        
+    </div>
+
+
+    
+   </div>
+
+    
+
+
+    <!-- RIGHT -->
+    <div class="related-posts">
+
+        <div class="pin-card" *ngFor="let related of relatedPosts">
+             <img [src]="related?.imageUrl" 
+             style=" width:100%; transform-style: preserve-3d; border-radius: 3vh; " 
+             (click)="postView(related?.id)" > 
+             
+             
+             <!-- Overlay --> 
+              <div class="pin-overlay"> 
+                
+                <!-- Top --> 
+                 
+                <div class="top-actions">
+                    
+                    <button class="save-btn">
+                         Save 
+                        </button> 
+                    
+                    </div> 
+                    
+                    <!-- Bottom --> 
+                     
+                    <div class="bottom-actions">
+                        
+                        <button class="icon-btn">
+                            
+                            <i class="bi bi-upload"></i> 
+                        
+                        </button>
+                        
+                        <button class="icon-btn" (click)="toggleMoreMenu(related.id)"> 
+                            <i class="bi bi-three-dots"></i> 
+                        </button> </div> </div> 
+                    
+                    </div> 
+
+    </div>
+
+</div>

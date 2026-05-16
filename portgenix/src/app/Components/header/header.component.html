@@ -83,7 +83,7 @@
           </li>
     
           <li class="service"  routerLinkActive="active">
-            <a routerLink="/user/explore" class="explore-btn"><i class="bi bi-compass"></i></a>
+            <a routerLink="/explore" class="explore-btn"><i class="bi bi-compass"></i></a>
           </li>
     
           <li class="about" routerLinkActive="active">
@@ -136,7 +136,7 @@
            <div class="profile">
             
                <div class="profile-img-field">
-                 <a routerLink="/user/profile" class="user-profile-img-link">
+                 <a  [routerLink]="['/user/profile', currentUser.id]" class="user-profile-img-link">
                    <img [src]="profileImage" alt="Profile" class="profileimg"/>
                  </a>
                </div>
@@ -162,7 +162,7 @@
                   <div class="profile-list-group2">
 
                     <div class="profile-list-2">
-                      <a routerLink="/user/profile" class="profile-list-tag">Go to account</a>
+                      <a  [routerLink]="['/user/profile', currentUser.id]" class="profile-list-tag">Go to account</a>
                     </div>
 
                     <hr class="profile-list-horizontal">

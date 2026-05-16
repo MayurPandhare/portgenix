@@ -1,6 +1,7 @@
 package com.portgenix_generator.Services;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -15,7 +16,7 @@ import com.portgenix_generator.Repository.UserRepository;
 public class PortgenixService {
 
 
- @Autowired
+    @Autowired
     private UserRepository userRepository;
 
     @Autowired
@@ -36,7 +37,77 @@ public class PortgenixService {
     System.out.println("Posts retrieved: " + posts);
 
     return ResponseEntity.ok(posts);
+    }
+
+
+   public ResponseEntity<?> searchPosts(String keyword){
+
+    List<UploadPost> posts =
+            uPostRepository
+            .findByTitleContainingIgnoreCaseOrTagsContainingIgnoreCase(
+                    keyword,
+                    keyword
+            );
+
+            System.out.println("\n\n\nSearch results for '" + keyword + "': " + posts+ "\n\n\n");
+
+    return ResponseEntity.ok(posts);
 }
+
+
+        public ResponseEntity<?> getSuggestions(String keyword){
+
+                List<String> suggestions = uPostRepository.getTitleSuggestions(keyword);
+
+                return ResponseEntity.ok(suggestions);
+        }
+
+
+
+        public ResponseEntity<?> getPostById(Long postId){
+
+                Optional<UploadPost> post = uPostRepository.findById(postId);
+
+                if(post.isPresent()){
+                        return ResponseEntity.ok(post.get());
+
+
+                }
+
+                return ResponseEntity.notFound().build();
+              
+                
+        }
+
+        public ResponseEntity<?> getRelatedPosts(Long postId){
+
+                UploadPost currentPost = uPostRepository.findById(postId).orElse(null);
+
+                if(currentPost == null){
+                        return ResponseEntity.notFound().build();
+
+                }
+
+                String tags = currentPost.getTags();
+
+                String firstTag = tags.split(",")[0];
+
+                List<UploadPost> relatedPost = uPostRepository.findByTagsContainingIgnoreCase(firstTag);
+
+
+                relatedPost.removeIf(post -> post.getId().equals(postId)
+                );
+
+
+                return ResponseEntity.ok(relatedPost);
+
+
+        }
+                
+                
+
+
+
   
     
 }

@@ -3,7 +3,9 @@ package com.portgenix_generator.Controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.portgenix_generator.JwtAuthentication.JwtService;
@@ -30,15 +32,46 @@ public class PortgenixController {
     private UserProfileService userProfileService;
 
     @Autowired
-    private PortgenixService postService;
+    private PortgenixService  PortgenixService;
 
 
 
     @GetMapping("/posts")
     public ResponseEntity<?> getAllPosts(){
 
-    return postService.getAllPosts();
-}
+    return PortgenixService.getAllPosts();
+    }
+
+
+    @GetMapping("/search")
+    public ResponseEntity<?> searchPosts(@RequestParam String keyword){
+
+
+        System.out.println("\n\n\nReceived search request with keyword: " + keyword + "\n\n\n");
+
+        return PortgenixService.searchPosts(keyword);
+    }
+
+    @GetMapping("/suggestions")
+    public ResponseEntity<?> getSuggestions(@RequestParam String keyword){
+
+        return PortgenixService.getSuggestions(keyword);
+    }
+
+    @GetMapping("/post/{postId}")
+    public ResponseEntity<?> getPost(@PathVariable Long postId){
+
+        return PortgenixService.getPostById(postId);
+
+    }
+
+    @GetMapping("/post/{postId}/related")
+    public ResponseEntity<?> getRelatedPost(@PathVariable Long postId){
+
+        return PortgenixService.getRelatedPosts(postId);
+    }
+
+
     
 
 

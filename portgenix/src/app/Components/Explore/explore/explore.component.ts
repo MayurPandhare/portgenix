@@ -1,46 +1,29 @@
 import { CommonModule } from '@angular/common';
-import { Component, Inject, OnInit, PLATFORM_ID, Renderer2 } from '@angular/core';
+import { Component, Renderer2 } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { Router, RouterModule } from '@angular/router';
-import { AuthService } from '../../Services/AuthServices/auth.service';
-import { EncryptionService } from '../../Services/EncryptionServices/encryption.service';
-import { HeaderVisibilityService } from '../../Services/HeaderVisibilityService/header-visibility.service';
-import { DashbordService } from '../../Services/dashbordService/dashbord.service';
-
-
+import { ActivatedRoute, Router, RouterModule } from '@angular/router';
+import { DashbordService } from '../../../Services/dashbordService/dashbord.service';
 
 @Component({
-    selector: 'app-dashbord',
-    standalone: true,
-    imports: [CommonModule, RouterModule, ReactiveFormsModule, FormsModule],
-    templateUrl: './dashbord.component.html',
-    styleUrls: ['./dashbord.component.css']
+  selector: 'app-explore',
+  standalone: true,
+  imports: [FormsModule, CommonModule, RouterModule, ReactiveFormsModule,],
+  templateUrl: './explore.component.html',
+  styleUrl: './explore.component.css'
 })
-export class DashbordComponent implements OnInit {
+export class ExploreComponent {
 
 
   categoriesActive = false;
 
   exploreActive = false;
 
-  isLoading: boolean = true; // Flag for showing loader
-
-  
-
-
-  isLoggedIn: boolean = false; // Initial state assumes user is not logged in
-  profileImage: string = 'assets/Images/default-pro.jpg'; // Default profile image
-  userName: string = ''; // Add a variable to hold the username
-  currentPosition = 0; // Start position for any scroll-based logic (if needed)
-  token: string ='';
-
-
+  searchKeyword: string = '';
 
   posts: any[] = [];
 
   suggestions:string[]=[];
 
-  searchKeyword:string='';
 
   openedMenuPostId:number | null = null;
 
@@ -49,66 +32,68 @@ export class DashbordComponent implements OnInit {
 
 
 
-
-
-
-
-
-
-
-
-
-  onInputChange(): void {
-    // Logic can be added here if needed when the input changes
-  }
-
-  clearSearch(): void {
-
-    
-    this.searchKeyword = '';
-
-     this.suggestions = [];
-  }
-
-
   constructor(
-    @Inject(PLATFORM_ID) private platformId: Object,
-    private authService: AuthService,
     private renderer: Renderer2,
     private router: Router,
-    private encryptionService: EncryptionService,
-    private headerVisibilityService: HeaderVisibilityService,
+    private route: ActivatedRoute,
     private dashbordService: DashbordService
-    
-  ){
-
-    
-  }
-  ngOnInit(): void {
-    this.isLoggedIn = this.authService.isLoggedIn();
-    console.log('dashbord - isLoggedIn:', this.isLoggedIn);
+  ) { }
 
 
-     this.dashbordService.getAllPosts()
-    .subscribe((data: any) => {
 
-      console.log('console img data',data);
 
+
+
+  ngOnInit(){
+
+    this.dashbordService.getAllPosts()
+    .subscribe((data: any) =>{
       this.posts = data;
+    })
 
-    });
-    
+  this.route.queryParams
+  .subscribe(params=>{
 
-     
-  }
+    const keyword = params['keyword'];
 
-  
+    if(keyword){
 
-   
-  // Search functionality for the dashboard
+      this.searchPosts(keyword);
+
+    }
+
+  });
+
+}
 
 
-  
+
+searchPosts(keyword:string){
+
+  this.dashbordService
+      .searchPosts(keyword)
+      .subscribe((data:any)=>{
+
+        this.posts = data;
+
+      });
+
+}
+
+
+
+goToSearch(){
+
+  this.router.navigate(
+    ['/explore'],
+    {
+      queryParams:{
+        keyword:this.searchKeyword
+      }
+    }
+  );
+
+}
 
 onSearchChange(){
 
@@ -129,6 +114,7 @@ onSearchChange(){
 
 }
 
+
 selectSuggestion(suggestion:string){
 
   this.searchKeyword = suggestion;
@@ -136,33 +122,27 @@ selectSuggestion(suggestion:string){
    // Hide dropdown
   this.suggestions = [];
 
-  this.goToSearch(suggestion);
+  this.goToSearch();
 
 }
 
 
-goToSearch(keyword:string){
 
-  if(keyword.trim()){
 
-    this.router.navigate(
-      ['/explore'],
-      {
-        queryParams:{
-          keyword: keyword
-        }
-      }
-    );
 
+
+
+
+
+   onInputChange(): void {
+    // Logic can be added here if needed when the input changes
   }
 
-}
+  clearSearch(): void {
 
-
-
-
-
-
+    this.searchKeyword = '';
+     this.suggestions = [];
+  }
 
 
 
@@ -208,7 +188,10 @@ goToSearch(keyword:string){
 }
 
 
-                                                        //Slider fuctionality
+
+      //Slider fuctionality
+
+
 
      sliderSuggestions: string[] = [
     'Designers',
@@ -236,9 +219,12 @@ goToSearch(keyword:string){
       left: 200, // Scroll 200px to the right
       behavior: 'smooth',
     });
-  }    
+  } 
   
   
+
+
+
   toggleMoreMenu(postId:number){
 
   // Close if same menu clicked
@@ -256,16 +242,16 @@ goToSearch(keyword:string){
 
   }
 
-  }
+}
 
-  
+
+
 postView(postId:number){
 
-  console.log('Navigating to post with ID click');
+  console.log('Navigating to post with ID click explore component');
 
   this.router.navigate(['/post', postId]);
 }
   
-
 
 }

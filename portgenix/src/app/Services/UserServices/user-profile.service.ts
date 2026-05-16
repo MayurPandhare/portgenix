@@ -14,5 +14,24 @@ export class UserProfileService {
     const headers = new HttpHeaders().set('Authorization', 'Bearer ' + token);
     return this.http.post('http://localhost:8080/auth/profile', {}, { headers, responseType: 'json' });
   }
+
+
+  getUserPosts(userId:number){
+
+  return this.http.get(
+
+    `http://localhost:8080/user/${userId}`
+
+  );
+
+  }
+
+  getCurrentUser(){
+
+  return this.http.get(
+    'http://localhost:8080/user/current-user'
+  );
+
+  }
 }
 

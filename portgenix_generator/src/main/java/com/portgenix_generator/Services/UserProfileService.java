@@ -1,5 +1,6 @@
 package com.portgenix_generator.Services;
 
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -79,5 +80,13 @@ public class UserProfileService {
     return ResponseEntity.ok(post);
 
 }
+
+
+    public ResponseEntity<?> getUserPosts(Long userId){
+
+        List<UploadPost> posts = uPostRepository.findByUser_Id(userId);
+
+        return ResponseEntity.ok(posts);
+    }
     
 }

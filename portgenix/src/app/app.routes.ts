@@ -1,8 +1,10 @@
 import { Routes } from '@angular/router';
 import { DashbordComponent } from './Components/dashbord/dashbord.component';
+import { ExploreComponent } from './Components/Explore/explore/explore.component';
 import { GetStartedComponent } from './Components/get-started/get-started.component';
 import { LoginComponent } from './Components/login/login.component';
 import { OtpVerifyComponent } from './Components/otp-verify/otp-verify.component';
+import { PostDetailComponent } from './Components/PostDetail/post-detail/post-detail.component';
 import { SignUpComponent } from './Components/sign-up/sign-up.component';
 import { AccountComponent } from './UserComponents/account/account.component';
 import { CreateComponent } from './UserComponents/create/create.component';
@@ -34,6 +36,18 @@ export const routes: Routes = [
   { path: 'otp_verify', 
     component: OtpVerifyComponent 
   },
+
+  {
+    path: 'explore',
+    component: ExploreComponent
+  },
+
+  {
+    path: 'post/:id',
+    component:PostDetailComponent
+  },
+
+  
  
   
   //{ path: '', redirectTo: '', pathMatch: 'full' }, // Default route
@@ -41,7 +55,7 @@ export const routes: Routes = [
   {
     path: 'user',
     children: [
-      { path: 'profile', component: ProfileComponent },
+      { path: 'profile/:id', component: ProfileComponent },
       { path: 'account', component: AccountComponent },
       { path: 'security', component: SecurityComponent },
       { path: 'dashbord', component: UserDahsbordComponent },

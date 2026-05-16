@@ -19,7 +19,7 @@ export class CreateComponent {
   title = '';
   description = '';
   link = '';
-  tags = '';
+  tags: string[] = [];
   board = '';
 
   allowComments = true;
@@ -32,16 +32,45 @@ export class CreateComponent {
   tagInput = '';
 
 allTags: string[] = [
-  'Code',
-  'Programming',
-  'Angular',
-  'Java',
-  'Coding Quotes',
-  'Web Design',
-  'UI Design',
+  
   'Technology',
   'Nature',
-  'Travel'
+  'Travel',
+  'Food',
+  'Aesthetic',
+  'Art',
+  'Photography',
+  'Motivation',
+  'Fitness',
+  'Fashion',
+  'Music',
+  'Books',
+  'Outfits',
+  'Mountains',
+  'Beach',
+  'Street Fashion',
+  'Design',
+  'Curly Hair',
+  'Healthy',
+  'Spain',
+  'Italy',
+  'France',
+  'Anime',
+  'Cartoons',
+  'Tattoo',
+  'Morning',
+  'Night',
+  'Kurta',
+  'Long',
+  'Hate',
+  'Happiness',
+  'Hair Style',
+  'Bike',
+  'car',
+  'BMW'
+
+
+
 ];
 
 filteredTags: string[] = [];
@@ -80,14 +109,22 @@ showDropdown = false;
     formData.append("title", this.title);
     formData.append("description", this.description);
     formData.append("link", this.link);
-    formData.append("tags", this.tags);
+    // FIXED
+    formData.append(
+      "tags",
+      this.selectedTags.join(",")
+    );
+
+   
+
+    console.log("Tags we upload: " + this.tagInput);
 
     this.http.post("http://localhost:8080/user/uploadPost", formData)
       .subscribe(res => {
         console.log("Uploaded:", res);
       });
 
-      this.router.navigate(['/user/profile']);
+      this.router.navigate(['/dashbord']);
   }
 
 
