@@ -33,5 +33,13 @@ export class UserProfileService {
   );
 
   }
+
+  toggleLike(postId: number, userId: number){
+
+    return this.http.post(
+      `http://localhost:8080/portgenix/like/${postId}/${userId}`,{}
+    );
+
+  }
 }
 

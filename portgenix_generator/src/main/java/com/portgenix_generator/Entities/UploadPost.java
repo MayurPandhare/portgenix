@@ -1,10 +1,13 @@
 package com.portgenix_generator.Entities;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import jakarta.persistence.Column;
+import jakarta.persistence.ElementCollection;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -36,6 +39,9 @@ public class UploadPost {
     private String tags;
 
     private LocalDateTime createdAt;
+
+    @ElementCollection
+    private List<Long> likedUserIds = new ArrayList<>();
 
     // Many posts belong to one user
     @JsonIgnore
@@ -121,6 +127,18 @@ public class UploadPost {
     public void setUser(User user) {
         this.user = user;
     }
+
+
+    public List<Long> getLikedUserIds() {
+        return likedUserIds;
+    }
+
+
+    public void setLikedUserIds(List<Long> likedUserIds) {
+        this.likedUserIds = likedUserIds;
+    }
+
+    
 
     
 }

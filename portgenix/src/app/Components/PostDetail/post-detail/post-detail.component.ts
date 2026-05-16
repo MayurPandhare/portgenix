@@ -2,8 +2,9 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { GetDataService } from '../../../Services/GetDataServices/get-data.service';
 import { DashbordService } from '../../../Services/dashbordService/dashbord.service';
+import { GetDataService } from '../../../Services/GetDataServices/get-data.service';
+import { UserProfileService } from '../../../Services/UserServices/user-profile.service';
 
 @Component({
   selector: 'app-post-detail',
@@ -21,13 +22,16 @@ export class PostDetailComponent {
 
    openedMenuPostId:number | null = null;
 
+   currentUser:any;
+
 
 
   constructor(
     private route: ActivatedRoute,
     private getDataService: GetDataService,
     private dashbordService: DashbordService,
-    private router: Router
+    private router: Router,
+    private userProfileService: UserProfileService
     
   
   ) { }
@@ -43,7 +47,16 @@ export class PostDetailComponent {
 
         this.loadRelatedPosts(postId);
       
-      })
+      });
+
+
+    this.userProfileService
+      .getCurrentUser()
+      .subscribe((data:any)=>{
+
+        this.currentUser = data;
+
+      });
 
 
       
@@ -109,5 +122,38 @@ export class PostDetailComponent {
 }
 
 
-    
+  toggleLike(post:any){
+
+  if(!this.currentUser){
+
+    console.log("no current user loaded");
+
+    return;
+  }
+
+  console.log(
+    "current user loaded",
+    this.currentUser.id
+  );
+
+  this.userProfileService
+    .toggleLike(post?.id, this.currentUser.id)
+    .subscribe((res:any)=>{
+
+      // FIXED
+      post.likesCount = res.likesCount;
+
+      post.liked = res.liked;
+
+      console.log("liked:", post.liked);
+
+      console.log(
+        "likes count:",
+        post.likesCount
+      );
+
+    });
+
+}
+
 }

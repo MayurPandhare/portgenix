@@ -1,6 +1,8 @@
 package com.portgenix_generator.Services;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -101,6 +103,39 @@ public class PortgenixService {
 
                 return ResponseEntity.ok(relatedPost);
 
+
+        }
+
+
+        public ResponseEntity<?> toggleLike(Long postId , Long userId){
+
+                UploadPost post = uPostRepository.findById(postId).orElseThrow();
+
+                List<Long> likedUsers = post.getLikedUserIds();
+
+                boolean liked;
+
+                if(likedUsers.contains(userId)){
+                        
+                        likedUsers.remove(userId);
+
+                        liked = false;
+
+                }else{
+                        likedUsers.add(userId);
+
+                        liked = true;
+                }
+
+                uPostRepository.save(post);
+
+                Map<String , Object> response = new HashMap<>();
+
+                response.put("liked",liked);
+
+                response.put("likesCount", likedUsers.size());
+
+                return ResponseEntity.ok(response);
 
         }
                 
