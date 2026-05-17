@@ -30,7 +30,7 @@
                     <i class="bi bi-chat"></i>
                 </button>
 
-                <button>
+                <button (click)="toggleShareModal()">
                     <i class="bi bi-upload"></i>
                 </button>
 
@@ -144,5 +144,70 @@
                     </div> 
 
     </div>
+
+</div>
+
+
+<!-- -------------------------- upload modal ---------------------->
+
+
+<div
+  class="share-modal-overlay"
+  *ngIf="showShareModal"
+  (click)="toggleShareModal()">
+
+  <div
+    class="share-modal"
+    (click)="$event.stopPropagation()">
+
+    <h3>Share</h3>
+
+    <div class="share-options">
+
+      <!-- Copy Link -->
+      <button 
+        class="copy-share"
+        (click)="copyLink()">
+        <i class="bi bi-link-45deg"></i>
+        <span>Copy Link</span>
+      </button>
+
+      <!-- WhatsApp -->
+      <a
+         class="whatsapp-share"
+        [href]="whatsappShareUrl"
+        target="_blank">
+
+        <i class="bi bi-whatsapp"></i>
+        <span>WhatsApp</span>
+
+      </a>
+
+      <!-- Facebook -->
+      <a
+        class="facebook-share"
+        [href]="facebookShareUrl"
+        target="_blank">
+
+        <i class="bi bi-facebook"></i>
+        <span>Facebook</span>
+
+      </a>
+
+      <!-- Twitter -->
+      <a
+        
+        class="twitter-share"
+        [href]="twitterShareUrl"
+        target="_blank">
+
+        <i class="bi bi-twitter-x"></i>
+        <span>X</span>
+
+      </a>
+
+    </div>
+
+  </div>
 
 </div>

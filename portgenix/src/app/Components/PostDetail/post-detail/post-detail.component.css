@@ -327,3 +327,131 @@ overflow-x: hidden;
     font-size: 18px;
 }
 
+
+/*-------------------- upload modal-----------------------*/
+
+.share-modal-overlay{
+
+    position: fixed;
+
+    inset: 0;
+
+    background: rgba(0,0,0,0.45);
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    z-index: 9999;
+}
+
+.share-modal{
+
+    width: 420px;
+
+    background: white;
+
+    border-radius: 28px;
+
+    padding: 28px;
+}
+
+.share-modal h3{
+
+    text-align: center;
+
+    margin-bottom: 25px;
+
+    font-weight: 700;
+}
+
+.share-options{
+
+    display: flex;
+
+    justify-content: center;
+
+    gap: 18px;
+
+    flex-wrap: wrap;
+}
+
+.share-options button,
+.share-options a{
+
+    width: 85px;
+
+    height: 85px;
+
+    border: none;
+
+    border-radius: 18px;
+
+    background: #f5f5f5;
+
+    text-decoration: none;
+
+    color: black;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 8px;
+
+    transition: 0.25s;
+}
+
+.share-options button:hover,
+.share-options a:hover{
+
+    transform: translateY(-5px);
+
+    background: #ececec;
+}
+
+.share-options i{
+
+    font-size: 28px;
+}
+
+
+/* WhatsApp */
+.whatsapp-share i{
+
+    color: #25D366;
+}
+
+/* Facebook */
+.facebook-share i{
+
+    color: #1877F2;
+}
+
+/* Twitter/X */
+.twitter-share i{
+
+    color: black;
+}
+
+/* Copy */
+.copy-share i{
+
+    color: #555;
+}
+
+.whatsapp-share:hover{
+
+    box-shadow: 0 10px 25px rgba(37,211,102,0.25);
+}
+
+.facebook-share:hover{
+
+    box-shadow: 0 10px 25px rgba(24,119,242,0.25);
+}

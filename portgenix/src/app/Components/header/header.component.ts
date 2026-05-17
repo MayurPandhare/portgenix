@@ -97,16 +97,7 @@ export class HeaderComponent{
               }
             );
           }
-
-
-
-        this.userProfileService
-      .getCurrentUser()
-      .subscribe((data:any)=>{
-
-        this.currentUser = data;
-
-      });
+        
     }
 
   

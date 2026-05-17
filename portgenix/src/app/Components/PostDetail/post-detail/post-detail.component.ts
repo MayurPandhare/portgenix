@@ -25,6 +25,17 @@ export class PostDetailComponent {
    currentUser:any;
 
 
+   showShareModal = false;
+
+   currentPostUrl = '';
+
+    whatsappShareUrl = '';
+
+    facebookShareUrl = '';
+
+    twitterShareUrl = '';
+
+
 
   constructor(
     private route: ActivatedRoute,
@@ -70,8 +81,29 @@ export class PostDetailComponent {
         this.getDataService.getPostId(postId)
         .subscribe((data: any)=>{
           this.post = data;
+
+          this.currentPostUrl =
+      window.location.href;
+
+      this.whatsappShareUrl =
+      `https://wa.me/?text=${this.currentPostUrl}`;
+
+      this.facebookShareUrl =
+      `https://www.facebook.com/sharer/sharer.php?u=${this.currentPostUrl}`;
+
+      this.twitterShareUrl =
+      `https://twitter.com/intent/tweet?url=${this.currentPostUrl}`;
         })
 
+
+      }
+
+      copyLink(){
+
+         navigator.clipboard
+         .writeText(this.currentPostUrl);
+
+         alert("Link copied!");
 
       }
 
@@ -155,5 +187,15 @@ export class PostDetailComponent {
     });
 
 }
+
+
+
+
+    toggleShareModal(){
+
+      this.showShareModal =
+        !this.showShareModal;
+
+  }
 
 }
