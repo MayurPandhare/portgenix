@@ -35,6 +35,8 @@ public class PortgenixController {
     @Autowired
     private PortgenixService  PortgenixService;
 
+  
+
 
 
     @GetMapping("/posts")
@@ -78,6 +80,16 @@ public class PortgenixController {
 
         return PortgenixService.toggleLike(postId, userId);
     }
+
+
+
+    @GetMapping("/user/{id}")
+        public ResponseEntity<?> getUserByPostId(
+            @PathVariable Long id){
+
+            
+        return PortgenixService.getUserByPostId(id) ;
+}
 
 
     

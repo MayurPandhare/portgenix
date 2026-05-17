@@ -40,4 +40,13 @@ export class GetDataService {
   getRelatedPosts(postId: number){
     return this.http.get(`http://localhost:8080/portgenix/post/${postId}/related`);
   }
+
+
+  getUserById(id:number){
+
+  return this.http.get(
+`http://localhost:8080/portgenix/user/${id}`
+);
+
+  }
 }

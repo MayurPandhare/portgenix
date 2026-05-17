@@ -72,6 +72,8 @@ public class UserProfileService {
 
     post.setPublicId(publicId);
 
+    System.out.println("\n\n \n\nCurrent User ID: "+ currentUser.getId());
+
     // VERY IMPORTANT
     post.setUser(currentUser);
 

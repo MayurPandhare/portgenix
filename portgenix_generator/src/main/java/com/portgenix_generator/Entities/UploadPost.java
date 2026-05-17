@@ -4,7 +4,7 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.ElementCollection;
@@ -44,9 +44,10 @@ public class UploadPost {
     private List<Long> likedUserIds = new ArrayList<>();
 
     // Many posts belong to one user
-    @JsonIgnore
+    
     @ManyToOne
     @JoinColumn(name = "user_id")
+    @JsonBackReference
     private User user;
 
 

@@ -7,6 +7,9 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -42,6 +45,7 @@ public class User {
 
     @NotBlank(message = "Password Can not be Empty!")
    // @Size(min = 6)
+    @JsonIgnore
     private String Password;
 
     private String Role;
@@ -59,6 +63,7 @@ public class User {
                                      //TODO : Getters and setters
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonManagedReference
     private List<UploadPost> uploadPost = new ArrayList<>();
                                                         
    
@@ -139,12 +144,12 @@ public class User {
         Location = location;
     }
 
-    public List<UploadPost> getPortfolios() {
+    public List<UploadPost> getUploadPost() {
         return uploadPost;
     }
 
-    public void setPortfolios(List<UploadPost> portfolios) {
-        this.uploadPost = portfolios;
+    public void setUploadPost(List<UploadPost> uploadPost) {
+        this.uploadPost = uploadPost;
     }
 
 
@@ -153,7 +158,7 @@ public class User {
 
     @Override
     public String toString() {
-        return "User [Id=" + Id + ", Firstname=" + Firstname + ", Email=" + Email  + ", Password=" + Password + ", Role=" + Role  +", UserName="+ UserName + ", imageUrl=" + ImageUrl +",Location= "+ Location +"]";
+        return "User [Id=" + Id + ", Firstname=" + Firstname + ", Email=" + Email  + ",Role=" + Role  +", UserName="+ UserName + ", imageUrl=" + ImageUrl +",Location= "+ Location +"]";
     }
 
 

@@ -34,6 +34,7 @@ public interface UploadPostRepository extends JpaRepository<UploadPost , Long> {
     List<UploadPost> findByUser_Id(Long id);
 
     List<UploadPost> findByTagsContainingIgnoreCase(String tags);
+    
 
     
 } 

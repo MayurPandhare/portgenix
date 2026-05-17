@@ -9,7 +9,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+import com.portgenix_generator.DTO.UserResponse;
 import com.portgenix_generator.Entities.UploadPost;
+import com.portgenix_generator.Entities.User;
 import com.portgenix_generator.JwtAuthentication.JwtService;
 import com.portgenix_generator.Repository.UploadPostRepository;
 import com.portgenix_generator.Repository.UserRepository;
@@ -70,10 +72,11 @@ public class PortgenixService {
 
                 Optional<UploadPost> post = uPostRepository.findById(postId);
 
+                
+
                 if(post.isPresent()){
                         return ResponseEntity.ok(post.get());
-
-
+                        
                 }
 
                 return ResponseEntity.notFound().build();
@@ -138,6 +141,36 @@ public class PortgenixService {
                 return ResponseEntity.ok(response);
 
         }
+
+
+        public ResponseEntity<?> getUserByPostId(Long postId){
+
+    UploadPost post =
+        uPostRepository
+        .findById(postId)
+        .orElseThrow();
+
+    User user = post.getUser();
+
+        UserResponse response =
+        new UserResponse();
+
+        response.setId(user.getId());
+
+        response.setUserName(
+        user.getUserName()
+        );
+
+        response.setImageUrl(
+        user.getImageUrl()
+        );
+
+        response.setLocation(
+        user.getLocation()
+        );
+
+        return ResponseEntity.ok(response);
+}
                 
                 
 

@@ -22,6 +22,8 @@ export class PostDetailComponent {
 
    openedMenuPostId:number | null = null;
 
+   profileImage:String | null= null;
+
    currentUser:any;
 
 
@@ -34,6 +36,8 @@ export class PostDetailComponent {
     facebookShareUrl = '';
 
     twitterShareUrl = '';
+
+    postUser: any;
 
 
 
@@ -81,6 +85,11 @@ export class PostDetailComponent {
         this.getDataService.getPostId(postId)
         .subscribe((data: any)=>{
           this.post = data;
+
+          console.log("post Data of load post: " , data)
+
+           this.loadPostUser(postId);
+
 
           this.currentPostUrl =
       window.location.href;
@@ -195,6 +204,23 @@ export class PostDetailComponent {
 
       this.showShareModal =
         !this.showShareModal;
+
+  }
+
+  loadPostUser(userId:number){
+
+  this.getDataService
+  .getUserById(userId)
+
+  .subscribe((data:any)=>{
+
+    console.log("userdata: ", data);
+
+    this.postUser = data;
+
+    this.profileImage = data.imageUrl;
+
+  });
 
   }
 

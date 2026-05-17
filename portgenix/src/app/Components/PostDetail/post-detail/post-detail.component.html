@@ -59,11 +59,17 @@
         <div class="user-section">
 
             <div class="user-avatar">
-                M
+
+                 <img
+                 class="profileImage"
+                        [src]="profileImage"
+                        alt="profileImage">
+
+
             </div>
 
-            <div>
-                <h4>Mayurrrrr</h4>
+            <div class="username-container">
+                <h4>  {{postUser?.userName}} </h4>
             </div>
 
         </div>
