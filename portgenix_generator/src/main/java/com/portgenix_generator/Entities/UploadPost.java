@@ -4,8 +4,9 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.ElementCollection;
 import jakarta.persistence.Entity;
@@ -14,12 +15,12 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.PrePersist;
 import jakarta.persistence.Table;
 
 @Entity
 @Table(name="UploadPost")
-
 public class UploadPost {
 
 
@@ -47,8 +48,16 @@ public class UploadPost {
     
     @ManyToOne
     @JoinColumn(name = "user_id")
-    @JsonBackReference
+    @JsonIgnoreProperties({
+    "uploadPost",
+    "password",
+    "email"
+    })
     private User user;
+
+
+    @OneToMany(mappedBy = "post", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Comment> comment = new ArrayList<>();
 
 
     // ==========================

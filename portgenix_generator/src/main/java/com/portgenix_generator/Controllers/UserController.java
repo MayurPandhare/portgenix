@@ -146,7 +146,16 @@ public ResponseEntity<?> getUserheader() {
 
     return ResponseEntity.ok(user);
 
-}
+    }
+    
+    
+    @PostMapping("/comment/{postId}")
+    public ResponseEntity<?> saveComment(
+        @RequestParam String text , 
+         @PathVariable Long postId ){
+
+        return userProfileService.saveComment(text,postId);
+    }
 
 
 

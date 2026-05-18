@@ -89,7 +89,13 @@ public class PortgenixController {
 
             
         return PortgenixService.getUserByPostId(id) ;
-}
+    }
+
+    @GetMapping("/comments/{postId}")
+    public ResponseEntity<?> getCommentsByPostId(@PathVariable Long postId){
+
+        return PortgenixService.getCommentsByPostId(postId);
+    }
 
 
     

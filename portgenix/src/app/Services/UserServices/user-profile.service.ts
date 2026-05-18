@@ -7,6 +7,9 @@ import { Injectable } from '@angular/core';
 export class UserProfileService {
 
 
+  
+  commentText: any;
+
    constructor(private http: HttpClient) {}
    
    getUserData(credentials: { response: string; }) {
@@ -41,5 +44,23 @@ export class UserProfileService {
     );
 
   }
+
+  saveComment(postId:number, text:string){
+
+  return this.http.post(
+
+    `http://localhost:8080/user/comment/${postId}`,
+
+    null,
+
+    {
+      params:{
+        text:text
+      }
+    }
+
+  );
+
+}
 }
 

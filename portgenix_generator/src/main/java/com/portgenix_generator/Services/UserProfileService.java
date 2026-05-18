@@ -1,5 +1,6 @@
 package com.portgenix_generator.Services;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Map;
 
@@ -10,17 +11,15 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.portgenix_generator.Entities.Comment;
 import com.portgenix_generator.Entities.UploadPost;
 import com.portgenix_generator.Entities.User;
+import com.portgenix_generator.Repository.CommentRepository;
 import com.portgenix_generator.Repository.UploadPostRepository;
 import com.portgenix_generator.Repository.UserRepository;
 
 @Service
 public class UserProfileService {
-
-
-
-
 
     @Autowired
     private UserRepository userRepository;
@@ -28,8 +27,10 @@ public class UserProfileService {
     @Autowired
     private UploadPostRepository uPostRepository;
 
+    @Autowired
+    private CommentRepository commentRepository;
 
-     @Autowired
+    @Autowired
     private CloudinaryService cloudinaryService;
 
 
@@ -89,6 +90,48 @@ public class UserProfileService {
         List<UploadPost> posts = uPostRepository.findByUser_Id(userId);
 
         return ResponseEntity.ok(posts);
+    }
+
+
+
+
+    public ResponseEntity<?> saveComment(String text, Long postId){
+
+        Authentication authentication = SecurityContextHolder
+            .getContext()
+            .getAuthentication();
+
+    String name = authentication.getName();
+
+    System.out.println("this is showing name: "+name);
+
+    User currentUser = userRepository.getUserByUserName(name);
+
+    System.out.println("this is showing current user: "+currentUser);
+
+        // FIND POST
+    UploadPost post =uPostRepository.findById(postId).orElseThrow();
+
+     // CREATE COMMENT
+    Comment comment = new Comment();
+
+    comment.setText(text);
+
+    comment.setCreatedAt(
+            LocalDateTime.now()
+    );
+
+    comment.setUser(currentUser);
+
+    comment.setPost(post);
+
+
+    // SAVE
+    commentRepository.save(comment);
+
+
+    return ResponseEntity.ok(comment);
+
     }
     
 }

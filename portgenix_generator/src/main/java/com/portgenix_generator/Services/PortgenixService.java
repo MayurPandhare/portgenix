@@ -10,9 +10,11 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import com.portgenix_generator.DTO.UserResponse;
+import com.portgenix_generator.Entities.Comment;
 import com.portgenix_generator.Entities.UploadPost;
 import com.portgenix_generator.Entities.User;
 import com.portgenix_generator.JwtAuthentication.JwtService;
+import com.portgenix_generator.Repository.CommentRepository;
 import com.portgenix_generator.Repository.UploadPostRepository;
 import com.portgenix_generator.Repository.UserRepository;
 
@@ -30,7 +32,7 @@ public class PortgenixService {
     private UploadPostRepository uPostRepository;
 
     @Autowired
-    private UserProfileService userProfileService;
+    private CommentRepository commentRepository;
 
 
 
@@ -76,7 +78,6 @@ public class PortgenixService {
 
                 if(post.isPresent()){
                         return ResponseEntity.ok(post.get());
-                        
                 }
 
                 return ResponseEntity.notFound().build();
@@ -170,7 +171,17 @@ public class PortgenixService {
         );
 
         return ResponseEntity.ok(response);
-}
+        }
+
+
+        public ResponseEntity<?> getCommentsByPostId(Long postId){
+
+                List<Comment> comments =
+                        commentRepository
+                        .findByPostId(postId);
+
+                return ResponseEntity.ok(comments);
+                }
                 
                 
 

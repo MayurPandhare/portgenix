@@ -39,6 +39,12 @@ export class PostDetailComponent {
 
     postUser: any;
 
+    commentsExpanded = false;
+
+    comments:any[] = [];
+
+    commentText:string = '';
+
 
 
   constructor(
@@ -89,6 +95,8 @@ export class PostDetailComponent {
           console.log("post Data of load post: " , data)
 
            this.loadPostUser(postId);
+
+           this.loadComments(postId);
 
 
           this.currentPostUrl =
@@ -207,6 +215,15 @@ export class PostDetailComponent {
 
   }
 
+
+    toggleComments(){
+
+      this.commentsExpanded =
+       !this.commentsExpanded;
+    }
+
+
+
   loadPostUser(userId:number){
 
   this.getDataService
@@ -223,5 +240,60 @@ export class PostDetailComponent {
   });
 
   }
+
+ saveComment(postId:number){
+
+  // prevent empty comments
+  if(!this.commentText
+      || this.commentText.trim() === ''){
+
+        console.log('comment empty not save');
+
+      return;
+  }
+
+
+  this.userProfileService
+      .saveComment(
+          postId,
+          this.commentText
+      )
+
+      .subscribe((data:any)=>{
+
+        console.log(
+          "comment:",
+          data
+        );
+
+        // clear input
+        this.commentText = '';
+
+      });
+
+}
+
+
+
+  loadComments(postId:number){
+
+    console.log("load post comment start :");
+
+  this.getDataService
+      .getComments(postId)
+
+      .subscribe((data:any)=>{
+
+        console.log(data);
+
+        this.comments = data;
+        
+        
+
+        console.log()
+
+      });
+
+}
 
 }

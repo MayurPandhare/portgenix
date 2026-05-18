@@ -11,7 +11,7 @@
         <div class="form-container">
             
           
-           <form class="signin-form-field" [formGroup]="form">
+           <form class="signin-form-field" [formGroup]="form" (ngSubmit)="onSubmit()">
     
             <div class="signin-form" >
 
@@ -65,7 +65,7 @@
                       </fieldset>
                     </div>
                       
-                    <button class="signin-email-btn"  [disabled]="form.get('inputField2')?.invalid " (click)="onSubmit()" >
+                    <button class="signin-email-btn"  [disabled]="form.get('inputField2')?.invalid " type="submit" >
                       <h1 class="signin-email-btn-this">Continue with email</h1>
                     </button>
                   </div>

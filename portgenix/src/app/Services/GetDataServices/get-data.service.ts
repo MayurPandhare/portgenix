@@ -44,9 +44,19 @@ export class GetDataService {
 
   getUserById(id:number){
 
-  return this.http.get(
-`http://localhost:8080/portgenix/user/${id}`
-);
+  return this.http.get(`http://localhost:8080/portgenix/user/${id}`);
 
   }
+
+  getComments(postId:number){
+
+    console.log("load post comment about to start :")
+
+  return this.http.get(
+
+    `http://localhost:8080/portgenix/comments/${postId}`
+
+  );
+
+}
 }

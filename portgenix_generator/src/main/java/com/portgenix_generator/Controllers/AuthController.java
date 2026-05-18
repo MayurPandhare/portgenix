@@ -68,7 +68,7 @@ public class AuthController {
 
     @PostMapping("/login")
     public ResponseEntity <Map<String , String>> login(@RequestBody User user, HttpServletResponse response) {
-           
+           System.out.println("\n\n\n\n\n/n/n/n/n :  [ inside login api\n\n\n\n\n/n/n/n/n/n");
      // Return access token in JSON response
     return userAuthService.login(user, response);
     }

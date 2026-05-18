@@ -72,9 +72,11 @@ export class AuthService {
 
   // ✅ Login method
   login(credentials: { email: string; password: string }): Observable<{ accessToken: string }> {
+    console.log("indside login api :")
     return this.http.post<{ accessToken: string }>(`${this.apiUrl}/login`, credentials, { withCredentials: true })
       .pipe(
         tap((response) => {
+          console.log("login api response:")
           this.updateSession(response.accessToken);
           this.loggedIn.next(true);
         })

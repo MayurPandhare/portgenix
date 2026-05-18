@@ -308,6 +308,7 @@
       width: 9vh;
       border-radius: 100px;
       cursor: pointer;
+      object-fit: cover;
   }
   
   .profile:hover .profile-list-container,

@@ -74,7 +74,7 @@
 
         </div>
 
-        <!--- Comment Section --->
+        <!--- Comment Section 
 
         <div class="comment-section">
 
@@ -87,10 +87,11 @@
 
             </div>
 
+            
 
 
-             <!-- COMMENT INPUT -->
-        <div class="comment-input-box">
+
+         <div class="comment-input-box">
 
             <input
               type="text"
@@ -98,7 +99,119 @@
 
         </div>
 
+        </div> -->
+
+        <div class="comment-wrapper">
+
+    <!-- HEADER -->
+    <div class="comment-header"
+         (click)="toggleComments()">
+
+        <h4>
+            {{comments.length}} Comments
+        </h4>
+
+        <button class="toggle-btn">
+
+            <i
+              class="bi"
+              [ngClass]="commentsExpanded
+              ? 'bi-chevron-up'
+              : 'bi-chevron-down'">
+
+            </i>
+
+        </button>
+
+    </div>
+
+
+    <!-- COMMENTS BODY -->
+    <div
+      class="comments-body"
+      *ngIf="commentsExpanded">
+
+        <!-- SINGLE COMMENT -->
+        <div
+          class="single-comment"
+          *ngFor="let comment of comments">
+
+            <!-- AVATAR -->
+            <div class="comment-avatar">
+                <img
+                    [src]="comment?.user?.imageUrl"
+                    alt="profile">
+
+            </div>
+
+
+            <!-- COMMENT CONTENT -->
+            <div class="comment-content">
+
+                <div class="comment-text">
+
+                    <strong>
+                        {{comment.user.userName}}
+                    </strong>
+
+                    {{comment.text}}
+
+                </div>
+
+
+                <!-- COMMENT ACTIONS -->
+                <div class="comment-actions">
+
+                    <span>
+                        2d
+                    </span>
+
+                    <button class="comment-reply-btn">
+                        Reply
+                    </button>
+
+                    <button class="comment-like-btn">
+                        <i class="bi bi-heart"></i>
+                    </button>
+
+                </div>
+
+            </div>
+
         </div>
+
+    </div>
+
+
+    <!-- INPUT -->
+    <div class="comment-input-box">
+
+    <input
+
+      [(ngModel)]="commentText"
+
+      type="text"
+
+      placeholder="Add a comment">
+
+
+    <!-- RIGHT SIDE ICONS -->
+    <div class="comment-actions-right">
+
+        <button
+          class="send-btn"
+
+          (click)="saveComment(post.id)">
+
+            <i class="bi bi-send-fill"></i>
+
+        </button>
+
+    </div>
+
+</div>
+
+</div>
 
 
         

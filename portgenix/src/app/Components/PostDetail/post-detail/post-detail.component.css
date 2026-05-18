@@ -9,6 +9,7 @@
     
     padding-top: 10vh;
     padding-left: 10vh;
+    margin-top: 3vh;
 
 }
 
@@ -150,7 +151,196 @@ width: 100%;
 }
 
 
-.Comment-container{
+/*---------------------------comment section -----------------*/
+
+.comment-wrapper{
+
+    width: 100%;
+
+    border-top: 1px solid #e5e5e5;
+
+    padding-top: 15px;
+}
+
+.comment-header{
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    cursor: pointer;
+
+    margin-bottom: 20px;
+}
+
+.comment-header h4{
+    font-size: 1rem;
+    margin-bottom: 0;
+}
+
+.toggle-btn{
+
+    border: none;
+
+    background: transparent;
+
+    font-size: 22px;
+}
+
+.comments-body{
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 22px;
+
+    margin-bottom: 20px;
+}
+
+.single-comment{
+
+    display: flex;
+
+    gap: 12px;
+}
+
+.comment-avatar{
+
+    width: 4vh;
+
+    height: 4vh;
+
+    border-radius: 50%;
+
+    background: #ececec;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-weight: 600;
+
+    flex-shrink: 0;
+}
+
+.comment-avatar img{
+    height: 4vh;
+    width: 4vh;
+    border-radius: 100px;
+    cursor: pointer;
+    object-fit: cover;
+}
+
+.comment-content{
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 6px;
+}
+
+.comment-actions{
+
+    display: flex;
+
+    gap: 15px;
+
+    align-items: center;
+
+    color: gray;
+
+    font-size: 14px;
+}
+
+.comment-input-box{
+
+    width: 100%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 10px;
+
+    border: 1px solid #dcdcdc;
+
+    border-radius: 999px;
+
+    padding: 10px 16px;
+
+    background: white;
+}
+
+.comment-input-box input{
+
+    flex: 1;
+
+    border: none;
+
+    outline: none;
+
+    font-size: 16px;
+
+    background: transparent;
+}
+
+
+.comment-actions-right{
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+}
+
+
+.send-btn{
+
+    width: 40px;
+
+    height: 40px;
+
+    border-radius: 50%;
+
+    border: none;
+
+    background: transparent;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+}
+
+.send-btn i{
+
+    font-size: 22px;
+}
+
+.send-btn:hover{
+
+    /*background: #f1f1f1;*/
+    background: rgba(0, 0, 0, 0.221);
+}
+
+.comment-reply-btn{
+    background-color: white;
+    border: none;
+    color:#000000a1;
+}
+
+.comment-like-btn{
+    background-color: white;
+    border: none;
+}
+/*.Comment-container{
 
     flex: 1;
 
@@ -203,6 +393,13 @@ width: 100%;
 
     font-size: 16px;
 }
+
+*/
+
+
+
+
+/*----------------- related post ------------------------------*/
 
 .related-posts{
 
