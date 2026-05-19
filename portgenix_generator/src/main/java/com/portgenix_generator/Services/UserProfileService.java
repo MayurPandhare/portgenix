@@ -133,5 +133,101 @@ public class UserProfileService {
     return ResponseEntity.ok(comment);
 
     }
+
+
+
+    public ResponseEntity<?> toggleSave(
+        Long postId){
+
+    Authentication authentication =
+            SecurityContextHolder
+            .getContext()
+            .getAuthentication();
+
+    String username =
+            authentication.getName();
+
+    User currentUser =
+            userRepository
+            .getUserByUserName(username);
+
+
+
+    List<Long> savedPosts =
+            currentUser.getSavedPostIds();
+
+
+    boolean saved;
+
+    if(savedPosts.contains(postId)){
+
+        savedPosts.remove(postId);
+
+        saved = false;
+
+    }else{
+
+        savedPosts.add(postId);
+
+        saved = true;
+    }
+
+    userRepository.save(currentUser);
+
+    return ResponseEntity.ok(
+        Map.of(
+            "saved", saved
+        )
+    );
+    }
+
+
+
+    public ResponseEntity<?> getSavedPosts(){
+
+    Authentication authentication =
+            SecurityContextHolder
+            .getContext()
+            .getAuthentication();
+
+    String username =
+            authentication.getName();
+
+
+    User currentUser =
+            userRepository
+            .getUserByUserName(username);
+
+
+    List<Long> savedIds =
+            currentUser.getSavedPostIds();
+
+
+    List<UploadPost> savedPosts =
+            uPostRepository.findAllById(savedIds);
+
+
+    return ResponseEntity.ok(savedPosts);
+}
+
+
+        public ResponseEntity<?> getSavedIds(){
+
+    Authentication authentication =
+            SecurityContextHolder
+            .getContext()
+            .getAuthentication();
+
+    String username =
+            authentication.getName();
+
+    User currentUser =
+            userRepository
+            .getUserByUserName(username);
+
+    return ResponseEntity.ok(
+            currentUser.getSavedPostIds()
+    );
+}
     
 }

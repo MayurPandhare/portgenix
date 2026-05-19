@@ -29,6 +29,8 @@ export class AppComponent implements OnInit  {
     // Check if the user is logged in
     this.isLoggedIn = this.authService.isLoggedIn();
     console.log('App component - isLoggedIn:', this.isLoggedIn);
+
+    
   
     const token = this.authService.getToken();
     if (token && this.isLoggedIn) {

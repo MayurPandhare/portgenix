@@ -3,9 +3,10 @@ import { Component, Inject, OnInit, PLATFORM_ID, Renderer2 } from '@angular/core
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Router, RouterModule } from '@angular/router';
 import { AuthService } from '../../Services/AuthServices/auth.service';
+import { DashbordService } from '../../Services/dashbordService/dashbord.service';
 import { EncryptionService } from '../../Services/EncryptionServices/encryption.service';
 import { HeaderVisibilityService } from '../../Services/HeaderVisibilityService/header-visibility.service';
-import { DashbordService } from '../../Services/dashbordService/dashbord.service';
+import { UserProfileService } from '../../Services/UserServices/user-profile.service';
 
 
 
@@ -44,6 +45,8 @@ export class DashbordComponent implements OnInit {
 
   openedMenuPostId:number | null = null;
 
+  savedPostIds:number[] = [];
+
 
 
 
@@ -78,7 +81,8 @@ export class DashbordComponent implements OnInit {
     private router: Router,
     private encryptionService: EncryptionService,
     private headerVisibilityService: HeaderVisibilityService,
-    private dashbordService: DashbordService
+    private dashbordService: DashbordService,
+    private userProfileService: UserProfileService
     
   ){
 
@@ -95,6 +99,8 @@ export class DashbordComponent implements OnInit {
       console.log('console img data',data);
 
       this.posts = data;
+
+      this.loadSavedIds();
 
     });
     
@@ -211,13 +217,33 @@ goToSearch(keyword:string){
                                                         //Slider fuctionality
 
      sliderSuggestions: string[] = [
-    'Designers',
-    'Photographers',
-    'Developers',
-    'Videographers',
-    'Marketers',
-    'Entrepreneurs',
-    'Illustrator',
+    'Tattoos',
+    'Nail',
+    'Cars',
+    'Cooking',
+    'animals',
+    'Party',
+    'Weddings',
+    'Travel',
+    'Aesthetics',
+    'Photography',
+    'Drawing',
+    'Plants',
+    'Relaxation',
+    'phone',
+    'greetings',
+    'renovation',
+    'Sneakers',
+    'Hair',
+    'Quotes',
+    'Baking',
+    'Popculture',
+    'Classroom',
+    'Home',
+    'Outfit',
+    'game',
+    'Workouts',
+    'Anime',
   ];
 
   // Scroll the slider left
@@ -267,5 +293,57 @@ postView(postId:number){
 }
   
 
+
+/*-----------------save post toggles ----------------- */
+
+toggleSave(post:any){
+
+    console.log("saved button press :");
+  this.userProfileService
+      .toggleSave(post.id)
+
+      .subscribe((res:any)=>{
+
+
+        post.saved = res.saved;
+        console.log("image saved");
+
+      });
+
+
+
+
+    }
+
+
+
+    loadSavedIds(){
+
+  this.userProfileService
+      .getSavedIds()
+
+      .subscribe((data:any)=>{
+
+        console.log(data);
+
+        this.savedPostIds = data;
+
+        this.markSavedPosts();
+
+      });
+
+}
+
+
+markSavedPosts(){
+
+  this.posts.forEach((post:any)=>{
+
+      post.saved =
+      this.savedPostIds.includes(post.id);
+
+  });
+
+}
 
 }

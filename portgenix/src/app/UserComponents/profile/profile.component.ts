@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 //import { ToastrService } from 'ngx-toastr'; // Import ToastrModule
 import { Component, Inject, OnInit, PLATFORM_ID } from '@angular/core';
-import { ActivatedRoute, RouterModule } from '@angular/router';
+import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { AuthService } from '../../Services/AuthServices/auth.service';
 import { DashbordService } from '../../Services/dashbordService/dashbord.service';
 import { GetDataService } from '../../Services/GetDataServices/get-data.service';
@@ -27,6 +27,13 @@ export class ProfileComponent implements OnInit{
   imageUrl: string = '';
   Location: string = '';
   posts:any[]=[];
+   openedMenuPostId:number | null = null;
+
+   selectedTab:string = 'created';
+
+   currentUser: any;
+   savedPosts:any[] = [];
+
 
 
   constructor(
@@ -34,7 +41,8 @@ export class ProfileComponent implements OnInit{
     private getdataService: GetDataService, private authService: AuthService,
     private route: ActivatedRoute,
     private dashbordService: DashbordService,
-    private userProfileService: UserProfileService
+    private userProfileService: UserProfileService,
+    private router: Router
     //private toastr: ToastrService
   ){
 
@@ -44,6 +52,7 @@ export class ProfileComponent implements OnInit{
   /* -------------------------------------------ngOnit Profile -------------------------------------------*/ 
 
   ngOnInit(): void {
+
    this.GetData();
 
    this.route.params
@@ -54,6 +63,17 @@ export class ProfileComponent implements OnInit{
     this.loadUserPosts(userId);
 
   });
+
+    this.userProfileService
+      .getCurrentUser()
+
+      .subscribe((data:any)=>{
+
+        console.log(data);
+
+        this.currentUser = data;
+
+      });
   }
 
 
@@ -122,5 +142,57 @@ export class ProfileComponent implements OnInit{
   viewCollection(): void {
     alert('Collection functionality goes here!');
   }
+
+
+
+  toggleMoreMenu(postId:number){
+
+  // Close if same menu clicked
+  if(this.openedMenuPostId === postId){
+
+    this.openedMenuPostId = null;
+
+  }
+
+  // Open clicked menu
+  else{
+
+    this.openedMenuPostId = postId;
+    console.log('Opened menu for post ID:', postId);
+
+  }
+
+}
+
+
+
+postView(postId:number){
+
+  console.log('Navigating to post with ID click explore component');
+
+  this.router.navigate(['/post', postId]);
+}
+
+
+
+  /*-----------------save post toggles ----------------- */
+
+toggleSave(post:any){
+
+  this.userProfileService
+      .toggleSave(post.id)
+
+      .subscribe((res:any)=>{
+
+        post.saved = res.saved;
+
+      });
+
+}
+
+ 
+
+
+
 
 }

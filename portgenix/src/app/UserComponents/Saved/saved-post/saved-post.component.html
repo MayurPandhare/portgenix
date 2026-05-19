@@ -20,25 +20,17 @@
   <div class="main-container">
 
 
-     <div class="profile-container" >
+     <div class="profile-container">
       <!-- Profile Header -->
       <div class="profile-header">
         <img [src]="imageUrl"  alt="User Profile" class="profile-image" />
         
-        <div class="user-profile-detail-block-1" >
+        <div class="user-profile-detail-block-1">
           <h1 class="username">{{ Firstname }}</h1>
-
+          <p class="user-role">Full-Stack Developer</p>
           <p class="address">
             <i class="fa-solid fa-location-dot"></i> {{ Location }}
           </p>
-          <div class="followers-container">
-            <p>
-            0 followers .
-          </p>
-          <p>
-            0 following
-          </p>
-          </div>
         </div>
       </div>
     
@@ -70,22 +62,83 @@
   
       <div class="work-block-field-1">
 
-        <a class="tab-btn active-tab">Created</a>
+        <a class="tab-btn" [routerLink]="['/user/profile',currentUser?.id]">Created</a>
 
-        <a class="tab-btn" routerLink="/user/saved">Saved</a>
+        <a class="tab-btn active-tab">Saved</a>
 
       </div>
+
+
+      <!------------------------ collection container --------------------------->
+
+      <!-- COLLECTION SECTION -->
+<div class="collection-wrapper">
+
+    <!-- CREATE COLLECTION BUTTON -->
+   
+
+
+    <!-- COLLECTION CARD -->
+    <div class="collection-card">
+
+        <!-- PREVIEW GRID -->
+        <div class="collection-preview">
+
+            <div class="big-preview"></div>
+
+            <div class="small-preview-group">
+
+                <div class="small-preview"></div>
+
+                <div class="small-preview"></div>
+
+            </div>
+
+
+            <!-- Overlay -->
+              <div class="pin-overlay-collection">
+
+                      <!-- Top -->
+                      <div class="top-actions-collection">
+
+                            <button class="collection-btn">
+                            Create
+                            </button>
+
+                      </div>
+
+
+              </div>
+
+
+            
+
+        </div>
+
+
+        <!-- TEXT -->
+        <div class="collection-info">
+
+            <h3>Create collection</h3>
+
+        </div>
+
+    </div>
+
+</div>
+
+
   
       
 
       <!------------------------ feed container------------------------->
   
-      <div class="feed-container" *ngIf="posts.length > 0">
+      <div class="feed-container">
 
-           <div class="pin-card" *ngFor="let post of posts">
+           <div class="pin-card" *ngFor="let post of savedPosts">
 
               <img
-              [src]="post?.imageUrl"
+               [src]="post.imageUrl"
               style=" width:100%; transform-style: preserve-3d; border-radius: 3vh;  "
               (click)="postView(post?.id)">
 
@@ -95,9 +148,14 @@
                       <!-- Top -->
                       <div class="top-actions">
 
-                            <button class="save-btn">
-                            Save
-                            </button>
+            <button 
+                   class="save-btn"
+                   (click)="toggleSave(post)"
+                   [ngClass]="{'saved-post-btn': post.saved}">
+                 {{post.saved ? 'Saved' : 'Save'}}
+
+            </button>
+
 
                       </div>
 
@@ -160,31 +218,9 @@
             </div>
 
         </div>
-
-
-        <!-- NO POSTS -->
-          <div class="empty-post-state" *ngIf="posts?.length === 0">
-
-      <img
-
-      src="assets/Images/empty_illuatrator.jpg"
-
-      alt="No posts">
-
-
-    <h2>No posts yet</h2>
-
-    <p>
-
-      Start sharing your creativity 
-
-    </p>
-
-    </div>
-
     </section>
 
-
+    
   </div>
   
     

@@ -11,6 +11,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
+import jakarta.persistence.ElementCollection;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -55,6 +56,9 @@ public class User {
     private String ImageUrl;
 
     private String Location;
+
+    @ElementCollection
+    private List<Long> savedPostIds = new ArrayList<>();
 
     
 
@@ -157,6 +161,14 @@ public class User {
     @Override
     public String toString() {
         return "User [Id=" + Id + ", Firstname=" + Firstname + ", Email=" + Email  + ",Role=" + Role  +", UserName="+ UserName + ", imageUrl=" + ImageUrl +",Location= "+ Location +"]";
+    }
+
+    public List<Long> getSavedPostIds() {
+        return savedPostIds;
+    }
+
+    public void setSavedPostIds(List<Long> savedPostIds) {
+        this.savedPostIds = savedPostIds;
     }
 
 

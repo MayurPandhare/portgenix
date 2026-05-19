@@ -73,7 +73,20 @@ export class HeaderComponent{
 
          if (this.isLoggedIn) {
 
+
+
           this.isLoading = true; // Show loader while fetching data
+
+          this.userProfileService
+        .getCurrentUser()
+
+        .subscribe((data:any)=>{
+
+          this.currentUser = data;
+
+          console.log(this.currentUser);
+
+        });
 
         const authToken = this.authService.getToken();
 

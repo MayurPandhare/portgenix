@@ -35,7 +35,8 @@
     <nav class="categories"  [class.active]="categoriesActive" [class.scrollable]="exploreActive">
       <div class="categories-field">
         <ul class="hed-list-field">
-          <li class="categories-btn" >
+
+          <!--<li class="categories-btn" >
             <a class="explore-btn" (click)="toggleExplore()" >Explore
               <img 
               [src]="selectedImage"
@@ -76,14 +77,14 @@
               <li class="explore-list"><a href="">Travel Enthusiasts</a></li>
   
             </ul>
-          </li>
+          </li> -->
     
           <li class="home" routerLinkActive="active">
             <a routerLink="/dashbord" class="explore-btn"><i class="bi bi-house"></i></a>
           </li>
     
           <li class="service"  routerLinkActive="active">
-            <a routerLink="/explore" class="explore-btn"><i class="bi bi-compass"></i></a>
+            <a routerLink="/explore" class="explore-btn"><i class="bi bi-compass-fill"></i></a>
           </li>
     
           <li class="about" routerLinkActive="active">
@@ -112,7 +113,7 @@
            </div>
 
           <div class="fav">
-            <button routerLink="/favorites" class="fav-a-field" style="color:black;">
+            <button routerLink="/user/saved" class="fav-a-field" style="color:black;">
               <i class="bi bi-heart"></i>
 
             </button>
@@ -136,7 +137,7 @@
            <div class="profile">
             
                <div class="profile-img-field">
-                 <a  [routerLink]="['/user/profile', currentUser?.id]" class="user-profile-img-link">
+                 <a  [routerLink]="['/user/profile',currentUser?.id]" class="user-profile-img-link">
                    <img [src]="profileImage" alt="Profile" class="profileimg"/>
                  </a>
                </div>
@@ -162,7 +163,7 @@
                   <div class="profile-list-group2">
 
                     <div class="profile-list-2">
-                      <a  [routerLink]="['/user/profile', currentUser?.id]" class="profile-list-tag">Go to account</a>
+                      <a  [routerLink]="['/user/profile',currentUser?.id]" class="profile-list-tag">Go to account</a>
                     </div>
 
                     <hr class="profile-list-horizontal">

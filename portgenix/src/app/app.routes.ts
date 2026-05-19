@@ -9,6 +9,7 @@ import { SignUpComponent } from './Components/sign-up/sign-up.component';
 import { AccountComponent } from './UserComponents/account/account.component';
 import { CreateComponent } from './UserComponents/create/create.component';
 import { ProfileComponent } from './UserComponents/profile/profile.component';
+import { SavedPostComponent } from './UserComponents/Saved/saved-post/saved-post.component';
 import { SecurityComponent } from './UserComponents/security/security.component';
 import { UserDahsbordComponent } from './UserComponents/user-dahsbord/user-dahsbord.component';
 
@@ -59,7 +60,8 @@ export const routes: Routes = [
       { path: 'account', component: AccountComponent },
       { path: 'security', component: SecurityComponent },
       { path: 'dashbord', component: UserDahsbordComponent },
-       { path: 'create', component: CreateComponent }
+      { path: 'create', component: CreateComponent },
+      { path: 'saved', component: SavedPostComponent}
       
     ]
   },

@@ -45,6 +45,8 @@ export class PostDetailComponent {
 
     commentText:string = '';
 
+    savedPostIds:number[] = [];
+
 
 
   constructor(
@@ -60,6 +62,15 @@ export class PostDetailComponent {
     ngOnInit(){
 
 
+      this.userProfileService
+      .getCurrentUser()
+      .subscribe((data:any)=>{
+
+        this.currentUser = data;
+
+      });
+
+
       this.route.params.subscribe(params=>{
 
         const postId = params['id'];
@@ -70,18 +81,7 @@ export class PostDetailComponent {
       
       });
 
-
-    this.userProfileService
-      .getCurrentUser()
-      .subscribe((data:any)=>{
-
-        this.currentUser = data;
-
-      });
-
-
-      
-
+     
     }
 
 
@@ -95,8 +95,10 @@ export class PostDetailComponent {
           console.log("post Data of load post: " , data)
 
            this.loadPostUser(postId);
-
            this.loadComments(postId);
+           this.loadSavedIds();
+
+          
 
 
           this.currentPostUrl =
@@ -111,6 +113,8 @@ export class PostDetailComponent {
       this.twitterShareUrl =
       `https://twitter.com/intent/tweet?url=${this.currentPostUrl}`;
         })
+
+       
 
 
       }
@@ -130,6 +134,7 @@ export class PostDetailComponent {
         .subscribe((data: any)=>{
 
           this.relatedPosts = data;
+          this.loadSavedIds();
 
         });
       }
@@ -293,6 +298,59 @@ export class PostDetailComponent {
         console.log()
 
       });
+
+  }
+
+
+  /*-----------------save post toggles ----------------- */
+
+toggleSave(post:any){
+
+  this.userProfileService
+      .toggleSave(post.id)
+
+      .subscribe((res:any)=>{
+
+        post.saved = res.saved;
+
+      });
+
+}
+
+
+loadSavedIds(){
+
+  this.userProfileService
+      .getSavedIds()
+
+      .subscribe((data:any)=>{
+
+        console.log(data);
+
+        this.savedPostIds = data;
+
+        this.markSavedPosts();
+
+      });
+
+}
+
+
+markSavedPosts(){
+
+  this.relatedPosts.forEach((post:any)=>{
+
+      post.saved = this.savedPostIds.includes(post.id);
+
+  });
+  
+  // SINGLE MAIN POST
+  if(this.post){
+
+    this.post.saved =
+    this.savedPostIds.includes(this.post.id);
+
+  }
 
 }
 

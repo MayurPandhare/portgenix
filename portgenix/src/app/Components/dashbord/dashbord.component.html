@@ -126,9 +126,14 @@
                       <!-- Top -->
                       <div class="top-actions">
 
-                            <button class="save-btn">
-                            Save
-                            </button>
+            <button 
+                   class="save-btn"
+                   (click)="toggleSave(post)"
+                   [ngClass]="{ 'saved-post-btn': post.saved}">
+                   
+                 {{post.saved ? 'Saved' : 'Save'}}
+
+            </button>
 
                       </div>
 

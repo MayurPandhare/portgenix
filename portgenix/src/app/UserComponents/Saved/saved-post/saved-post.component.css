@@ -60,19 +60,6 @@
     .address {
       font-size: 14px;
       color: #706f6f;
-      margin-bottom: 2vh;
-    }
-
-
-    .followers-container{
-      display: flex;
-    flex-direction: row;
-    gap: 1vh;
-    font-family: "poopins", system-ui;
-    font-weight: 500;
-    color: #000000db;
-    font-size: 2.0vh;
-    letter-spacing: 0.2px;
     }
     
     /* Action Buttons */
@@ -380,17 +367,30 @@
 
 .save-btn{
 
-    background: #e60023;
+    background: linear-gradient(144deg, #da175c, #ffffff);
 
     color: white;
 
     border: none;
 
-    padding: 12px 18px;
+    padding: 12px 22px;
 
     border-radius: 30px;
 
-    font-weight: 600;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: 0.25s ease;
+
+    
+}
+
+.saved-post-btn{
+
+    background: #5c5c5c;
+
+    color: white;
 }
 
 .bottom-actions{
@@ -500,13 +500,29 @@
 }
 
 
-/*---------------------------- illurator img ---------------------------------*/
+/*------------------------------ collection css-------------------------------*/
 
-.empty-post-state{
 
-    width: 100%;
+.collection-wrapper{
 
-    min-height: 60vh;
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: 25px;
+
+    flex-wrap: wrap;
+}
+
+.create-collection-btn{
+
+    width: 180px;
+
+    height: 220px;
+
+    border-radius: 28px;
+
+    background: #f2f2f2;
 
     display: flex;
 
@@ -516,41 +532,144 @@
 
     justify-content: center;
 
-    text-align: center;
+    gap: 10px;
 
-    padding: 40px;
+    cursor: pointer;
+
+    transition: 0.25s ease;
 }
 
+.create-collection-btn:hover{
 
-.empty-post-state img{
-
-    width: 280px;
-
-    opacity: 0.95;
+    background: #e8e8e8;
 }
 
+.create-collection-btn i{
 
-.empty-post-state h2{
+    font-size: 38px;
 
-    margin-top: 20px;
+    color: #111;
+}
 
-    font-size: 32px;
+.create-collection-btn span{
+
+    font-size: 18px;
+
+    font-weight: 600;
+}
+
+.collection-card{
+
+    width: 220px;
+
+    cursor: pointer;
+}
+
+.collection-preview{
+
+    width: 100%;
+
+    height: 220px;
+
+    display: flex;
+
+    overflow: hidden;
+
+    border-radius: 28px;
+
+    background: #efefef;
+
+    position: relative;;
+}
+
+.big-preview{
+
+    flex: 2;
+
+    background: #e5e5e5;
+}
+
+.small-preview-group{
+
+    flex: 1;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 2px;
+}
+
+.small-preview{
+
+    flex: 1;
+
+    background: #dcdcdc;
+}
+
+.collection-info{
+
+   margin-top: 12px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.collection-info h3{
+
+    font-size: 15px;
 
     font-weight: 700;
 
-    color: #222;
+    margin: 0;
+}
+
+.collection-info p{
+
+    margin-top: 5px;
+
+    color: #666;
+
+    font-size: 15px;
 }
 
 
-.empty-post-state p{
+/*--------------------------- collection - overlay-------------------*/
 
-    margin-top: 10px;
+.pin-overlay-collection{
 
-    font-size: 17px;
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgb(0 0 0 / 0%), rgba(0, 0, 0, 0.05));
+    opacity: 1;
+    transition: 0.25s ease;
+    pointer-events: none;
+    border-radius: 3vh;
 
-    color: #777;
 }
 
+.collection-preview:hover .pin-overlay-collection{
+
+    opacity: 1;
+}
+
+.top-actions-collection{
+
+    position: absolute;
+
+    top: 39%;
+    right: 30%;
+}
+
+.collection-btn{
+
+    color: white;
+    border: none;
+    padding: 12px 18px;
+    border-radius: 2vh;
+    font-weight: 600;
+    background: #ee538a;
+}
     
 
   

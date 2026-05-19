@@ -3,6 +3,7 @@ import { Component, Renderer2 } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { DashbordService } from '../../../Services/dashbordService/dashbord.service';
+import { UserProfileService } from '../../../Services/UserServices/user-profile.service';
 
 @Component({
   selector: 'app-explore',
@@ -27,6 +28,9 @@ export class ExploreComponent {
 
   openedMenuPostId:number | null = null;
 
+  savedPostIds:number[] = [];
+
+
 
 
 
@@ -36,7 +40,8 @@ export class ExploreComponent {
     private renderer: Renderer2,
     private router: Router,
     private route: ActivatedRoute,
-    private dashbordService: DashbordService
+    private dashbordService: DashbordService,
+    private userProfileService: UserProfileService
   ) { }
 
 
@@ -49,7 +54,12 @@ export class ExploreComponent {
     this.dashbordService.getAllPosts()
     .subscribe((data: any) =>{
       this.posts = data;
+
+      this.loadSavedIds();
     })
+
+
+  
 
   this.route.queryParams
   .subscribe(params=>{
@@ -194,13 +204,33 @@ selectSuggestion(suggestion:string){
 
 
      sliderSuggestions: string[] = [
-    'Designers',
-    'Photographers',
-    'Developers',
-    'Videographers',
-    'Marketers',
-    'Entrepreneurs',
-    'Illustrator',
+    'Tattoos',
+    'Nail',
+    'Cars',
+    'Cooking',
+    'animals',
+    'Party',
+    'Weddings',
+    'Travel',
+    'Aesthetics',
+    'Photography',
+    'Drawing',
+    'Plants',
+    'Relaxation',
+    'phone',
+    'greetings',
+    'renovation',
+    'Sneakers',
+    'Hair',
+    'Quotes',
+    'Baking',
+    'Popculture',
+    'Classroom',
+    'Home',
+    'Outfit',
+    'game',
+    'Workouts',
+    'Anime',
   ];
 
   // Scroll the slider left
@@ -252,6 +282,52 @@ postView(postId:number){
 
   this.router.navigate(['/post', postId]);
 }
+
+
+
+  /*-----------------save post toggles ----------------- */
+
+toggleSave(post:any){
+
+  this.userProfileService
+      .toggleSave(post.id)
+
+      .subscribe((res:any)=>{
+
+        post.saved = res.saved;
+
+      });
+
+}
   
+
+loadSavedIds(){
+
+  this.userProfileService
+      .getSavedIds()
+
+      .subscribe((data:any)=>{
+
+        console.log(data);
+
+        this.savedPostIds = data;
+
+        this.markSavedPosts();
+
+      });
+
+}
+
+
+markSavedPosts(){
+
+  this.posts.forEach((post:any)=>{
+
+      post.saved =
+      this.savedPostIds.includes(post.id);
+
+  });
+
+}
 
 }

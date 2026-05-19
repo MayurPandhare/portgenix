@@ -93,11 +93,16 @@
     opacity: 0;
 
     transition: 0.25s ease;
-
     pointer-events: none;
+
 
     border-radius: 3vh;
 
+}
+
+.pin-overlay button{
+
+    pointer-events: auto;
 }
 
 .pin-card:hover .pin-overlay{
@@ -116,17 +121,29 @@
 
 .save-btn{
 
-    background: #e60023;
+    background: linear-gradient(144deg, #da175c, #ffffff);
 
     color: white;
 
     border: none;
 
-    padding: 12px 18px;
+    padding: 12px 22px;
 
     border-radius: 30px;
 
-    font-weight: 600;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: 0.25s ease;
+
+}
+
+.saved-post-btn{
+
+    background: #5c5c5c;
+
+    color: white;
 }
 
 .bottom-actions{
@@ -479,15 +496,17 @@
   }
   
   .collection-list-btn{
-    border: none;
-      width: 18vh;
-      height: 5vh;
-      border-radius: 1vh;
-      background-color: white;
-      font-family: system-ui;
-      font-size: 17px;
-      font-weight: 640;
-      text-align: center;
+   border: none;
+    width: 11vh;
+    height: 5vh;
+    border-radius: 1vh;
+    background-color: white;
+    font-family: system-ui;
+    font-size: 17px;
+    font-weight: 640;
+    text-align: center;
+    margin-left: 1vh;
+    margin-right: 0vh;
   }
   
   .collection-list-btn:hover{
@@ -530,11 +549,11 @@
   }
   
   .prev-btn {
-    left: 10px;
+    left: 3px;
   }
   
   .next-btn {
-    right: 10px;
+    right: -2px;
   }
   
   /* Wrapper to enable scrolling for the slider */
@@ -556,8 +575,8 @@
   /* The slider itself */
   .slider {
     display: flex;
-    gap: 10px; /* Spacing between items */
-    width: max-content; /* Ensure it shrinks to content size */
+    gap: 4vh;
+    width: -webkit-fill-available;
   }
   
   

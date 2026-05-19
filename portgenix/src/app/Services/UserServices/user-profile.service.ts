@@ -31,6 +31,8 @@ export class UserProfileService {
 
   getCurrentUser(){
 
+    console.log("get current user fired");
+
   return this.http.get(
     'http://localhost:8080/user/current-user'
   );
@@ -61,6 +63,48 @@ export class UserProfileService {
 
   );
 
+  }
+
+  toggleSave(postId:number){
+
+    console.log("inside toggle save angular api");
+
+  return this.http.post(
+
+    `http://localhost:8080/user/save/${postId}`,
+
+    {}
+
+  );
+
+  }
+
+
+  getSavedPosts(){
+
+  return this.http.get(
+
+    'http://localhost:8080/user/savedPosts'
+
+  );
+
 }
+
+
+getSavedIds(){
+
+  return this.http.get<number[]>(
+
+    'http://localhost:8080/user/saved-ids'
+
+  );
+
+}
+
+
+
+
+
+
 }
 

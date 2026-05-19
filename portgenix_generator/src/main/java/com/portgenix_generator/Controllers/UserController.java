@@ -141,8 +141,9 @@ public ResponseEntity<?> getUserheader() {
 
     String name = authentication.getName();
 
-    User user =
-            userRepository.getUserByUserName(name);
+    System.out.println("\n\n\nauth getname : "+ name);
+
+    User user = userRepository.getUserByUserName(name);
 
     return ResponseEntity.ok(user);
 
@@ -156,6 +157,31 @@ public ResponseEntity<?> getUserheader() {
 
         return userProfileService.saveComment(text,postId);
     }
+
+    @PostMapping("/save/{postId}")
+
+    public ResponseEntity<?> toggleSave(@PathVariable Long postId){
+
+    return userProfileService.toggleSave(postId);
+    
+    }
+
+
+    @GetMapping("/savedPosts")
+    public ResponseEntity<?> getSavedPosts(){
+
+    return userProfileService
+            .getSavedPosts();
+    }
+
+
+    @GetMapping("/saved-ids")
+
+public ResponseEntity<?> getSavedIds(){
+
+    return userProfileService
+            .getSavedIds();
+}
 
 
 

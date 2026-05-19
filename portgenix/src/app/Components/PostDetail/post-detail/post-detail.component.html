@@ -40,8 +40,11 @@
 
             </div>
 
-            <button class="save-btn">
-                Save
+            <button 
+                   class="save-btn"
+                   (click)="toggleSave(post)"
+                   [ngClass]="{'saved-post-btn': post.saved}">  
+                   {{post.saved ? 'Saved' : 'Save'}}
             </button>
 
         </div>
@@ -240,9 +243,14 @@
                  
                 <div class="top-actions">
                     
-                    <button class="save-btn">
-                         Save 
-                        </button> 
+                   <button 
+                   class="save-btn"
+                   (click)="toggleSave(related)"
+                   [ngClass]="{ 'saved-post-btn': related.saved}">
+                   
+                 {{related.saved ? 'Saved' : 'Save'}}
+
+                   </button>
                     
                     </div> 
                     
