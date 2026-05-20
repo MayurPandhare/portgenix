@@ -1,3 +1,9 @@
+
+
+
+
+
+
 # 📌 Portgenix — Pinterest Style Portfolio & Inspiration Platform
 
 PortGenix is a modern full-stack Pinterest-inspired web application where users can upload, explore, save, and manage creative image posts in a beautiful responsive interface.
