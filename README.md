@@ -147,7 +147,7 @@ The application is built using Angular for the frontend and Spring Boot for the 
 🎥 Add your project demo video link here:
 
 ```text
-[![Watch Demo](portgenix.thumbnail.png]([(https://youtu.be/dTLOrQ5kEYA?si=AqHaER1t5thHGgsT])
+![Watch Demo](https://github.com/MayurPandhare/portgenix/blob/c142a0c0345b1b8c8c5247211cc454845f13715b/portgenix.thumbnail.png)
 ```
 
 
